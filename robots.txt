@@ -9,4 +9,3 @@ Allow: /
 
 Sitemap: https://videha-ejournal.github.io/sitemap.xml
 Sitemap: https://videha-ejournal.github.io/videha-sadeha/sitemap.xml
-Sitemap: https://videha-ejournal.github.io/videha-quiz/sitemap.xml
