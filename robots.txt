@@ -1,9 +1,7 @@
-# robots.txt · videha-ejournal.github.io
-# This is the only active robots.txt location for GitHub Pages paths /videha-quiz/ and /videha-sadeha/.
-
 User-agent: *
 Allow: /
 
 Sitemap: https://videha-ejournal.github.io/sitemap.xml
+Sitemap: https://videha-ejournal.github.io/sitemap-root.xml
 Sitemap: https://videha-ejournal.github.io/videha-quiz/sitemap.xml
 Sitemap: https://videha-ejournal.github.io/videha-sadeha/sitemap.xml
