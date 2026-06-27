@@ -1,0 +1,4093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Decoding the Panji of Mithila — Videha Standard Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=IM+Fell+English:ital@0;1&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Lato:wght@400;700;900&family=Noto+Serif+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/videha.css" data-videha-uniform="true">
+<style>
+:root{--navy:#17264a;--crimson:#9b1c2e;--gold:#c8973a;--cream:#f7f2e8;--ok:#2e7d32;--ok-bg:#e8f5e9;--bad:#b71c1c;--bad-bg:#ffebee;--muted:#66708a;--ink:#17264a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);font-family:Lato,Arial,sans-serif;color:var(--ink);line-height:1.58}
+.quiz-head{background:var(--navy);color:#fff;text-align:center;padding:22px 12px;border-bottom:5px solid var(--gold)}
+.quiz-head h1{font-family:'Playfair Display','Libre Baskerville',serif;font-size:1.75rem;margin:0 0 8px;line-height:1.25;letter-spacing:.2px}
+.quiz-head .brand{font-size:.86rem;color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:.5px}
+.quiz-head .sub{font-size:.98rem;margin:8px auto 0;color:#dbe4ff;max-width:980px}
+main{max-width:1040px;margin:18px auto 50px;padding:0 14px}
+.panel{background:#fff;border-radius:14px;box-shadow:0 4px 16px rgba(23,38,74,.12);padding:16px;margin-bottom:14px;border-left:5px solid var(--navy)}
+.topbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.score{font-weight:900;color:var(--crimson)}
+.progress{flex:1;min-width:200px;height:10px;background:#d9dfeb;border-radius:20px;overflow:hidden}
+.bar{height:100%;background:var(--gold);width:0%;transition:.2s}
+button{font-family:Lato,Arial,sans-serif;font-weight:900;border:0;border-radius:8px;padding:9px 14px;cursor:pointer}
+.btn{background:var(--navy);color:#fff}
+.btn:hover{background:var(--crimson)}
+.btn2{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.btn2:hover{background:#f4f7fd}
+.qmap{display:flex;gap:4px;flex-wrap:wrap;margin-top:12px;max-height:170px;overflow:auto;padding-right:2px}
+.dot{width:25px;height:25px;border-radius:6px;border:1px solid #b8c1d8;background:#eef2fa;color:var(--navy);font-size:.72rem;padding:0}
+.dot.ok{background:var(--ok);color:#fff}
+.dot.bad{background:var(--bad);color:#fff}
+.dot.cur{outline:3px solid var(--gold)}
+.qcard{background:#fff;border-radius:14px;box-shadow:0 4px 16px rgba(23,38,74,.10);padding:22px;margin:16px 0;border-left:5px solid var(--gold)}
+.qmeta{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:.82rem;font-weight:900;margin-bottom:9px;flex-wrap:wrap}
+.qtext{font-family:'Libre Baskerville','Noto Serif Devanagari',serif;font-size:1.12rem;font-weight:700;margin:0 0 15px;color:var(--navy)}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:10px;align-items:flex-start;background:#f4f7fd;border:2px solid #d2daec;border-radius:11px;padding:11px 12px;cursor:pointer}
+.opt:hover{border-color:var(--navy)}
+.key{font-weight:900;min-width:24px}
+.txt{font-family:'Lato','Noto Serif Devanagari',Arial,sans-serif}
+.correct{background:var(--ok-bg);border-color:#7bc47f;color:var(--ok)}
+.wrong{background:var(--bad-bg);border-color:#e57373;color:var(--bad)}
+.locked{cursor:default}
+.fb{display:none;margin-top:12px;border-radius:9px;padding:11px 13px;font-family:'Lato','Noto Serif Devanagari',Arial,sans-serif}
+.fb.show{display:block}
+.fb.ok{background:var(--ok-bg);border-left:5px solid var(--ok)}
+.fb.bad{background:var(--bad-bg);border-left:5px solid var(--bad)}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.result{display:none;text-align:center}
+.big{font-size:2.7rem;font-weight:900;color:var(--crimson)}
+.back{text-align:center;margin:24px 0}
+.back a{color:var(--crimson);font-weight:900;text-decoration:none}
+footer{text-align:center;padding:20px;color:#6a728a;font-size:.85rem}
+.term{font-family:'Noto Serif Devanagari','Libre Baskerville',serif}
+@media(max-width:650px){.progress{min-width:100%}.qtext{font-size:1rem}.quiz-head h1{font-size:1.35rem}.qcard{padding:16px}}
+</style>
+</head>
+<body>
+<!-- Videha standard header/nav added for uniform GitHub tool & quiz pages -->
+<div class="videha-topbar">
+  VIDEHA ISSN 2229-547X &nbsp;·&nbsp; First Maithili Fortnightly eJournal &nbsp;·&nbsp; Since 2000 &nbsp;·&nbsp;
+  <a href="https://www.videha.co.in/">www.videha.co.in</a>
+</div>
+<div class="videha-utilbar">
+  <span>विदेह — प्रथम मैथिली पाक्षिक ई पत्रिका</span>
+  <div class="videha-utilbar-social">
+    <a href="https://x.com/videha" target="_blank" rel="noopener">Twitter / X</a>
+    <a href="https://www.facebook.com/groups/videha/" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.videha.co.in/archive.htm">Archive</a>
+  </div>
+</div>
+<header class="videha-masthead" role="banner">
+  <a aria-label="विदेह — मैथिली पाक्षिक ई-पत्रिका" class="videha-masthead-title" href="https://www.videha.co.in/index.htm" style="display:inline-block;text-decoration:none;border-bottom:0;">विदेह</a>
+  <div class="videha-masthead-rule" aria-hidden="true"></div>
+  <p class="videha-masthead-sub">प्रथम मैथिली पाक्षिक ई-पत्रिका · First Maithili Fortnightly eJournal</p>
+</header>
+<nav class="videha-nav" role="navigation" aria-label="Videha site navigation">
+  <button aria-label="Menu" class="videha-nav-toggle" onclick="this.parentNode.querySelector('.videha-nav-inner').classList.toggle('open')" type="button">☰</button>
+  <div class="videha-nav-inner">
+    <a href="https://www.videha.co.in/index.htm">विदेह नूतन अंक</a>
+    <a href="https://www.videha.co.in/videha.htm">विदेहक पुरान अंक</a>
+    <a href="https://www.videha.co.in/pothi.htm">विदेह पोथी</a>
+    <a href="https://www.videha.co.in/kids.htm">शिशु उत्सव</a>
+    <a href="https://www.videha.co.in/Audio_Video.htm">दृश्य-श्रव्य नाट्य उत्सव</a>
+    <a href="https://www.videha.co.in/femcorner.htm">स्त्री कोना</a>
+    <a href="https://www.videha.co.in/videha-elearning.htm">विदेह ई-लर्निङ्ग</a>
+    <a href="https://www.videha.co.in/ratna.htm">मिथिला रत्न</a>
+    <a href="https://www.videha.co.in/discovery.htm">मिथिलाक खोज</a>
+    <a href="https://www.videha.co.in/gajenthakur.htm">Parallel History</a>
+    <a href="https://www.videha.co.in/videha-converters.htm">Videha Converters</a>
+    <a href="https://www.videha.co.in/archive.htm">पेटार / Archive</a>
+  </div>
+</nav>
+<header class="quiz-head">
+  <h1>Decoding the Panji of Mithila — Videha Standard Quiz</h1>
+  <div class="brand">Videha QUIZ | Videha eLearning Quiz | Videha — First Maithili Fortnightly eJournal | www.videha.co.in</div>
+  <div class="sub">UPSC Prelims-level factual quiz on Panji structure, genealogy, marriage networks, village clusters, technical terms, titles, indexes, and decoding method.</div>
+</header>
+<main>
+  <section class="panel">
+    <div class="topbar">
+      <span><strong>Panji Volume II</strong> — Question <strong id="cur">1</strong> / <strong id="total"></strong></span>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <span class="score" id="score">✓ 0 &nbsp; ✗ 0</span>
+      <button class="btn2" onclick="showQ(0)">First</button>
+      <button class="btn" onclick="restart()">Restart</button>
+    </div>
+    <div class="qmap" id="qmap"></div>
+  </section>
+  <section id="quiz"></section>
+  <section class="panel result" id="result"></section>
+  <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← Back to Videha eLearning Hub</a></div>
+</main>
+<footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
+<script>
+const QDB=[
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "Which description best captures the book's opening definition of the Panji of Mithila?",
+"opts": [
+"A modern government census arranged by household number.",
+"A chronological royal chronicle centered on kings and battles.",
+"A literary anthology arranged only by poets and genres.",
+"A compressed genealogical archive, social memory, marriage guide, scholarly index, and settlement map."
+],
+"ans": 3,
+"exp": "The Panji is introduced as a compressed record joining genealogy, society, marriage, scholarship, and settlement."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "Why does the book say the Panji must be decoded, not merely translated?",
+"opts": [
+"Because translation should replace the original register with smooth narrative.",
+"Because all its words have one fixed literal meaning.",
+"Because a compact formula can contain several layers such as person, village, lineage, marriage, title, and number.",
+"Because the Panji is written entirely in modern prose."
+],
+"ans": 2,
+"exp": "Literal translation misses the compressed structure; decoding expands the formula without erasing it."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "Which element is NOT presented as a normal possible component of a single Panji line?",
+"opts": [
+"A village.",
+"A numerical mark.",
+"A marriage link.",
+"A modern electoral constituency result."
+],
+"ans": 3,
+"exp": "The source describes village, ancestor, descendant, branch, marriage link, title, and number as possible components, not modern election data."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "What is the safest way to understand a name in a Panji entry?",
+"opts": [
+"As a self-sufficient identity requiring no cross-checking.",
+"As always the same person wherever it recurs.",
+"As evidence that must be read with father, son, village, title, marriage link, number, and surrounding context.",
+"As a surname replacing village and lineage evidence."
+],
+"ans": 2,
+"exp": "The book repeatedly warns that a name alone is insufficient for identity."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "What does the Panji preserve at the level of family memory?",
+"opts": [
+"Only kings and ministers.",
+"Only the names of villages, without kinship.",
+"Only poetic titles detached from descent.",
+"Fathers, sons, grandsons, great-grandsons, daughters, daughter's sons, and extended branches of descent."
+],
+"ans": 3,
+"exp": "Family memory is the most obvious layer, but it includes more than a simple male list."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "What does the book mean by village memory in the Panji?",
+"opts": [
+"Village names are decorative and can be omitted from tables.",
+"Village memory is unrelated to genealogy.",
+"Villages function only as modern postal addresses.",
+"Lineages are attached to villages, hamlets, settlement clusters, ancestral seats, and migration routes."
+],
+"ans": 3,
+"exp": "Village names preserve the geography of lineage and cannot be treated casually."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "Why is the mother’s side important in Panji interpretation?",
+"opts": [
+"Because all marriage entries must be ignored.",
+"Because paternal genealogy is never used.",
+"Because maternal connections, daughter-lines, and marriage networks are part of the record and affect social order.",
+"Because village clusters replace kinship."
+],
+"ans": 2,
+"exp": "The Panji is not complete if only the father’s line is remembered."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "What role do scholarly titles play in the Panji?",
+"opts": [
+"They are always decorative honorifics without index value.",
+"They are always modern caste surnames.",
+"They mark intellectual status and help place persons within Mithila’s learned hierarchy.",
+"They should be removed to simplify genealogy."
+],
+"ans": 2,
+"exp": "Titles such as महामहोपाध्याय, कवि, वैयाकरण, and धर्माधिकारी are treated as evidence."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "Why should the Panji be seen as a network rather than only a family tree?",
+"opts": [
+"Because it connects lineages, villages, marriages, titles, maternal cycles, and repeated contextual appearances.",
+"Because it is arranged by modern district administration.",
+"Because it excludes descent information.",
+"Because it records only one person once in strict chronological order."
+],
+"ans": 0,
+"exp": "A modern family tree is too narrow for Panji's relational structure."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "What is the function of numbers in the Panji according to the method?",
+"opts": [
+"They are always birth years.",
+"They can be replaced by modern serial numbers.",
+"They are evidence to be preserved and compared cautiously, even when their exact function is uncertain.",
+"They must be deleted if they cannot be explained immediately."
+],
+"ans": 2,
+"exp": "The source treats numbers as part of the evidence, not as expendable marks."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "Which pair of qualities should a reader bring to the Panji?",
+"opts": [
+"Modernization and deletion.",
+"Speed and guesswork.",
+"Aesthetic taste and free paraphrase.",
+"Respect and method."
+],
+"ans": 3,
+"exp": "Respect prevents careless distortion; method prevents misunderstanding."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "Which error does the book specifically warn against in modern reading?",
+"opts": [
+"Keeping numbers and notes visible.",
+"Distinguishing maternal from paternal links.",
+"Preserving original wording before expansion.",
+"Taking a village marker as a surname or a marriage link as birthplace."
+],
+"ans": 3,
+"exp": "Modern expectations can misread technical Panji markers."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "What does the book call the Panji when read fully?",
+"opts": [
+"A poem collection without genealogical function.",
+"A private diary without social meaning.",
+"One of Mithila’s great civilizational archives.",
+"A census ledger without cultural memory."
+],
+"ans": 2,
+"exp": "The Panji is treated as a civilizational archive linking family, land, learning, marriage, and memory."
+},
+{
+"cat": "Foundations",
+"src": "Ch.1",
+"q": "What does the Panji tell us beyond the deeds of kings?",
+"opts": [
+"Only military succession.",
+"Only modern administrative boundaries.",
+"Only who issued coins.",
+"How families, villages, teachers, rituals, marriages, and settlements carried memory."
+],
+"ans": 3,
+"exp": "The Panji preserves social memory below and beyond royal chronicles."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "What does the heading 'खण्ड १' and 'प्राचीन पञ्जी' indicate in the source?",
+"opts": [
+"An older register tradition, not a modern explanatory essay.",
+"A modern editorial introduction only.",
+"A contemporary census enumeration.",
+"A poetic preface without record value."
+],
+"ans": 0,
+"exp": "The source begins with the dignity of a record and does not explain itself in modern prose."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "What does the opening formula 'अथ … ग्राम' signal?",
+"opts": [
+"A title abbreviation for a scholar.",
+"A new section or transition into a village-cluster.",
+"A proof that a number is a date.",
+"The end of a marriage table."
+],
+"ans": 1,
+"exp": "अथ marks beginning/transition and ग्राम frames the village-cluster."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "Which structure best describes Prachin Panji's arrangement?",
+"opts": [
+"Only individual biographies in birth-date order.",
+"Only titles sorted by prestige.",
+"Only modern districts in alphabetical order.",
+"Villages, descent-lines, titles, and marriage networks."
+],
+"ans": 3,
+"exp": "The book says a reader who studies the village frame begins to understand the record."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "In an opening cluster, what does a name before 'अपत्य' usually function as?",
+"opts": [
+"A modern surname.",
+"A date marker.",
+"A descent-source or remembered ancestor for a branch.",
+"A punctuation mark."
+],
+"ans": 2,
+"exp": "A name followed by अपत्य usually identifies an ancestor-attached branch."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "How should internal markers such as 'अ', 'आ', and 'उ' be treated?",
+"opts": [
+"Expanded as personal names.",
+"Replaced by modern bullet numbers in the source transcription.",
+"Deleted because their logic is not immediately obvious.",
+"Preserved as section dividers or internal arrangement markers."
+],
+"ans": 3,
+"exp": "Even if their original indexing logic is not fully clear, they are part of the source arrangement."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "What is a village cluster in the Panji?",
+"opts": [
+"A record of houses, descent-lines, titles, and settlement links associated with a place.",
+"A modern administrative district only.",
+"A list of rivers without family links.",
+"A page header without data value."
+],
+"ans": 0,
+"exp": "A village cluster functions like a file folder containing multiple related records."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "Which movement of clusters is mentioned as examples in the early source?",
+"opts": [
+"From Sarisab to Jajival, Khandbala to Gangoli, and Pabouli to Sodarpur.",
+"From Bengal to Assam, Odisha to Bengal, and Kerala to Tamil Nadu.",
+"From royal court to battlefield, temple to palace, and market to port.",
+"From Delhi to Agra, Jaipur to Ajmer, and Lucknow to Kanpur."
+],
+"ans": 0,
+"exp": "The early village clusters are named to show the village-frame logic of the record."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "What is the basic rule when 'सन्तति' or 'अपत्य' appears?",
+"opts": [
+"Stop and identify the descent-source, the branch, and the place.",
+"Convert it into a modern surname.",
+"Treat it as a punctuation mark.",
+"Translate it once and ignore the surrounding entry."
+],
+"ans": 0,
+"exp": "The book treats these words as structural signals, not simple vocabulary items."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "Why must 'सुत', 'सुतो', and 'सुता' be read from context?",
+"opts": [
+"Because they always mean the same modern title.",
+"Because they should be replaced by English names.",
+"Because they are unrelated to genealogy.",
+"Because Panji register order may not follow modern prose and these forms can link names, fathers, children, or branches."
+],
+"ans": 3,
+"exp": "The register’s compact grammar requires expansion before translation."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "What is the danger of translating 'सँ' as a single fixed English word?",
+"opts": [
+"It eliminates the need for context.",
+"It makes numbers unnecessary.",
+"It may hide whether the relation is origin, residence, branch attachment, marriage, or maternal connection.",
+"It proves that all villages are birthplaces."
+],
+"ans": 2,
+"exp": "सँ is a contextual connector and not always merely 'from'."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "What can 'अपरा' introduce in a Panji passage?",
+"opts": [
+"Only the end of a source segment.",
+"Another branch, another reading, another marriage, or another related entry depending on context.",
+"Only a modern page break.",
+"Only a title of royal authority."
+],
+"ans": 1,
+"exp": "The book asks the reader to ask: another what?"
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "How should 'टीप' be handled?",
+"opts": [
+"Deleted during transcription.",
+"Used as proof of paternal descent.",
+"Preserved carefully as a note layer and not erased or turned into an ordinary number.",
+"Expanded into a modern date automatically."
+],
+"ans": 2,
+"exp": "टीप tells the editor that an annotation layer exists."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "Which item is listed among the tools that must be built from the source?",
+"opts": [
+"A royal tax code.",
+"A modern rainfall chart.",
+"A list of election candidates.",
+"A village gazetteer."
+],
+"ans": 3,
+"exp": "The source requires reference tools such as glossary, abbreviation list, village gazetteer, person index, title index, and registers."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "Which is one of the explicit rules for reading Prachin Panji?",
+"opts": [
+"Begin by deleting uncertain numbers.",
+"Begin by replacing Sanskrit/Maithili terms with loose prose.",
+"Begin with the village frame.",
+"Begin by merging repeated names."
+],
+"ans": 2,
+"exp": "The village frame controls how entries are read until another frame appears."
+},
+{
+"cat": "Prachin Panji",
+"src": "Ch.2",
+"q": "What does the rule 'The Panji is a network, not a simple family tree' require?",
+"opts": [
+"Every repeated name should be merged immediately.",
+"Only fathers and sons should be charted.",
+"Marriage, maternal links, village frames, titles, and branch continuity must be tracked alongside descent.",
+"Village and title fields should be omitted."
+],
+"ans": 2,
+"exp": "The network model prevents reduction of the Panji into a narrow tree."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "Why is difficulty built into the Panji's form?",
+"opts": [
+"Because it compresses older register knowledge into formulas requiring expansion by context.",
+"Because it is written as modern explanatory prose.",
+"Because it avoids all abbreviations and numbers.",
+"Because it contains no technical terms."
+],
+"ans": 0,
+"exp": "The difficulty is structural, not accidental."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "How should joined words or compact clusters be handled first?",
+"opts": [
+"Delete all joined forms as OCR errors.",
+"Preserve the original cluster before normalizing spacing or deciding meaning.",
+"Translate only the last word of the cluster.",
+"Normalize spacing immediately and let the new form decide meaning."
+],
+"ans": 1,
+"exp": "Early correction can accidentally decide the meaning before structure is understood."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "What does repeated occurrence of a name prove by itself?",
+"opts": [
+"Only a possible clue, not the same person.",
+"A title marker without person value.",
+"A scribal mistake to be deleted.",
+"Certain identity across all villages."
+],
+"ans": 0,
+"exp": "Repeated names are common; identity requires a cluster of markers."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "Which cluster of markers is used to identify repeated names?",
+"opts": [
+"Name, father, sons, village, title, number, maternal cycle, marriage connection, and surrounding branch.",
+"Name alone and modern spelling.",
+"Page number alone.",
+"The length of the word and punctuation shape."
+],
+"ans": 0,
+"exp": "Only when several markers agree should occurrences be joined."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "How should village names and variants be treated?",
+"opts": [
+"Modernized immediately into one spelling.",
+"Treated as surnames by default.",
+"Indexed exactly as found, with variants preserved until evidence supports grouping.",
+"Ignored unless they match a current district map."
+],
+"ans": 2,
+"exp": "Place forms are evidence; variants can preserve local pronunciation or transmission history."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "What is the correct editorial response to uncertain OCR or damaged readings?",
+"opts": [
+"Hide uncertainty in smooth prose.",
+"Replace damaged words with attractive guesses.",
+"Mark uncertainty openly and check context, patterns, page images, or manuscript evidence when possible.",
+"Delete the marker and proceed."
+],
+"ans": 2,
+"exp": "The method values visible uncertainty over false certainty."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "Which step belongs to the working rules for difficult passages?",
+"opts": [
+"Correct all spellings before transcription.",
+"Ignore punctuation because it is old.",
+"Write the expanded prose before tabulation.",
+"Copy the passage exactly as found before interpretation."
+],
+"ans": 3,
+"exp": "Exact copying is the first protection against interpretive distortion."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "In the working rules, what should be done to relationship words?",
+"opts": [
+"Treat them as decorative particles.",
+"Mark terms such as सुत, सुता, सन्तति, अपत्य, पौत्र, प्रपौत्र, and दौहित्र before translating.",
+"Remove them from the entry table.",
+"Translate them all as 'descendant' without distinction."
+],
+"ans": 1,
+"exp": "Relationship words are the grammar of the record."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "Which place markers should be circled or identified in difficult passages?",
+"opts": [
+"ग्राम, वासी, डीह, मूलग्राम, समेत, and तत्रैव.",
+"Only numbers in parentheses.",
+"Only royal titles.",
+"Only English punctuation marks."
+],
+"ans": 0,
+"exp": "Place markers are necessary to distinguish origin, residence, branch-seat, and other functions."
+},
+{
+"cat": "Decoding Method",
+"src": "Ch.3",
+"q": "What is the ethical duty of decoding?",
+"opts": [
+"To make the text look modern at any cost.",
+"To protect living ancestry and prevent careless distortion of lineage memory.",
+"To treat the record as random names without social consequence.",
+"To hide all uncertainty for reader comfort."
+],
+"ans": 1,
+"exp": "Respect for remembered houses requires disciplined method."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "What are the three minimum parts of a Panji entry unit?",
+"opts": [
+"A modern district, an election ward, and a postal code.",
+"A king, a battle, and a date.",
+"A river, a crop, and a tax rate.",
+"A person or ancestor, a relationship marker, and a place or branch-identification."
+],
+"ans": 3,
+"exp": "The minimum entry has a relational and locational structure."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "Why should a frame or cluster be identified before the name?",
+"opts": [
+"Because all entries are simple biography.",
+"Because names are never important.",
+"Because the frame controls whether a name belongs to a village list, branch, marriage, maternal cycle, or note.",
+"Because titles alone decide the frame."
+],
+"ans": 2,
+"exp": "Frame-before-name prevents isolated reading of names."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "What does the chapter say about titles in entry analysis?",
+"opts": [
+"Titles are never useful for identity.",
+"Titles must always be removed from tables.",
+"Titles are data, not ornament.",
+"Titles should replace the original name."
+],
+"ans": 2,
+"exp": "A title can distinguish a person, branch, learned status, or social function."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "How should a note-marked number such as '(११०/०७ टीप)' be treated?",
+"opts": [
+"Treat it as a village name.",
+"Delete टीप and keep only 110/07.",
+"Convert it into a modern date.",
+"Preserve it as a note-marked number and mark it unresolved until the related note is identified."
+],
+"ans": 3,
+"exp": "The note layer must remain open for later cross-reference."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "Which four layers make up the data-enshrinement protocol?",
+"opts": [
+"Royal chronology, battle table, tax register, and bibliography.",
+"Original transcription, segmented reading, normalized index form, and critical explanation.",
+"Name list, village list, title list, and random glossary.",
+"Translation, deletion, modernization, and final narrative."
+],
+"ans": 1,
+"exp": "No data should jump from original text directly to interpretation."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "What does Layer 1 preserve?",
+"opts": [
+"Only the editor's final English interpretation.",
+"The text as it appears, including spelling, number, punctuation, joined form, and uncertainty.",
+"Only the page number without the phrase.",
+"Only a modernized spelling of names."
+],
+"ans": 1,
+"exp": "Layer 1 protects the source form before analysis."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "What does Layer 2 separate?",
+"opts": [
+"Poetic meter and rhyme.",
+"Name, relation, title, number, place, connector, and closure.",
+"Royal dynasties and battles.",
+"Modern districts and present population."
+],
+"ans": 1,
+"exp": "Segmented reading makes the compressed entry analyzable."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "What is the risk if Layer 3 normalization replaces the original transcription?",
+"opts": [
+"The original register becomes unnecessary.",
+"The source becomes more reliable.",
+"All uncertainty disappears legitimately.",
+"The source evidence is erased by the searchable form."
+],
+"ans": 3,
+"exp": "Normalization is useful for indexes but must not displace the source form."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "Which item belongs in the Standard Panji Data Table?",
+"opts": [
+"Number converted to a guessed date.",
+"Modern surname assigned without evidence.",
+"Number exactly as written.",
+"Village spelling silently corrected."
+],
+"ans": 2,
+"exp": "The table keeps numbers, titles, relations, places, connectors, closure, caution, and index tags visible."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "What must never be lost in an entry?",
+"opts": [
+"Only the most famous person in the entry.",
+"Original wording, number, title/abbreviation, village form, relation marker, uncertainty, variants, and separate repeated names until proven identical.",
+"Only the final prose explanation.",
+"Only the modern normalized spelling."
+],
+"ans": 1,
+"exp": "Enshrining data means preserving the register while explaining it."
+},
+{
+"cat": "Entry Unit",
+"src": "Ch.4",
+"q": "What does the basic Panji entry join into a small system?",
+"opts": [
+"Poetic meter, royal command, tax rate, and calendar year.",
+"Only village and modern district.",
+"Only name and page number.",
+"Person, lineage, place, title, number, and relation."
+],
+"ans": 3,
+"exp": "The unit is small but system-like; larger structures grow from it."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.5",
+"q": "In the Panji decoding method, what is the best functional reading of 'सुत'?",
+"opts": [
+"Number forms containing a slash that must be preserved exactly.",
+"Offspring-line or descendant-branch attached to a remembered ancestor.",
+"Direct sonship where the grammatical target is clear.",
+"Grandson-level relation requiring correct generational distance."
+],
+"ans": 2,
+"exp": "It should be recorded with the person marked as son, the connected father/ancestor, and the attached place or branch."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.5",
+"q": "In the Panji decoding method, what is the best functional reading of 'सुतो'?",
+"opts": [
+"A different spelling or form that may or may not represent the same entity.",
+"Cycle or circuit in the maternal/marriage network.",
+"A source form related to sonship that must be preserved exactly before expansion.",
+"Cluster closure marker meaning the listed items belong to the group."
+],
+"ans": 2,
+"exp": "It should not be silently converted to सुत in the transcription layer."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.5",
+"q": "In the Panji decoding method, what is the best functional reading of 'सुता'?",
+"opts": [
+"Sons or offspring in context, often requiring caution in branch or child lists.",
+"Residence or association/belonging to a place.",
+"Directional marker.",
+"Together with or including."
+],
+"ans": 0,
+"exp": "It may introduce children or connect a name to a branch-list depending on register context."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.5",
+"q": "In the Panji decoding method, what is the best functional reading of 'पुत्र'?",
+"opts": [
+"Opening or transition marker, often beginning a new village cluster.",
+"Another branch, reading, marriage, or related entry depending on context.",
+"A further or extended great-grandson-type relation requiring careful distance marking.",
+"Son, generally a direct descent term when the target father is clear."
+],
+"ans": 3,
+"exp": "It belongs with direct descent evidence when the structure supports it."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.7",
+"q": "In the Panji decoding method, what is the best functional reading of 'सन्तति'?",
+"opts": [
+"Another branch, reading, marriage, or related entry depending on context.",
+"A different spelling or form that may or may not represent the same entity.",
+"Continuity, descendants, or branch-line descended from a person.",
+"An unnamed woman required by marriage, मातृक चक्र, or दौहित्र structure."
+],
+"ans": 2,
+"exp": "It marks branch continuity and should not be forced into immediate sonship."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.7",
+"q": "In the Panji decoding method, what is the best functional reading of 'अपत्य'?",
+"opts": [
+"Son, generally a direct descent term when the target father is clear.",
+"The beginning and end of a village or register unit.",
+"Another branch, reading, marriage, or related entry depending on context.",
+"Offspring-line or descendant-branch attached to a remembered ancestor."
+],
+"ans": 3,
+"exp": "It is archival, not merely biological; it attaches a house to an ancestor."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.5",
+"q": "In the Panji decoding method, what is the best functional reading of 'पौत्र'?",
+"opts": [
+"Grandson-level relation requiring correct generational distance.",
+"Continuity, descendants, or branch-line descended from a person.",
+"Opening or transition marker, often beginning a new village cluster.",
+"Number forms with double slash that must not be normalized into ordinary numbers."
+],
+"ans": 0,
+"exp": "It may require an intervening generation node in a table."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.5",
+"q": "In the Panji decoding method, what is the best functional reading of 'प्रपौत्र'?",
+"opts": [
+"A searchable or standardized editorial form.",
+"Sister's-son type relation.",
+"Great-grandson-level relation requiring two intervening levels.",
+"Daughter’s son or maternal grandson."
+],
+"ans": 2,
+"exp": "Generation distance must be counted, not flattened."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.5",
+"q": "In the Panji decoding method, what is the best functional reading of 'वृद्ध प्रपौत्र'?",
+"opts": [
+"Grandson-level relation requiring correct generational distance.",
+"Connector used in multiple place lists or paired forms.",
+"Brother or brother-marker evidence.",
+"A further or extended great-grandson-type relation requiring careful distance marking."
+],
+"ans": 3,
+"exp": "It signals generational depth and should not be reduced to sonship."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.14",
+"q": "In the Panji decoding method, what is the best functional reading of 'दौहित्र'?",
+"opts": [
+"There itself, pointing back to the same place.",
+"Daughter’s son or maternal grandson.",
+"Explicit marriage record.",
+"Connector used in multiple place lists or paired forms."
+],
+"ans": 1,
+"exp": "He crosses two houses through a daughter and must not be listed as direct son of the maternal grandfather."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.12",
+"q": "In the Panji decoding method, what is the best functional reading of 'मातृक'?",
+"opts": [
+"Grandson-level relation requiring correct generational distance.",
+"Directional marker.",
+"Maternal-side evidence.",
+"Son, generally a direct descent term when the target father is clear."
+],
+"ans": 2,
+"exp": "It moves the reading away from a simple paternal spine."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.12",
+"q": "In the Panji decoding method, what is the best functional reading of 'चक्र'?",
+"opts": [
+"A searchable or standardized editorial form.",
+"Cycle or circuit in the maternal/marriage network.",
+"Second marriage, requiring a separate marriage node.",
+"Brother or brother-marker evidence."
+],
+"ans": 1,
+"exp": "In मातृक चक्र it signals a network structure."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.12",
+"q": "In the Panji decoding method, what is the best functional reading of 'मातृक चक्र'?",
+"opts": [
+"Note marker or annotation layer.",
+"Opening or transition marker, often beginning a new village cluster.",
+"Closure or connective marker often meaning thus/in this way.",
+"A maternal or marriage-linked cycle connecting houses."
+],
+"ans": 3,
+"exp": "It is a network table, not an extension of the paternal spine."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.5",
+"q": "In the Panji decoding method, what is the best functional reading of 'भ्राता'?",
+"opts": [
+"Son, generally a direct descent term when the target father is clear.",
+"A searchable or standardized editorial form.",
+"Direct sonship where the grammatical target is clear.",
+"Brother or brother-marker evidence."
+],
+"ans": 3,
+"exp": "It helps classify collateral relation rather than vertical descent."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.5",
+"q": "In the Panji decoding method, what is the best functional reading of 'भगीनेय'?",
+"opts": [
+"Number forms containing a slash that must be preserved exactly.",
+"Sister's-son type relation.",
+"Register anchors or internal signs whose function must be preserved and tested.",
+"Connector used in multiple place lists or paired forms."
+],
+"ans": 1,
+"exp": "It must be kept distinct from son or grandson lines."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.2",
+"q": "In the Panji decoding method, what is the best functional reading of 'अपरा'?",
+"opts": [
+"Another branch, reading, marriage, or related entry depending on context.",
+"Settlement or social/locality marker.",
+"Maternal-side evidence.",
+"Direct sonship where the grammatical target is clear."
+],
+"ans": 0,
+"exp": "The decoder must ask what 'another' refers to."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.6",
+"q": "In the Panji decoding method, what is the best functional reading of 'अथ'?",
+"opts": [
+"The village frame or village cluster being discussed.",
+"Explicit marriage record.",
+"Opening or transition marker, often beginning a new village cluster.",
+"A different spelling or form that may or may not represent the same entity."
+],
+"ans": 2,
+"exp": "It is not a personal name or title."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.6",
+"q": "In the Panji decoding method, what is the best functional reading of 'एते'?",
+"opts": [
+"Son, generally a direct descent term when the target father is clear.",
+"The village frame or village cluster being discussed.",
+"Brother or brother-marker evidence.",
+"Cluster closure marker meaning the listed items belong to the group."
+],
+"ans": 3,
+"exp": "It helps determine the boundary of a village/register unit."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.2",
+"q": "In the Panji decoding method, what is the best functional reading of 'एवं'?",
+"opts": [
+"Register anchors or internal signs whose function must be preserved and tested.",
+"An unnamed woman required by marriage, मातृक चक्र, or दौहित्र structure.",
+"Closure or connective marker often meaning thus/in this way.",
+"Son, generally a direct descent term when the target father is clear."
+],
+"ans": 2,
+"exp": "It may close or connect a cycle and should not be ignored."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.6",
+"q": "In the Panji decoding method, what is the best functional reading of 'ग्राम'?",
+"opts": [
+"Cycle or circuit in the maternal/marriage network.",
+"A relation through सन्तति or अपत्य preserving continuity without immediate sonship.",
+"Continuity, descendants, or branch-line descended from a person.",
+"The village frame or village cluster being discussed."
+],
+"ans": 3,
+"exp": "It opens the place frame in many entries."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.6",
+"q": "In the Panji decoding method, what is the best functional reading of 'वासी'?",
+"opts": [
+"A label such as certain, probable, possible, uncertain, or unresolved.",
+"Residence or association/belonging to a place.",
+"Great-grandson-level relation requiring two intervening levels.",
+"Directional marker."
+],
+"ans": 1,
+"exp": "It should be indexed as local-identity evidence."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.18",
+"q": "In the Panji decoding method, what is the best functional reading of 'डीह'?",
+"opts": [
+"Connector used in multiple place lists or paired forms.",
+"Ancestral site, settlement base, or remembered habitation.",
+"An event record representing a विवाह.",
+"Offspring-line or descendant-branch attached to a remembered ancestor."
+],
+"ans": 1,
+"exp": "It is strong local identity evidence, not just a modern address."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.18",
+"q": "In the Panji decoding method, what is the best functional reading of 'मूलग्राम'?",
+"opts": [
+"Another branch, reading, marriage, or related entry depending on context.",
+"Residence or association/belonging to a place.",
+"Root or original village.",
+"Opening or transition marker, often beginning a new village cluster."
+],
+"ans": 2,
+"exp": "It should not be confused with current residence or marriage village."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.6",
+"q": "In the Panji decoding method, what is the best functional reading of 'तत्रैव'?",
+"opts": [
+"Residence or association/belonging to a place.",
+"Continuity, descendants, or branch-line descended from a person.",
+"Note marker or annotation layer.",
+"There itself, pointing back to the same place."
+],
+"ans": 3,
+"exp": "It prevents inventing a new location unnecessarily."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.6",
+"q": "In the Panji decoding method, what is the best functional reading of 'समेत'?",
+"opts": [
+"Brother or brother-marker evidence.",
+"Continuity, descendants, or branch-line descended from a person.",
+"Together with or including.",
+"A searchable or standardized editorial form."
+],
+"ans": 2,
+"exp": "It marks inclusion and should be linked to the included place or branch."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.6",
+"q": "In the Panji decoding method, what is the best functional reading of 'पाली'?",
+"opts": [
+"There itself, pointing back to the same place.",
+"Continuity, descendants, or branch-line descended from a person.",
+"Settlement or social/locality marker.",
+"Another branch, reading, marriage, or related entry depending on context."
+],
+"ans": 2,
+"exp": "It should not be deleted merely to simplify search."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.6",
+"q": "In the Panji decoding method, what is the best functional reading of 'आग्नेय'?",
+"opts": [
+"An event record representing a विवाह.",
+"A searchable or standardized editorial form.",
+"The village frame or village cluster being discussed.",
+"Directional marker."
+],
+"ans": 3,
+"exp": "It helps classify spatial relation within a village formula."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.6",
+"q": "In the Panji decoding method, what is the best functional reading of 'ओ'?",
+"opts": [
+"Grandson-level relation requiring correct generational distance.",
+"A further or extended great-grandson-type relation requiring careful distance marking.",
+"Opening or transition marker, often beginning a new village cluster.",
+"Connector used in multiple place lists or paired forms."
+],
+"ans": 3,
+"exp": "It can join places that must be preserved as pairs before alphabetic sorting."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.13",
+"q": "In the Panji decoding method, what is the best functional reading of 'विवाह'?",
+"opts": [
+"Explicit marriage record.",
+"A relation through सन्तति or अपत्य preserving continuity without immediate sonship.",
+"Closure or connective marker often meaning thus/in this way.",
+"Cluster closure marker meaning the listed items belong to the group."
+],
+"ans": 0,
+"exp": "It should create a marriage node, not merely a note under a person."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.15",
+"q": "In the Panji decoding method, what is the best functional reading of 'द्वितीय विवाह'?",
+"opts": [
+"The beginning and end of a village or register unit.",
+"Second marriage, requiring a separate marriage node.",
+"Brother or brother-marker evidence.",
+"Opening or transition marker, often beginning a new village cluster."
+],
+"ans": 1,
+"exp": "Multiple marriages change alliance maps and issue assignment."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.9/App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'टीप'?",
+"opts": [
+"Offspring-line or descendant-branch attached to a remembered ancestor.",
+"Connector used in multiple place lists or paired forms.",
+"Note marker or annotation layer.",
+"The beginning and end of a village or register unit."
+],
+"ans": 2,
+"exp": "It must be preserved and not converted silently into an ordinary number."
+},
+{
+"cat": "Technical Terms",
+"src": "Ch.9",
+"q": "In the Panji decoding method, what is the best functional reading of 'parenthetical numbers'?",
+"opts": [
+"The beginning and end of a village or register unit.",
+"Ancestral site, settlement base, or remembered habitation.",
+"Register anchors or internal signs whose function must be preserved and tested.",
+"A further or extended great-grandson-type relation requiring careful distance marking."
+],
+"ans": 2,
+"exp": "They are not dates unless the source proves it."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'slash numbers'?",
+"opts": [
+"A different spelling or form that may or may not represent the same entity.",
+"Connector used in multiple place lists or paired forms.",
+"Direct sonship where the grammatical target is clear.",
+"Number forms containing a slash that must be preserved exactly."
+],
+"ans": 3,
+"exp": "Zeroes and position are part of the evidence."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'double-slash numbers'?",
+"opts": [
+"Sons or offspring in context, often requiring caution in branch or child lists.",
+"Number forms with double slash that must not be normalized into ordinary numbers.",
+"There itself, pointing back to the same place.",
+"A searchable or standardized editorial form."
+],
+"ans": 1,
+"exp": "The exact form is evidence."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'source form'?",
+"opts": [
+"The village frame or village cluster being discussed.",
+"There itself, pointing back to the same place.",
+"Sons or offspring in context, often requiring caution in branch or child lists.",
+"The exact form as it appears in the source."
+],
+"ans": 3,
+"exp": "It must be preserved before normalization."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'normalized form'?",
+"opts": [
+"Another branch, reading, marriage, or related entry depending on context.",
+"A searchable or standardized editorial form.",
+"Grandson-level relation requiring correct generational distance.",
+"Root or original village."
+],
+"ans": 1,
+"exp": "It must never replace the source form."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'variant'?",
+"opts": [
+"Another branch, reading, marriage, or related entry depending on context.",
+"Maternal-side evidence.",
+"A different spelling or form that may or may not represent the same entity.",
+"Cycle or circuit in the maternal/marriage network."
+],
+"ans": 2,
+"exp": "Variant grouping requires evidence."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'confidence level'?",
+"opts": [
+"Ancestral site, settlement base, or remembered habitation.",
+"Another branch, reading, marriage, or related entry depending on context.",
+"A label such as certain, probable, possible, uncertain, or unresolved.",
+"Directional marker."
+],
+"ans": 2,
+"exp": "It prevents false certainty."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'implied female link'?",
+"opts": [
+"Sons or offspring in context, often requiring caution in branch or child lists.",
+"Note marker or annotation layer.",
+"An unnamed woman required by marriage, मातृक चक्र, or दौहित्र structure.",
+"Together with or including."
+],
+"ans": 2,
+"exp": "She must be marked as editorially implied, not erased."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'branch continuity'?",
+"opts": [
+"Sister's-son type relation.",
+"The village frame or village cluster being discussed.",
+"A relation through सन्तति or अपत्य preserving continuity without immediate sonship.",
+"Root or original village."
+],
+"ans": 2,
+"exp": "It belongs in branch tables until direct descent evidence appears."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A/App.F",
+"q": "In the Panji decoding method, what is the best functional reading of 'marriage node'?",
+"opts": [
+"Cluster closure marker meaning the listed items belong to the group.",
+"Ancestral site, settlement base, or remembered habitation.",
+"Settlement or social/locality marker.",
+"An event record representing a विवाह."
+],
+"ans": 3,
+"exp": "It is not simply a line between two persons."
+},
+{
+"cat": "Technical Terms",
+"src": "App.A",
+"q": "In the Panji decoding method, what is the best functional reading of 'cluster boundary'?",
+"opts": [
+"Number forms containing a slash that must be preserved exactly.",
+"The exact form as it appears in the source.",
+"The beginning and end of a village or register unit.",
+"Settlement or social/locality marker."
+],
+"ans": 2,
+"exp": "It is detected through अथ, ग्राम, एते, punctuation, or formula change."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'महामहोपाध्याय' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A number to be converted into a date automatically.",
+"A punctuation mark to be deleted during transcription.",
+"An editorial replacement for the original spelling.",
+"A high learned title identifying scholastic prestige."
+],
+"ans": 3,
+"exp": "It should be indexed under title and intellectual history."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.A/B",
+"q": "What does 'महामहो / महो' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"An editorial replacement for the original spelling.",
+"A direct sonship term in every context.",
+"A punctuation mark to be deleted during transcription.",
+"Shortened learned-title forms that should be preserved exactly and normalized separately."
+],
+"ans": 3,
+"exp": "They should not be automatically replaced in source transcription."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'कवि' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A punctuation mark to be deleted during transcription.",
+"A direct sonship term in every context.",
+"A modern census category without panji function.",
+"A poet or literary marker."
+],
+"ans": 3,
+"exp": "It belongs in person, title, and village indexes."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'कविराज' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A poet of high prestige or recognized literary title.",
+"A punctuation mark to be deleted during transcription.",
+"A modern census category without panji function.",
+"A direct sonship term in every context."
+],
+"ans": 0,
+"exp": "It is important for literary history and learned-house mapping."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'वैयाकरण' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A grammarian or grammar specialist.",
+"An editorial replacement for the original spelling.",
+"A punctuation mark to be deleted during transcription.",
+"A modern census category without panji function."
+],
+"ans": 0,
+"exp": "It connects a person to intellectual history."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'पण्डित' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A direct sonship term in every context.",
+"An editorial replacement for the original spelling.",
+"A learned person or scholar.",
+"A punctuation mark to be deleted during transcription."
+],
+"ans": 2,
+"exp": "It may function as title and identification marker."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'ज्योतिर्विद' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A number to be converted into a date automatically.",
+"An astrologer, astronomer, or calendar specialist depending on context.",
+"An editorial replacement for the original spelling.",
+"A direct sonship term in every context."
+],
+"ans": 1,
+"exp": "It should be linked to intellectual and ritual function."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'धर्माधिकारी' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A legal-ritual authority or dharma office holder.",
+"A punctuation mark to be deleted during transcription.",
+"An editorial replacement for the original spelling.",
+"A number to be converted into a date automatically."
+],
+"ans": 0,
+"exp": "It is a social and ritual function marker."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'पौराणिक' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A specialist in purana narration or purana learning.",
+"A village closure marker in all contexts.",
+"An editorial replacement for the original spelling.",
+"A direct sonship term in every context."
+],
+"ans": 0,
+"exp": "It marks a textual/ritual learned function."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'मीमांसक' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A specialist in mimamsa learning.",
+"An editorial replacement for the original spelling.",
+"A modern census category without panji function.",
+"A number to be converted into a date automatically."
+],
+"ans": 0,
+"exp": "Variant spellings should be preserved."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "Ch.10/App.E",
+"q": "What does 'अग्निहोत्रिक' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A punctuation mark to be deleted during transcription.",
+"A number to be converted into a date automatically.",
+"A ritual specialist associated with अग्निहोत्र.",
+"A modern census category without panji function."
+],
+"ans": 2,
+"exp": "It should be indexed as ritual function."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.A/B",
+"q": "What does 'ठाकुर' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A modern census category without panji function.",
+"A title or status marker that may distinguish persons and houses.",
+"An editorial replacement for the original spelling.",
+"A number to be converted into a date automatically."
+],
+"ans": 1,
+"exp": "It should be preserved where written and expanded only with confidence."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.A/B",
+"q": "What does 'बाबू' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A later social or status title that should be handled cautiously for chronology.",
+"An editorial replacement for the original spelling.",
+"A direct sonship term in every context.",
+"A number to be converted into a date automatically."
+],
+"ans": 0,
+"exp": "It may indicate a later social layer."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'ठo / ठ.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"An editorial replacement for the original spelling.",
+"A modern census category without panji function.",
+"A number to be converted into a date automatically.",
+"An abbreviation usually connected with ठाकुर in many contexts."
+],
+"ans": 3,
+"exp": "Preserve the abbreviation and expand only when supported by context."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'प्रo / प्र.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A number to be converted into a date automatically.",
+"A direct sonship term in every context.",
+"A village closure marker in all contexts.",
+"A qualifier or abbreviated register form requiring contextual expansion."
+],
+"ans": 3,
+"exp": "It may identify person, title, relation, or formula depending on context."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'म. म.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"An abbreviation often associated with महामहोपाध्याय or high learned-title usage.",
+"A modern census category without panji function.",
+"A direct sonship term in every context.",
+"A number to be converted into a date automatically."
+],
+"ans": 0,
+"exp": "Its exact expansion remains context-dependent."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'म.म.उ.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A village closure marker in all contexts.",
+"A direct sonship term in every context.",
+"A compact learned-title abbreviation whose dots and sequence must be preserved.",
+"An editorial replacement for the original spelling."
+],
+"ans": 2,
+"exp": "Expansion should be recorded with confidence."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'पं.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A likely पण्डित abbreviation in many contexts.",
+"A direct sonship term in every context.",
+"A number to be converted into a date automatically.",
+"A punctuation mark to be deleted during transcription."
+],
+"ans": 0,
+"exp": "Preserve the abbreviation and record title category where supported."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'ज्यो.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A number to be converted into a date automatically.",
+"An editorial replacement for the original spelling.",
+"A possible ज्योतिर्विद or ज्योतिष-related abbreviation.",
+"A punctuation mark to be deleted during transcription."
+],
+"ans": 2,
+"exp": "It requires context."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'सु.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A number to be converted into a date automatically.",
+"An abbreviation that may stand for सुत, सुता, or another form depending on position.",
+"A village closure marker in all contexts.",
+"A punctuation mark to be deleted during transcription."
+],
+"ans": 1,
+"exp": "It must be resolved by grammar and context."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'ग्रा.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A number to be converted into a date automatically.",
+"A likely ग्राम abbreviation in place contexts.",
+"An editorial replacement for the original spelling.",
+"A village closure marker in all contexts."
+],
+"ans": 1,
+"exp": "It should be indexed as a place marker only after context is checked."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'वा.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A possible वासी abbreviation in local-identity contexts.",
+"A number to be converted into a date automatically.",
+"An editorial replacement for the original spelling.",
+"A modern census category without panji function."
+],
+"ans": 0,
+"exp": "It must be separated from other वा-forms."
+},
+{
+"cat": "Titles and Abbreviations",
+"src": "App.B",
+"q": "What does 'मू.ग्रा.' most safely indicate in the book's title/abbreviation system?",
+"opts": [
+"A direct sonship term in every context.",
+"A village closure marker in all contexts.",
+"An editorial replacement for the original spelling.",
+"A possible मूलग्राम abbreviation."
+],
+"ans": 3,
+"exp": "Treat as root-village evidence only when confirmed."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 1 in the book?",
+"opts": [
+"Why the Panji Is Difficult to Read.",
+"The Panji as Memory, Record, and Social Map.",
+"How to Decode a Marriage Entry.",
+"Khand 1 Gramaarambh Coverage Checklist."
+],
+"ans": 1,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 2 in the book?",
+"opts": [
+"How to Decode a Village Cluster.",
+"What 'Prachin Panji' Contains.",
+"Panji as Social Structure.",
+"How to Decode a Marriage Entry."
+],
+"ans": 1,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 3 in the book?",
+"opts": [
+"The Village Universe of Prachin Panji.",
+"Why the Panji Is Difficult to Read.",
+"Volume II and the Khand 1 Index Protocol.",
+"Scholars, Poets, Priests, and Specialists."
+],
+"ans": 1,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 4 in the book?",
+"opts": [
+"How to Decode One Entry: A Demonstration.",
+"The Basic Unit of a Panji Entry.",
+"How to Decode a Long Dense Passage.",
+"How to Decode a Marriage Entry."
+],
+"ans": 1,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 5 in the book?",
+"opts": [
+"What 'Prachin Panji' Contains.",
+"लौकित, चौगोला, श्रेणी, and पत्रांक Records.",
+"How to Decode a Long Dense Passage.",
+"Key Relationship Words."
+],
+"ans": 3,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 6 in the book?",
+"opts": [
+"Marriage Records.",
+"Creating a Term Glossary.",
+"Abbreviations and Titles.",
+"Village Formulae and Settlement Markers."
+],
+"ans": 3,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 7 in the book?",
+"opts": [
+"Reading सन्तति and अपत्य.",
+"Creating a Term Glossary.",
+"Panji and Time.",
+"Multiple Marriages and Secondary Links."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 8 in the book?",
+"opts": [
+"Creating a Panji Family Tree.",
+"डीह, वासी, मूलग्राम, and Local Identity.",
+"Scholars, Poets, Priests, and Specialists.",
+"Reading सँ in the Panji."
+],
+"ans": 3,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 9 in the book?",
+"opts": [
+"How to Decode a Village Cluster.",
+"Reading Numbers in Parentheses.",
+"The Basic Unit of a Panji Entry.",
+"लौकित, चौगोला, श्रेणी, and पत्रांक Records."
+],
+"ans": 1,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 10 in the book?",
+"opts": [
+"Village Clusters and Migration.",
+"What 'Prachin Panji' Contains.",
+"Abbreviations and Titles.",
+"Why the Panji Is Difficult to Read."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 11 in the book?",
+"opts": [
+"Village Clusters and Migration.",
+"Errors, Variants, and Editorial Discipline.",
+"Reading Numbers in Parentheses.",
+"The Paternal Line."
+],
+"ans": 3,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 12 in the book?",
+"opts": [
+"How to Decode a मातृक चक्र.",
+"The Maternal Line: मातृक चक्र.",
+"डीह, वासी, मूलग्राम, and Local Identity.",
+"Creating a Term Glossary."
+],
+"ans": 1,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 13 in the book?",
+"opts": [
+"Reading सन्तति and अपत्य.",
+"Panji as Social Structure.",
+"The Paternal Line.",
+"Marriage Records."
+],
+"ans": 3,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 14 in the book?",
+"opts": [
+"Marriage Records.",
+"Key Relationship Words.",
+"Daughter's-Son and Affinal Links.",
+"How to Decode a Long Dense Passage."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 15 in the book?",
+"opts": [
+"Multiple Marriages and Secondary Links.",
+"Reading सँ in the Panji.",
+"Why the Panji Is Difficult to Read.",
+"Khand 1 Gramaarambh Coverage Checklist."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 16 in the book?",
+"opts": [
+"Khand 1 Master Structure: पत्र-पञ्जी, गोत्र-पञ्जी, मेघापत्य, दामोदरापत्य, महेशापत्य, माने-गादू.",
+"How to Decode a मातृक चक्र.",
+"The Village Universe of Prachin Panji.",
+"Key Relationship Words."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 17 in the book?",
+"opts": [
+"Village Clusters and Migration.",
+"Volume II and the Khand 1 Index Protocol.",
+"Creating a Village Index.",
+"Reading सन्तति and अपत्य."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 18 in the book?",
+"opts": [
+"डीह, वासी, मूलग्राम, and Local Identity.",
+"Abbreviations and Titles.",
+"The Maternal Line: मातृक चक्र.",
+"Creating a Village Index."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 19 in the book?",
+"opts": [
+"Creating a Term Glossary.",
+"डीह, वासी, मूलग्राम, and Local Identity.",
+"Scholars, Poets, Priests, and Specialists.",
+"Creating a Village Index."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 20 in the book?",
+"opts": [
+"Panji as Literary History.",
+"डीह, वासी, मूलग्राम, and Local Identity.",
+"Creating a Person Index.",
+"The Village Universe of Prachin Panji."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 21 in the book?",
+"opts": [
+"Volume II and the Khand 1 Index Protocol.",
+"How to Decode One Entry: A Demonstration.",
+"Panji as Social Structure.",
+"What 'Prachin Panji' Contains."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 22 in the book?",
+"opts": [
+"Panji and Time.",
+"Village Clusters and Migration.",
+"Daughter's-Son and Affinal Links.",
+"How to Decode a Village Cluster."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 23 in the book?",
+"opts": [
+"गोत्र, मूल, मूलग्राम: Index-Wise Decoding.",
+"The Panji as Memory, Record, and Social Map.",
+"How to Decode One Entry: A Demonstration.",
+"विद्वान, गुरु-शिष्य, गोत्र-प्रवर, and बीजी पुरुष Records."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 24 in the book?",
+"opts": [
+"How to Decode a Village Cluster.",
+"विद्वान, गुरु-शिष्य, गोत्र-प्रवर, and बीजी पुरुष Records.",
+"Volume II and the Khand 1 Index Protocol.",
+"Creating a Panji Family Tree."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 25 in the book?",
+"opts": [
+"Creating a Person Index.",
+"What 'Prachin Panji' Contains.",
+"Volume II and the Khand 1 Index Protocol.",
+"How to Decode a मातृक चक्र."
+],
+"ans": 3,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 26 in the book?",
+"opts": [
+"How to Decode a Marriage Entry.",
+"Panji as Literary History.",
+"How to Decode a Long Dense Passage.",
+"The Village Universe of Prachin Panji."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 27 in the book?",
+"opts": [
+"How to Decode a Long Dense Passage.",
+"Creating a Village Index.",
+"Panji and Time.",
+"विद्वान, गुरु-शिष्य, गोत्र-प्रवर, and बीजी पुरुष Records."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 28 in the book?",
+"opts": [
+"Village Clusters and Migration.",
+"Panji as Literary History.",
+"Creating a Panji Family Tree.",
+"डीह, वासी, मूलग्राम, and Local Identity."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 29 in the book?",
+"opts": [
+"लौकित, चौगोला, श्रेणी, and पत्रांक Records.",
+"Reading सँ in the Panji.",
+"Creating a Village Index.",
+"Panji as Social Structure."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 30 in the book?",
+"opts": [
+"Errors, Variants, and Editorial Discipline.",
+"गोत्र, मूल, मूलग्राम: Index-Wise Decoding.",
+"Creating a Person Index.",
+"डीह, वासी, मूलग्राम, and Local Identity."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 31 in the book?",
+"opts": [
+"Multiple Marriages and Secondary Links.",
+"Creating a Term Glossary.",
+"How to Decode a Village Cluster.",
+"Scholars, Poets, Priests, and Specialists."
+],
+"ans": 1,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 32 in the book?",
+"opts": [
+"Reading Numbers in Parentheses.",
+"लौकित, चौगोला, श्रेणी, and पत्रांक Records.",
+"डीह, वासी, मूलग्राम, and Local Identity.",
+"Errors, Variants, and Editorial Discipline."
+],
+"ans": 3,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 33 in the book?",
+"opts": [
+"Reading सन्तति and अपत्य.",
+"Reading Numbers in Parentheses.",
+"Errors, Variants, and Editorial Discipline.",
+"Volume II and the Khand 1 Index Protocol."
+],
+"ans": 3,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 34 in the book?",
+"opts": [
+"Creating a Village Index.",
+"Panji and Time.",
+"Khand 1 Master Structure: पत्र-पञ्जी, गोत्र-पञ्जी, मेघापत्य, दामोदरापत्य, महेशापत्य, माने-गादू.",
+"Creating a Term Glossary."
+],
+"ans": 2,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 35 in the book?",
+"opts": [
+"Reading सँ in the Panji.",
+"गोत्र, मूल, मूलग्राम: Index-Wise Decoding.",
+"Creating a Term Glossary.",
+"Key Relationship Words."
+],
+"ans": 1,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 36 in the book?",
+"opts": [
+"लौकित, चौगोला, श्रेणी, and पत्रांक Records.",
+"Abbreviations and Titles.",
+"The Basic Unit of a Panji Entry.",
+"Khand 1 Gramaarambh Coverage Checklist."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 37 in the book?",
+"opts": [
+"Village Formulae and Settlement Markers.",
+"विद्वान, गुरु-शिष्य, गोत्र-प्रवर, and बीजी पुरुष Records.",
+"The Village Universe of Prachin Panji.",
+"Reading सँ in the Panji."
+],
+"ans": 1,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which subject is assigned to Chapter 38 in the book?",
+"opts": [
+"Khand 1 Gramaarambh Coverage Checklist.",
+"How to Decode a मातृक चक्र.",
+"Khand 1 Master Structure: पत्र-पञ्जी, गोत्र-पञ्जी, मेघापत्य, दामोदरापत्य, महेशापत्य, माने-गादू.",
+"Creating a Village Index."
+],
+"ans": 0,
+"exp": "The question tests the book's structural map rather than external chronology."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix A?",
+"opts": [
+"Sample Genealogical Tables.",
+"Abbreviation Key.",
+"Index of Places.",
+"Glossary of Panji Terms."
+],
+"ans": 3,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix B?",
+"opts": [
+"Index of Names.",
+"Kinship Key.",
+"Abbreviation Key.",
+"Sample Genealogical Tables."
+],
+"ans": 2,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix C?",
+"opts": [
+"Kinship Key.",
+"Village Gazetteer.",
+"Glossary of Panji Terms.",
+"Title and Occupation Index."
+],
+"ans": 0,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix D?",
+"opts": [
+"Village Gazetteer.",
+"Sample Genealogical Tables.",
+"Abbreviation Key.",
+"Glossary of Panji Terms."
+],
+"ans": 0,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix E?",
+"opts": [
+"Abbreviation Key.",
+"Title and Occupation Index.",
+"Sample Marriage Network Tables.",
+"Index of Names."
+],
+"ans": 1,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix F?",
+"opts": [
+"Title and Occupation Index.",
+"Sample Genealogical Tables.",
+"Abbreviation Key.",
+"Editorial Symbols Used in This Book."
+],
+"ans": 1,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix G?",
+"opts": [
+"Kinship Key.",
+"Title and Occupation Index.",
+"Glossary of Panji Terms.",
+"Sample Marriage Network Tables."
+],
+"ans": 3,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix H?",
+"opts": [
+"Editorial Symbols Used in This Book.",
+"Title and Occupation Index.",
+"Index of Names.",
+"Glossary of Panji Terms."
+],
+"ans": 0,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix I?",
+"opts": [
+"Title and Occupation Index.",
+"Index of Names.",
+"Sample Marriage Network Tables.",
+"Editorial Symbols Used in This Book."
+],
+"ans": 1,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Appendices",
+"src": "Contents",
+"q": "What is the function of Appendix J?",
+"opts": [
+"Index of Places.",
+"Glossary of Panji Terms.",
+"Sample Genealogical Tables.",
+"Sample Marriage Network Tables."
+],
+"ans": 0,
+"exp": "The appendix structure supports decoding by separating terms, kinship, place, titles, tables, symbols, names, and places."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Master Source Segment Table?",
+"opts": [
+"Preserves सन्तति and अपत्य without forcing immediate father-son links.",
+"Records every name occurrence before identities are merged.",
+"Groups occurrences as the same person only after evidence is reviewed.",
+"Preserves the unit from which all later rows are built."
+],
+"ans": 3,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Person Occurrence Table?",
+"opts": [
+"Records every name occurrence before identities are merged.",
+"Keeps titles attached to persons, branches, village context, and other evidence.",
+"Preserves the unit from which all later rows are built.",
+"Contains direct descent relations supported by descent markers."
+],
+"ans": 0,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Identity Group Table?",
+"opts": [
+"Contains direct descent relations supported by descent markers.",
+"Records each विवाह as an event node.",
+"Groups occurrences as the same person only after evidence is reviewed.",
+"Treats मातृक चक्र as a network rather than paternal extension."
+],
+"ans": 2,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Paternal Spine Table?",
+"opts": [
+"Prevents children from being attached to the wrong marriage or branch.",
+"Contains direct descent relations supported by descent markers.",
+"Keeps parenthetical numbers with the evidence they may distinguish.",
+"Treats मातृक चक्र as a network rather than paternal extension."
+],
+"ans": 1,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Branch Continuity Table?",
+"opts": [
+"Preserves सन्तति and अपत्य without forcing immediate father-son links.",
+"Prevents children from being attached to the wrong marriage or branch.",
+"Groups occurrences as the same person only after evidence is reviewed.",
+"Treats मातृक चक्र as a network rather than paternal extension."
+],
+"ans": 0,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Marriage Node Table?",
+"opts": [
+"Keeps daughter-line evidence from being absorbed into paternal descent.",
+"Preserves the unit from which all later rows are built.",
+"Keeps place functions such as frame village, residence, root village, spouse-side village, and maternal place visible.",
+"Records each विवाह as an event node."
+],
+"ans": 3,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Issue Assignment Table?",
+"opts": [
+"Treats मातृक चक्र as a network rather than paternal extension.",
+"Records each विवाह as an event node.",
+"Records every name occurrence before identities are merged.",
+"Prevents children from being attached to the wrong marriage or branch."
+],
+"ans": 3,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Maternal-Cycle Table?",
+"opts": [
+"Treats मातृक चक्र as a network rather than paternal extension.",
+"Prevents children from being attached to the wrong marriage or branch.",
+"Contains direct descent relations supported by descent markers.",
+"Preserves the unit from which all later rows are built."
+],
+"ans": 0,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Daughter-Line and दौहित्र Table?",
+"opts": [
+"Treats मातृक चक्र as a network rather than paternal extension.",
+"Keeps daughter-line evidence from being absorbed into paternal descent.",
+"Preserves the unit from which all later rows are built.",
+"Keeps parenthetical numbers with the evidence they may distinguish."
+],
+"ans": 1,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Village Attachment Table?",
+"opts": [
+"Preserves सन्तति and अपत्य without forcing immediate father-son links.",
+"Treats मातृक चक्र as a network rather than paternal extension.",
+"Keeps titles attached to persons, branches, village context, and other evidence.",
+"Keeps place functions such as frame village, residence, root village, spouse-side village, and maternal place visible."
+],
+"ans": 3,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Title Attachment Table?",
+"opts": [
+"Keeps daughter-line evidence from being absorbed into paternal descent.",
+"Groups occurrences as the same person only after evidence is reviewed.",
+"Preserves सन्तति and अपत्य without forcing immediate father-son links.",
+"Keeps titles attached to persons, branches, village context, and other evidence."
+],
+"ans": 3,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F/App.G",
+"q": "Which statement best describes the Number Anchor Table?",
+"opts": [
+"Records every name occurrence before identities are merged.",
+"Contains direct descent relations supported by descent markers.",
+"Keeps parenthetical numbers with the evidence they may distinguish.",
+"Keeps titles attached to persons, branches, village context, and other evidence."
+],
+"ans": 2,
+"exp": "The reconstruction apparatus separates source segments, persons, identity grouping, descent, branch, marriage, maternal, place, title, and number evidence."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Why must identity grouping be a separate table rather than a silent merger?",
+"opts": [
+"Because repeated names may be different persons unless father, title, village, number, and context support grouping.",
+"Because all repeated names are automatically the same person.",
+"Because source spellings should be erased once grouped.",
+"Because only normalized names are evidence."
+],
+"ans": 0,
+"exp": "The method prevents false identity by recording occurrence first and grouping later."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "When should unnamed generation nodes be inserted in a paternal table?",
+"opts": [
+"When grandson or great-grandson relation is given but the intervening parent is not named.",
+"Whenever the word समेत appears.",
+"Whenever a name has a title.",
+"Whenever a village name appears."
+],
+"ans": 0,
+"exp": "Generational distance must be preserved even when intermediate names are absent."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "How should first and second marriages be recorded?",
+"opts": [
+"As a note outside the table.",
+"As one merged event unless the wife is named.",
+"As separate marriage nodes.",
+"As proof of migration by itself."
+],
+"ans": 2,
+"exp": "Multiple marriages can create different alliance and issue structures."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Why should an issue assignment table be used after a विवाह entry?",
+"opts": [
+"To delete uncertainty from the genealogy.",
+"To avoid assigning all following names to a marriage without source support.",
+"To replace सुता with a modern date.",
+"To convert all children into paternal-line entries automatically."
+],
+"ans": 1,
+"exp": "A सुता list following विवाह needs careful assignment, not automatic attachment."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "What should a maternal-cycle table show if the female link is unnamed?",
+"opts": [
+"The daughter should be converted into a son.",
+"The entire record should be moved to a paternal spine.",
+"The woman should be marked as implied rather than omitted.",
+"The maternal cycle should be ignored."
+],
+"ans": 2,
+"exp": "Unnamed women may be structurally necessary and must remain visible as editorially implied links."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which place function belongs in a Village Attachment Table?",
+"opts": [
+"Spouse-side village.",
+"Royal coin type.",
+"Poetic meter.",
+"Battle formation."
+],
+"ans": 0,
+"exp": "Place functions include frame village, branch-seat, residence, root village, spouse-side village, maternal village, daughter-line place, and uncertain place."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "How should a title inside a marriage entry or मातृक चक्र be handled?",
+"opts": [
+"Always convert it into a date.",
+"Always make it the village name.",
+"Always delete it as ornament.",
+"Do not automatically assign it to the main paternal line."
+],
+"ans": 3,
+"exp": "Title context matters; title attachment must remain evidence-linked."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "What is the correct rule for parenthetical numbers in the Number Anchor Table?",
+"opts": [
+"Delete numbers with slashes.",
+"Convert all numbers into dates for readability.",
+"Do not convert them into dates unless the source clearly supports that reading.",
+"Treat numbers as decorative punctuation."
+],
+"ans": 2,
+"exp": "Numbers may distinguish persons, branches, marriages, notes, or register positions."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.7",
+"q": "Applied case: A formula contains a named person followed by 'सन्तति' and a dash to a village. What should a disciplined decoder do?",
+"opts": [
+"Record it as branch continuity attached to a place, not as immediate sonship unless direct evidence appears.",
+"Normalize it silently in the transcription layer.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Merge it with a similar-looking name or place without supporting markers."
+],
+"ans": 0,
+"exp": "सन्तति preserves descent-line or continuity; direct father-son relation requires separate markers."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.7",
+"q": "Applied case: A formula contains a named person followed by 'अपत्य' and a place. What should a disciplined decoder do?",
+"opts": [
+"Merge it with a similar-looking name or place without supporting markers.",
+"Normalize it silently in the transcription layer.",
+"Treat it as an offspring-line or descendant-branch attached to a remembered ancestor and place.",
+"Treat it as a decorative phrase and move directly to free translation."
+],
+"ans": 2,
+"exp": "अपत्य is archival branch evidence, not automatically direct sonship."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.3/App.I",
+"q": "Applied case: A repeated name appears in two different village clusters. What should a disciplined decoder do?",
+"opts": [
+"Normalize it silently in the transcription layer.",
+"Keep the occurrences separate until several markers such as father, title, number, village, and context agree.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Merge it with a similar-looking name or place without supporting markers."
+],
+"ans": 1,
+"exp": "Name repetition is common and cannot prove identity alone."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.17",
+"q": "Applied case: A place outside the paternal cluster appears in a marriage-related entry. What should a disciplined decoder do?",
+"opts": [
+"Merge it with a similar-looking name or place without supporting markers.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Check marriage and maternal evidence before declaring migration.",
+"Treat it as a decorative phrase and move directly to free translation."
+],
+"ans": 2,
+"exp": "A place may be affinal rather than residential or paternal."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.9/App.F",
+"q": "Applied case: A number appears after विवाह. What should a disciplined decoder do?",
+"opts": [
+"Treat it as a decorative phrase and move directly to free translation.",
+"Normalize it silently in the transcription layer.",
+"Merge it with a similar-looking name or place without supporting markers.",
+"Preserve its exact form and record its position as marriage-linked until function is established."
+],
+"ans": 3,
+"exp": "Number position is part of the evidence."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.14/App.F",
+"q": "Applied case: The term 'दौहित्र' appears with a maternal house. What should a disciplined decoder do?",
+"opts": [
+"Treat it as a decorative phrase and move directly to free translation.",
+"Merge it with a similar-looking name or place without supporting markers.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Record the person through the daughter-line and do not make him direct son of the maternal grandfather."
+],
+"ans": 3,
+"exp": "दौहित्र crosses through a daughter."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.12",
+"q": "Applied case: A passage is marked as मातृक चक्र. What should a disciplined decoder do?",
+"opts": [
+"Normalize it silently in the transcription layer.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Merge it with a similar-looking name or place without supporting markers.",
+"Switch to a maternal/marriage network frame instead of reading it as a simple paternal descent chain."
+],
+"ans": 3,
+"exp": "The frame changes the table and interpretation."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.6",
+"q": "Applied case: A line uses 'तत्रैव' after a place context. What should a disciplined decoder do?",
+"opts": [
+"Merge it with a similar-looking name or place without supporting markers.",
+"Normalize it silently in the transcription layer.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Read it as referring to that same place unless evidence requires a new location."
+],
+"ans": 3,
+"exp": "तत्रैव prevents unnecessary invention of a new place."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.6/App.J",
+"q": "Applied case: A list of places is joined with 'समेत'. What should a disciplined decoder do?",
+"opts": [
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Record inclusion/together-with links instead of isolating the places too quickly.",
+"Merge it with a similar-looking name or place without supporting markers.",
+"Normalize it silently in the transcription layer."
+],
+"ans": 1,
+"exp": "समेत carries source-order and inclusion evidence."
+},
+{
+"cat": "Applied Decoding",
+"src": "App.B",
+"q": "Applied case: An abbreviation 'प्र.' appears in a dense entry. What should a disciplined decoder do?",
+"opts": [
+"Treat it as a decorative phrase and move directly to free translation.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Preserve it as written, record its position, and expand only with contextual confidence.",
+"Merge it with a similar-looking name or place without supporting markers."
+],
+"ans": 2,
+"exp": "प्र. may be a qualifier, title, or formula element depending on context."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.19/App.E",
+"q": "Applied case: A title-bearing person appears in a village cluster. What should a disciplined decoder do?",
+"opts": [
+"Normalize it silently in the transcription layer.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Record the title with the person and village context; it may reveal a learned or status cluster."
+],
+"ans": 3,
+"exp": "Titles help distinguish persons and map intellectual geography."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.32/App.J",
+"q": "Applied case: A village appears with variant spelling. What should a disciplined decoder do?",
+"opts": [
+"Preserve the original spelling and group variants only after evidence is strong.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Normalize it silently in the transcription layer.",
+"Merge it with a similar-looking name or place without supporting markers."
+],
+"ans": 0,
+"exp": "Modern spelling should not erase source form."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.32/App.H",
+"q": "Applied case: A source phrase is damaged or uncertain. What should a disciplined decoder do?",
+"opts": [
+"Merge it with a similar-looking name or place without supporting markers.",
+"Normalize it silently in the transcription layer.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Mark it uncertain or unresolved instead of supplying a confident guess."
+],
+"ans": 3,
+"exp": "Visible uncertainty is part of editorial discipline."
+},
+{
+"cat": "Applied Decoding",
+"src": "App.F",
+"q": "Applied case: A सुता list follows a marriage entry. What should a disciplined decoder do?",
+"opts": [
+"Do not automatically assign every following name to that marriage; record phrase and confidence.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Normalize it silently in the transcription layer."
+],
+"ans": 0,
+"exp": "Issue assignment requires support."
+},
+{
+"cat": "Applied Decoding",
+"src": "App.B",
+"q": "Applied case: A title abbreviation looks similar to another abbreviation elsewhere. What should a disciplined decoder do?",
+"opts": [
+"Normalize it silently in the transcription layer.",
+"Do not over-regularize; similar abbreviations may differ by context.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Treat it as a decorative phrase and move directly to free translation."
+],
+"ans": 1,
+"exp": "Abbreviation handling requires context and confidence levels."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.6/App.J",
+"q": "Applied case: A village term is attached by dash after a relation word. What should a disciplined decoder do?",
+"opts": [
+"Record the connector and classify the place function rather than assuming birthplace.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Merge it with a similar-looking name or place without supporting markers.",
+"Normalize it silently in the transcription layer."
+],
+"ans": 0,
+"exp": "Dash attachment is evidence and needs function classification."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.6/App.A",
+"q": "Applied case: A formula begins with 'अथ' and ends with 'एते'. What should a disciplined decoder do?",
+"opts": [
+"Treat them as likely opener and closure of a cluster boundary.",
+"Normalize it silently in the transcription layer.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Merge it with a similar-looking name or place without supporting markers."
+],
+"ans": 0,
+"exp": "Cluster boundaries are essential for indexing."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.10/App.E",
+"q": "Applied case: A person is called 'महामहोपाध्याय'. What should a disciplined decoder do?",
+"opts": [
+"Index the title as learned prestige and attach it to the person occurrence.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Normalize it silently in the transcription layer.",
+"Convert it into a modern date or modern place-name before preserving the source form."
+],
+"ans": 0,
+"exp": "High learned titles are part of intellectual history."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.10/App.E",
+"q": "Applied case: A person is called 'कविराज'. What should a disciplined decoder do?",
+"opts": [
+"Merge it with a similar-looking name or place without supporting markers.",
+"Normalize it silently in the transcription layer.",
+"Treat it as literary-title evidence useful for learned-house mapping.",
+"Treat it as a decorative phrase and move directly to free translation."
+],
+"ans": 2,
+"exp": "The title should not be dropped as ornament."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.6/App.J",
+"q": "Applied case: A phrase uses 'वासी'. What should a disciplined decoder do?",
+"opts": [
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Record residence or association/belonging evidence and cross-link it to person, branch, and local-identity tables.",
+"Normalize it silently in the transcription layer."
+],
+"ans": 2,
+"exp": "वासी is a local identity marker."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.18/App.J",
+"q": "Applied case: A phrase uses 'डीह'. What should a disciplined decoder do?",
+"opts": [
+"Merge it with a similar-looking name or place without supporting markers.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Treat it as ancestral/local site evidence and keep it distinct from current residence or marriage village."
+],
+"ans": 3,
+"exp": "डीह is strong local identity evidence."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.18/App.J",
+"q": "Applied case: A phrase uses 'मूलग्राम'. What should a disciplined decoder do?",
+"opts": [
+"Merge it with a similar-looking name or place without supporting markers.",
+"Record it as root-village evidence but do not confuse it with all other place functions.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Normalize it silently in the transcription layer."
+],
+"ans": 1,
+"exp": "मूलग्राम denotes root/original village."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.5/App.F",
+"q": "Applied case: A direct 'सुत' relation is clear. What should a disciplined decoder do?",
+"opts": [
+"Treat it as a decorative phrase and move directly to free translation.",
+"Normalize it silently in the transcription layer.",
+"Enter it into the paternal spine with the child one generation below the father.",
+"Merge it with a similar-looking name or place without supporting markers."
+],
+"ans": 2,
+"exp": "सुत supports direct sonship when the grammatical target is clear."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.5/App.F",
+"q": "Applied case: A 'पौत्र' relation is clear but the parent is not named. What should a disciplined decoder do?",
+"opts": [
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Normalize it silently in the transcription layer.",
+"Record grandson level and insert an implied intervening generation node.",
+"Merge it with a similar-looking name or place without supporting markers."
+],
+"ans": 2,
+"exp": "Grandson relation requires correct generation distance."
+},
+{
+"cat": "Applied Decoding",
+"src": "App.A",
+"q": "Applied case: An entry contains a source form and a normalized form. What should a disciplined decoder do?",
+"opts": [
+"Normalize it silently in the transcription layer.",
+"Merge it with a similar-looking name or place without supporting markers.",
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Preserve both separately and never allow the normalized form to replace the source form."
+],
+"ans": 3,
+"exp": "The source form carries evidence that normalized search forms cannot replace."
+},
+{
+"cat": "Applied Decoding",
+"src": "App.J",
+"q": "Applied case: A place is linked to a daughter-line. What should a disciplined decoder do?",
+"opts": [
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Normalize it silently in the transcription layer.",
+"Link it to the daughter-line table and the named or implied female link.",
+"Treat it as a decorative phrase and move directly to free translation."
+],
+"ans": 2,
+"exp": "Daughter-line places should not be absorbed into the paternal village column."
+},
+{
+"cat": "Applied Decoding",
+"src": "App.F",
+"q": "Applied case: A person has a title inside a maternal-cycle passage. What should a disciplined decoder do?",
+"opts": [
+"Keep the title attached to the occurrence and context; do not automatically move it to the paternal line.",
+"Normalize it silently in the transcription layer.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Convert it into a modern date or modern place-name before preserving the source form."
+],
+"ans": 0,
+"exp": "Context controls title attachment."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.17/19",
+"q": "Applied case: A cluster seems scholarly because many title-bearing persons recur. What should a disciplined decoder do?",
+"opts": [
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Normalize it silently in the transcription layer.",
+"Merge it with a similar-looking name or place without supporting markers.",
+"Record title density but avoid reading every cluster only through descent."
+],
+"ans": 3,
+"exp": "A scholarly cluster may reflect intellectual geography, not migration."
+},
+{
+"cat": "Applied Decoding",
+"src": "App.A/B",
+"q": "Applied case: A number contains a slash and zero. What should a disciplined decoder do?",
+"opts": [
+"Normalize it silently in the transcription layer.",
+"Preserve the slash, zeroes, and position exactly.",
+"Treat it as a decorative phrase and move directly to free translation.",
+"Convert it into a modern date or modern place-name before preserving the source form."
+],
+"ans": 1,
+"exp": "Number form is part of the evidence."
+},
+{
+"cat": "Applied Decoding",
+"src": "Ch.32/App.J",
+"q": "Applied case: A reader wants to convert all old spellings into modern names. What should a disciplined decoder do?",
+"opts": [
+"Convert it into a modern date or modern place-name before preserving the source form.",
+"Merge it with a similar-looking name or place without supporting markers.",
+"First preserve source forms and variants; modernization belongs in separate normalized fields.",
+"Normalize it silently in the transcription layer."
+],
+"ans": 2,
+"exp": "Over-modernization destroys evidence."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.33",
+"q": "What is the index-linked editorial rule of this revised edition?",
+"opts": [
+"Only the first chapter is linked to the index.",
+"Only famous names are indexed.",
+"The index is treated as outside the manuscript.",
+"Every section of the Khand 1 index is linked to a decoding chapter, reference appendix, and coverage checklist."
+],
+"ans": 3,
+"exp": "The edition aims to leave no index item outside the method."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.34",
+"q": "Which set belongs to the Khand 1 master structure named in Chapter 34?",
+"opts": [
+"कवि, कविराज, वैयाकरण, ज्योतिर्विद, पौराणिक, मीमांसक.",
+"सुत, सुता, पुत्र, पौत्र, प्रपौत्र, दौहित्र.",
+"पत्र-पञ्जी, गोत्र-पञ्जी, मेघापत्य, दामोदरापत्य, महेशापत्य, माने-गादू.",
+"ग्राम, वासी, डीह, मूलग्राम, समेत, तत्रैव."
+],
+"ans": 2,
+"exp": "Chapter 34 identifies the structural blocks of Khand 1."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.35",
+"q": "Which three-part block is central to Chapter 35?",
+"opts": [
+"टीप, slash number, and double-slash number.",
+"गोत्र, मूल, and मूलग्राम.",
+"सुत, सुता, and पुत्र.",
+"कवि, कविराज, and वैयाकरण."
+],
+"ans": 1,
+"exp": "Chapter 35 is explicitly devoted to गोत्र, मूल, मूलग्राम index-wise decoding."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.36",
+"q": "Which records are grouped under Chapter 36?",
+"opts": [
+"लौकित, चौगोला, श्रेणी, and पत्रांक records.",
+"Poets, priests, and specialists only.",
+"दौहित्र, भगीनेय, and maternal-cycle records only.",
+"Glossary, abbreviation key, and symbols only."
+],
+"ans": 0,
+"exp": "Chapter 36 handles a separate set of index/register categories."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.37",
+"q": "Which subjects belong to Chapter 37?",
+"opts": [
+"Only marriage nodes and issue assignment.",
+"विद्वान, गुरु-शिष्य, गोत्र-प्रवर, and बीजी पुरुष records.",
+"Only village gazetteer entries.",
+"Only punctuation and OCR symbols."
+],
+"ans": 1,
+"exp": "Chapter 37 links learned and lineage-authority records to decoding method."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.38",
+"q": "What is the function of the Khand 1 Gramaarambh Coverage Checklist?",
+"opts": [
+"To remove original phrases after modernizing them.",
+"To preserve each original phrase, classify place function, and link it to person/branch/title/number tables and relevant chapters/appendices.",
+"To list only modern district names.",
+"To convert all entries into a royal chronology."
+],
+"ans": 1,
+"exp": "The coverage rows keep gramaarambh lines inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Coverage Conclusion",
+"q": "What does the coverage conclusion say about the Khand 1 index after revision?",
+"opts": [
+"It is no longer left outside the manuscript; structural blocks, abbreviations, lists, and gramaarambh lines are tied to the decoding system.",
+"It is removed from the book.",
+"It is reduced to a simple name list.",
+"It is treated as decorative front matter."
+],
+"ans": 0,
+"exp": "The conclusion summarizes the index-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.1-4",
+"q": "Consider the following: 1. Panji entries may contain title and number evidence. 2. A village can be origin, residence, branch-seat, marriage house, or maternal place. 3. Repeated names should be merged by name alone. Which statements are correct?",
+"opts": [
+"1 only.",
+"1, 2 and 3.",
+"1 and 2 only.",
+"2 and 3 only."
+],
+"ans": 2,
+"exp": "The third statement is false because name alone is insufficient for identity."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.5-8",
+"q": "Which statement is most consistent with the book's treatment of relationship and connector words?",
+"opts": [
+"Relationship and connector words must be marked before translation because they determine the structure of the entry.",
+"सँ always means birthplace and never marriage or maternal connection.",
+"सन्तति and अपत्य should always be converted into immediate sonship.",
+"All relationship words should be translated as 'relative'."
+],
+"ans": 0,
+"exp": "The method begins by identifying relation and connector functions."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.9-10",
+"q": "Which statement about numbers and abbreviations is correct?",
+"opts": [
+"Abbreviations should be expanded silently in the main transcription.",
+"Both should be preserved exactly first, with expansion or interpretation recorded separately and cautiously.",
+"All parenthetical numbers are dates.",
+"Numbers should be deleted if they contain slashes."
+],
+"ans": 1,
+"exp": "Exact preservation prevents loss of evidence."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.11-15",
+"q": "Which option best distinguishes paternal, maternal, and affinal evidence?",
+"opts": [
+"Paternal descent uses direct descent markers; maternal cycles and दौहित्र require daughter-line and marriage-network tracking.",
+"All kinship can be put into one vertical father-son line.",
+"Marriage entries have no effect on future genealogy.",
+"दौहित्र should be listed as direct son of the maternal grandfather."
+],
+"ans": 0,
+"exp": "The book repeatedly separates paternal spine from maternal and affinal networks."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.16-18",
+"q": "Which statement about place evidence is correct?",
+"opts": [
+"डीह can be deleted if a modern village name is known.",
+"मूलग्राम and वासी always mean the same thing.",
+"Every village name is automatically a birthplace.",
+"Place terms must be classified by function, not merely plotted as modern map points."
+],
+"ans": 3,
+"exp": "Place is genealogical evidence; its function must be preserved."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.19-22",
+"q": "Why are scholars, titles, and time important in Panji study?",
+"opts": [
+"They should be separated from person indexes permanently.",
+"They only decorate names and carry no analytical value.",
+"They reveal learned houses, literary memory, social authority, chronology problems, and intellectual geography.",
+"They are irrelevant to genealogy."
+],
+"ans": 2,
+"exp": "The Panji is also a hidden intellectual and literary archive."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.23-27",
+"q": "What is the correct order in worked decoding?",
+"opts": [
+"Write smooth prose first and then infer source terms.",
+"Merge names first and then look for evidence.",
+"Delete uncertain markers and then tabulate.",
+"Transcribe, segment, tabulate, identify uncertainty, and only then write expanded prose."
+],
+"ans": 3,
+"exp": "Worked decoding protects source evidence before explanation."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.28-32",
+"q": "What is the key rule for indexes and glossaries built from the Panji?",
+"opts": [
+"They should hide unresolved readings.",
+"They should use only modern spellings.",
+"They should list names without source segments.",
+"They should preserve source forms, variants, confidence levels, and cross-links rather than replacing evidence."
+],
+"ans": 3,
+"exp": "Reference tools must be evidence-bearing, not merely convenient lists."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Appendices",
+"q": "Which statement best describes the role of the appendices?",
+"opts": [
+"They convert the Panji into a simple family tree.",
+"They are decorative end matter without method.",
+"They provide practical keys, indexes, tables, and symbols that make close reading and reconstruction possible.",
+"They replace the need to read the source closely."
+],
+"ans": 2,
+"exp": "The appendices support close reading rather than bypassing it."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "App.I-J",
+"q": "Which is the safest rule for name and place indexes?",
+"opts": [
+"Identify every repeated name as the same person.",
+"Delete variant forms after normalization.",
+"Identify every place from modern spelling first.",
+"Never identify a person by name alone or a place by modern spelling alone."
+],
+"ans": 3,
+"exp": "Names and places require contextual evidence and confidence labels."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which description correctly matches Part I of the book?",
+"opts": [
+"Geography of the Panji.",
+"What the Panji Is.",
+"The Grammar of Panji Entries.",
+"Khand 1 Index-Wise Decoding and Coverage."
+],
+"ans": 1,
+"exp": "It frames the Panji as memory, record, social map, Prachin Panji source, and difficulty."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which description correctly matches Part II of the book?",
+"opts": [
+"Worked Decoding.",
+"The Grammar of Panji Entries.",
+"What the Panji Is.",
+"Social and Intellectual History Hidden in the Panji."
+],
+"ans": 1,
+"exp": "It covers entry units, relationship words, village formulae, सन्तति/अपत्य, सँ, numbers, abbreviations, and titles."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which description correctly matches Part III of the book?",
+"opts": [
+"Geography of the Panji.",
+"Genealogy, Marriage, and Maternal Networks.",
+"Khand 1 Index-Wise Decoding and Coverage.",
+"The Grammar of Panji Entries."
+],
+"ans": 1,
+"exp": "It separates paternal line, maternal cycle, marriage records, daughter’s-son, affinal links, and multiple marriages."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which description correctly matches Part IV of the book?",
+"opts": [
+"Social and Intellectual History Hidden in the Panji.",
+"Genealogy, Marriage, and Maternal Networks.",
+"What the Panji Is.",
+"Geography of the Panji."
+],
+"ans": 3,
+"exp": "It examines the village universe, village clusters, migration, डीह, वासी, मूलग्राम, and local identity."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which description correctly matches Part V of the book?",
+"opts": [
+"The Grammar of Panji Entries.",
+"What the Panji Is.",
+"Social and Intellectual History Hidden in the Panji.",
+"Genealogy, Marriage, and Maternal Networks."
+],
+"ans": 2,
+"exp": "It treats scholars, poets, priests, specialists, literary history, social structure, and time."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which description correctly matches Part VI of the book?",
+"opts": [
+"Reference and Reconstruction Tools.",
+"Khand 1 Index-Wise Decoding and Coverage.",
+"Worked Decoding.",
+"The Grammar of Panji Entries."
+],
+"ans": 2,
+"exp": "It demonstrates decoding of one entry, a village cluster, a मातृक चक्र, a marriage entry, and a dense passage."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which description correctly matches Part VII of the book?",
+"opts": [
+"Geography of the Panji.",
+"Reference and Reconstruction Tools.",
+"Appendices.",
+"Social and Intellectual History Hidden in the Panji."
+],
+"ans": 1,
+"exp": "It develops family tree, village index, person index, term glossary, and editorial discipline."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which description correctly matches Part VIII of the book?",
+"opts": [
+"Genealogy, Marriage, and Maternal Networks.",
+"Social and Intellectual History Hidden in the Panji.",
+"Appendices.",
+"Khand 1 Index-Wise Decoding and Coverage."
+],
+"ans": 2,
+"exp": "It provides glossary, abbreviation key, kinship key, gazetteer, title index, sample tables, symbols, and indexes."
+},
+{
+"cat": "Book Structure",
+"src": "Contents",
+"q": "Which description correctly matches Part IX of the book?",
+"opts": [
+"Khand 1 Index-Wise Decoding and Coverage.",
+"What the Panji Is.",
+"Geography of the Panji.",
+"Worked Decoding."
+],
+"ans": 0,
+"exp": "It links the Khand 1 index to protocol, master structure, index-wise decoding, records, and checklist."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.8",
+"q": "Which action is a serious error when reading 'सँ'?",
+"opts": [
+"Recording uncertainty openly when the evidence is incomplete.",
+"Assigning a single fixed meaning such as 'from' without checking whether the link is origin, residence, marriage, branch, or maternal.",
+"Preserving the source form before interpretation.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 1,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.14",
+"q": "Which action is a serious error when reading 'दौहित्र'?",
+"opts": [
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Placing the daughter’s son directly in the paternal spine of the maternal grandfather.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Preserving the source form before interpretation."
+],
+"ans": 1,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.12",
+"q": "Which action is a serious error when reading 'मातृक चक्र'?",
+"opts": [
+"Turning a maternal-marriage circuit into a simple father-son chain.",
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 0,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.7",
+"q": "Which action is a serious error when reading 'सन्तति'?",
+"opts": [
+"Forcing branch continuity into immediate father-son descent.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Preserving the source form before interpretation."
+],
+"ans": 0,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.7",
+"q": "Which action is a serious error when reading 'अपत्य'?",
+"opts": [
+"Recording uncertainty openly when the evidence is incomplete.",
+"Preserving the source form before interpretation.",
+"Treating every ancestor-attached branch as a named son of that ancestor.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 2,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "App.B",
+"q": "Which action is a serious error when handling abbreviations?",
+"opts": [
+"Silently expanding the abbreviation in the main transcription.",
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 0,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.9",
+"q": "Which action is a serious error when handling numbers?",
+"opts": [
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Treating every parenthetical number as a date."
+],
+"ans": 3,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.9/App.A",
+"q": "Which action is a serious error when handling 'टीप'?",
+"opts": [
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Preserving the source form before interpretation.",
+"Removing the note marker or reducing it to an ordinary number.",
+"Recording uncertainty openly when the evidence is incomplete."
+],
+"ans": 2,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.3/App.I",
+"q": "Which action is a serious error when handling repeated names?",
+"opts": [
+"Recording uncertainty openly when the evidence is incomplete.",
+"Merging occurrences because the name alone is identical.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Preserving the source form before interpretation."
+],
+"ans": 1,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.32/App.J",
+"q": "Which action is a serious error when handling village variants?",
+"opts": [
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Erasing source spellings through premature modernization.",
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete."
+],
+"ans": 1,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.10/App.E",
+"q": "Which action is a serious error when handling titles?",
+"opts": [
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Dropping titles as decorative honorifics.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 2,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.13/App.F",
+"q": "Which action is a serious error when handling a marriage entry?",
+"opts": [
+"Recording विवाह as a side note rather than a marriage node.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Preserving the source form before interpretation.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 0,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.15/App.F",
+"q": "Which action is a serious error when handling a second marriage?",
+"opts": [
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Merging it into the first marriage instead of creating a separate node."
+],
+"ans": 3,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "App.F",
+"q": "Which action is a serious error when handling issue after विवाह?",
+"opts": [
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Assigning all following names to that marriage without source support.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 2,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.6",
+"q": "Which action is a serious error when handling 'तत्रैव'?",
+"opts": [
+"Inventing a new place when the marker points back to the same place.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete."
+],
+"ans": 0,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.6/App.J",
+"q": "Which action is a serious error when handling 'समेत'?",
+"opts": [
+"Isolating included places and losing the together-with relation.",
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 0,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.18/App.J",
+"q": "Which action is a serious error when handling 'डीह'?",
+"opts": [
+"Preserving the source form before interpretation.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Confusing ancestral-site evidence with current residence or marriage village."
+],
+"ans": 3,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.6/App.J",
+"q": "Which action is a serious error when handling 'वासी'?",
+"opts": [
+"Preserving the source form before interpretation.",
+"Treating residence or belonging evidence as a surname.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Recording uncertainty openly when the evidence is incomplete."
+],
+"ans": 1,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.18/App.J",
+"q": "Which action is a serious error when handling 'मूलग्राम'?",
+"opts": [
+"Recording uncertainty openly when the evidence is incomplete.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Preserving the source form before interpretation.",
+"Using root village as if it always means present residence."
+],
+"ans": 3,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.32/App.H",
+"q": "Which action is a serious error when handling uncertain readings?",
+"opts": [
+"Recording uncertainty openly when the evidence is incomplete.",
+"Preserving the source form before interpretation.",
+"Hiding uncertainty in fluent prose.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 2,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "App.F",
+"q": "Which action is a serious error when handling a source table?",
+"opts": [
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Recording uncertainty openly when the evidence is incomplete.",
+"Preserving the source form before interpretation.",
+"Beginning with a finished table and forcing the source into it."
+],
+"ans": 3,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "App.F",
+"q": "Which action is a serious error when handling a title inside maternal context?",
+"opts": [
+"Recording uncertainty openly when the evidence is incomplete.",
+"Preserving the source form before interpretation.",
+"Assigning it automatically to the main paternal line.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 2,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "Ch.17",
+"q": "Which action is a serious error when handling place in affinal context?",
+"opts": [
+"Recording uncertainty openly when the evidence is incomplete.",
+"Declaring migration before checking marriage and maternal evidence.",
+"Preserving the source form before interpretation.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table."
+],
+"ans": 1,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Common Errors",
+"src": "App.A",
+"q": "Which action is a serious error when handling normalized forms?",
+"opts": [
+"Recording uncertainty openly when the evidence is incomplete.",
+"Allowing the normalized form to replace the source form.",
+"Linking the item to the relevant person, village, title, number, marriage, or maternal table.",
+"Preserving the source form before interpretation."
+],
+"ans": 1,
+"exp": "The book treats this as a methodological error because it destroys evidence or imposes false certainty."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when an original phrase under a village frame must be preserved before later rows are built?",
+"opts": [
+"Issue Assignment Table.",
+"Master Source Segment Table.",
+"Paternal Spine Table.",
+"Number Anchor Table."
+],
+"ans": 1,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when a name occurrence appears once in a marriage context and once in a village context?",
+"opts": [
+"Person Occurrence Table.",
+"Number Anchor Table.",
+"Master Source Segment Table.",
+"Village Attachment Table."
+],
+"ans": 0,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when two occurrences may be the same person only if multiple markers agree?",
+"opts": [
+"Maternal-Cycle Table.",
+"Paternal Spine Table.",
+"Identity Group Table.",
+"Marriage Node Table."
+],
+"ans": 2,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when a direct father-son chain is supported by सुत?",
+"opts": [
+"Person Occurrence Table.",
+"Paternal Spine Table.",
+"Village Attachment Table.",
+"Identity Group Table."
+],
+"ans": 1,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when a relation through सन्तति connects a branch to a village?",
+"opts": [
+"Branch Continuity Table.",
+"Master Source Segment Table.",
+"Identity Group Table.",
+"Daughter-Line and दौहित्र Table."
+],
+"ans": 0,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when a विवाह event has to be represented as an event record?",
+"opts": [
+"Marriage Node Table.",
+"Master Source Segment Table.",
+"Maternal-Cycle Table.",
+"Branch Continuity Table."
+],
+"ans": 0,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when children may or may not belong to a preceding marriage?",
+"opts": [
+"Number Anchor Table.",
+"Issue Assignment Table.",
+"Title Attachment Table.",
+"Village Attachment Table."
+],
+"ans": 1,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when a formula is explicitly marked मातृक चक्र?",
+"opts": [
+"Paternal Spine Table.",
+"Village Attachment Table.",
+"Maternal-Cycle Table.",
+"Marriage Node Table."
+],
+"ans": 2,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when a दौहित्र has to be linked through a named or implied daughter?",
+"opts": [
+"Daughter-Line and दौहित्र Table.",
+"Title Attachment Table.",
+"Village Attachment Table.",
+"Paternal Spine Table."
+],
+"ans": 0,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when a place may be frame village, root village, spouse-side village, or maternal place?",
+"opts": [
+"Person Occurrence Table.",
+"Village Attachment Table.",
+"Daughter-Line and दौहित्र Table.",
+"Master Source Segment Table."
+],
+"ans": 1,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when a title must remain linked to person, branch, and village context?",
+"opts": [
+"Paternal Spine Table.",
+"Branch Continuity Table.",
+"Title Attachment Table.",
+"Master Source Segment Table."
+],
+"ans": 2,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "Reference Tables",
+"src": "App.F",
+"q": "Which table is most appropriate when a parenthetical number may distinguish a person, branch, marriage, note, or register position?",
+"opts": [
+"Daughter-Line and दौहित्र Table.",
+"Number Anchor Table.",
+"Marriage Node Table.",
+"Person Occurrence Table."
+],
+"ans": 1,
+"exp": "The table system keeps each kind of evidence in the correct analytical frame."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.4/App.A",
+"q": "Which of the following is the best evidence-first sequence in the book's editorial method?",
+"opts": [
+"Source form → segmentation → index/normalization → critical explanation.",
+"Normalized form → deletion of variants → final prose.",
+"Critical explanation → guessed modernization → source form.",
+"Page number → modern spelling → family tree only."
+],
+"ans": 0,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.1",
+"q": "Which option best explains why Panji is not a census?",
+"opts": [
+"It excludes village evidence.",
+"It is arranged only by modern district.",
+"It never records persons.",
+"It records remembered legitimacy, lineage, village, marriage, title, and social continuity rather than enumerating population mechanically."
+],
+"ans": 3,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.1/Ch.29",
+"q": "Which option best explains why a village index is necessary?",
+"opts": [
+"Because all villages are modern postal addresses.",
+"Without it the movement, attachment, and function of lineages across places will be lost.",
+"Because names should be ignored.",
+"Because every place has the same function."
+],
+"ans": 1,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.4",
+"q": "Which option best explains the term 'curated memory' in Panji analysis?",
+"opts": [
+"The record has no social purpose.",
+"The record chooses to preserve a lineage, place, marriage, title, note, or number, and what is unstated is also culturally meaningful.",
+"The record should be rewritten into modern biography.",
+"The record contains only random data."
+],
+"ans": 1,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.7/App.F",
+"q": "Which option best distinguishes branch continuity from direct descent?",
+"opts": [
+"Direct descent never uses terms like सुत or पुत्र.",
+"Branch continuity through सन्तति or अपत्य preserves a line without necessarily proving immediate father-son relation.",
+"Branch continuity always means direct sonship.",
+"Branch continuity has no place field."
+],
+"ans": 1,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Closing Note/App.F",
+"q": "Which option best explains the 'network' model?",
+"opts": [
+"Titles and numbers are removed.",
+"Only modern maps are used.",
+"All evidence is collapsed into a single father-son line.",
+"Direct descent, branch continuity, marriage nodes, maternal cycles, daughter-line bridges, titles, numbers, and place functions are all linked."
+],
+"ans": 3,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.17/19",
+"q": "Which option best describes intellectual geography in the Panji?",
+"opts": [
+"Repeated title-bearing persons in a village may reveal learned or status clusters, but conclusions need repeated evidence.",
+"Every title-bearing cluster proves migration.",
+"Learned titles should be omitted from village analysis.",
+"Titles are always decorative."
+],
+"ans": 0,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.32/App.H",
+"q": "Which option best expresses the book's caution about source uncertainty?",
+"opts": [
+"A fluent paraphrase can replace damaged source text.",
+"Uncertain, possible, unresolved, OCR-suspect, or image-unverified should be marked rather than hidden.",
+"Uncertainty should be removed from tables.",
+"Only certain readings may be recorded."
+],
+"ans": 1,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "App.B",
+"q": "Which option best describes the function of an abbreviation key?",
+"opts": [
+"It replaces source transcription.",
+"It helps preserve abbreviated forms, possible expansions, confidence levels, and affected evidence tables.",
+"It authorizes silent expansion.",
+"It makes context unnecessary."
+],
+"ans": 1,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.6/App.D",
+"q": "Which option best describes a village gazetteer in this method?",
+"opts": [
+"It deletes variant spellings.",
+"It preserves original place forms, normalized forms, source segment, associated persons, connectors, function, variants, confidence, and notes.",
+"It treats every place as origin.",
+"It is only a modern district list."
+],
+"ans": 1,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.30/App.I",
+"q": "Which option best describes a person index in this method?",
+"opts": [
+"It indexes occurrences, source forms, normalized forms, father/branch/title/village/number context, role, and confidence.",
+"It lists names without source segments.",
+"It merges all identical names immediately.",
+"It removes titles from persons."
+],
+"ans": 0,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Ch.31/App.A",
+"q": "Which option best describes a term glossary in this method?",
+"opts": [
+"It records source form, normalized term, function, context, table link, variants, and caution.",
+"It drops source forms after translation.",
+"It gives one fixed meaning for every term.",
+"It replaces close reading."
+],
+"ans": 0,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "App.E",
+"q": "Which option best describes the title and occupation index?",
+"opts": [
+"It contains only modern job titles.",
+"It treats all titles as surnames.",
+"It preserves learned, ritual, literary, legal-social, and status functions attached to persons and places.",
+"It removes titles from genealogy."
+],
+"ans": 2,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "App.H",
+"q": "Which option best describes editorial symbols?",
+"opts": [
+"They prove genealogical identity by themselves.",
+"They replace the source text.",
+"They hide uncertainty.",
+"They mark uncertainty, supplied readings, normalization, source damage, and editorial intervention visibly."
+],
+"ans": 3,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "UPSC-style Statements",
+"src": "Closing Note",
+"q": "Which option best describes the closing note's message?",
+"opts": [
+"Preservation means refusing all explanation.",
+"Readable prose should replace evidence tables.",
+"Decoding is modernization by deletion.",
+"Decoding is preservation: the source must remain visible while its relational system is made readable."
+],
+"ans": 3,
+"exp": "The correct option follows the book's source-preserving and evidence-linked method."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.35",
+"q": "In the Khand 1 index-wise method, how should 'गोत्र, मूल, and मूलग्राम' be handled?",
+"opts": [
+"Modernize it first and drop the source phrase.",
+"Read as a three-layer unit and cross-check before assigning origin, residence, or branch-seat.",
+"Treat it as decorative text outside the manuscript.",
+"Reduce it to an ordinary family-tree item without cross-reference."
+],
+"ans": 1,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.36",
+"q": "In the Khand 1 index-wise method, how should 'लौकित' be handled?",
+"opts": [
+"Handle under the chapter 36 register group with source form and linked tables.",
+"Treat it as decorative text outside the manuscript.",
+"Modernize it first and drop the source phrase.",
+"Reduce it to an ordinary family-tree item without cross-reference."
+],
+"ans": 0,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.36",
+"q": "In the Khand 1 index-wise method, how should 'चौगोला' be handled?",
+"opts": [
+"Enter into number, person, village, and branch/chaugola fields rather than reduce to ordinary prose.",
+"Reduce it to an ordinary family-tree item without cross-reference.",
+"Modernize it first and drop the source phrase.",
+"Treat it as decorative text outside the manuscript."
+],
+"ans": 0,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.36",
+"q": "In the Khand 1 index-wise method, how should 'श्रेणी' be handled?",
+"opts": [
+"Treat as an index/register category requiring linked tables.",
+"Reduce it to an ordinary family-tree item without cross-reference.",
+"Treat it as decorative text outside the manuscript.",
+"Modernize it first and drop the source phrase."
+],
+"ans": 0,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.36",
+"q": "In the Khand 1 index-wise method, how should 'पत्रांक' be handled?",
+"opts": [
+"Preserve as a record/index marker tied to person/place/number evidence.",
+"Reduce it to an ordinary family-tree item without cross-reference.",
+"Modernize it first and drop the source phrase.",
+"Treat it as decorative text outside the manuscript."
+],
+"ans": 0,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.37",
+"q": "In the Khand 1 index-wise method, how should 'विद्वान' be handled?",
+"opts": [
+"Reduce it to an ordinary family-tree item without cross-reference.",
+"Link to title and occupation evidence and not reduce to ordinary genealogy.",
+"Treat it as decorative text outside the manuscript.",
+"Modernize it first and drop the source phrase."
+],
+"ans": 1,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.37",
+"q": "In the Khand 1 index-wise method, how should 'गुरु-शिष्य' be handled?",
+"opts": [
+"Reduce it to an ordinary family-tree item without cross-reference.",
+"Modernize it first and drop the source phrase.",
+"Treat as intellectual/social relation requiring cross-reference beyond descent.",
+"Treat it as decorative text outside the manuscript."
+],
+"ans": 2,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.37",
+"q": "In the Khand 1 index-wise method, how should 'गोत्र-प्रवर' be handled?",
+"opts": [
+"Link lineage authority evidence to the relevant chapter and appendix tools.",
+"Treat it as decorative text outside the manuscript.",
+"Modernize it first and drop the source phrase.",
+"Reduce it to an ordinary family-tree item without cross-reference."
+],
+"ans": 0,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.37",
+"q": "In the Khand 1 index-wise method, how should 'बीजी पुरुष' be handled?",
+"opts": [
+"Modernize it first and drop the source phrase.",
+"Enter as a person occurrence linked to मूल, village form, source number, and confidence label.",
+"Reduce it to an ordinary family-tree item without cross-reference.",
+"Treat it as decorative text outside the manuscript."
+],
+"ans": 1,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+},
+{
+"cat": "Khand 1 Protocol",
+"src": "Ch.38",
+"q": "In the Khand 1 index-wise method, how should 'gramaarambh line' be handled?",
+"opts": [
+"Treat it as decorative text outside the manuscript.",
+"Preserve original phrase, classify place function, and link to person/branch/title/number tables.",
+"Modernize it first and drop the source phrase.",
+"Reduce it to an ordinary family-tree item without cross-reference."
+],
+"ans": 1,
+"exp": "The Khand 1 protocol keeps every index item inside the decoding apparatus."
+}
+];
+let current=0;
+let answers=Array(QDB.length).fill(null);
+let correctCount=0;
+let wrongCount=0;
+const letters=['A','B','C','D'];
+document.getElementById('total').textContent=QDB.length;
+function esc(s){return String(s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m]));}
+function qmap(){
+  const m=document.getElementById('qmap');
+  m.innerHTML='';
+  QDB.forEach((q,i)=>{
+    const b=document.createElement('button');
+    b.className='dot'+(answers[i]===null?'':(answers[i]===q.ans?' ok':' bad'))+(i===current?' cur':'');
+    b.textContent=i+1;
+    b.title='Question '+(i+1);
+    b.onclick=()=>showQ(i);
+    m.appendChild(b);
+  });
+}
+function score(){
+  correctCount=answers.filter((a,i)=>a===QDB[i].ans).length;
+  wrongCount=answers.filter((a,i)=>a!==null && a!==QDB[i].ans).length;
+  document.getElementById('score').innerHTML='✓ '+correctCount+' &nbsp; ✗ '+wrongCount;
+}
+function showQ(i){
+  current=Math.max(0,Math.min(QDB.length-1,i));
+  const q=QDB[current];
+  document.getElementById('cur').textContent=current+1;
+  document.getElementById('bar').style.width=((current+1)/QDB.length*100)+'%';
+  const locked=answers[current]!==null;
+  let out='<article class="qcard"><div class="qmeta"><span>'+esc(q.cat)+' · '+esc(q.src)+'</span><span>Question '+(current+1)+' of '+QDB.length+'</span></div>';
+  out+='<h2 class="qtext">'+esc(q.q)+'</h2><div class="opts">';
+  q.opts.forEach((op,idx)=>{
+    let cls='opt';
+    if(locked){
+      cls+=' locked';
+      if(idx===q.ans) cls+=' correct';
+      if(idx===answers[current] && idx!==q.ans) cls+=' wrong';
+    }
+    out+='<div class="'+cls+'" onclick="choose('+idx+')"><span class="key">'+letters[idx]+'.</span><span class="txt">'+esc(op)+'</span></div>';
+  });
+  out+='</div>';
+  if(locked){
+    const ok=answers[current]===q.ans;
+    out+='<div class="fb show '+(ok?'ok':'bad')+'"><strong>'+(ok?'Correct.':'Incorrect.')+'</strong> '+esc(q.exp)+'</div>';
+  }
+  out+='<div class="navrow"><button class="btn2" onclick="showQ(current-1)">Previous</button><button class="btn" onclick="showQ(current+1)">Next</button><button class="btn2" onclick="finish()">Show Result</button></div></article>';
+  document.getElementById('quiz').innerHTML=out;
+  qmap(); score();
+}
+function choose(idx){
+  if(answers[current]!==null) return;
+  answers[current]=idx;
+  showQ(current);
+}
+function restart(){
+  if(!confirm('Restart the quiz and clear all answers?')) return;
+  answers=Array(QDB.length).fill(null); current=0; correctCount=0; wrongCount=0;
+  document.getElementById('result').style.display='none';
+  showQ(0);
+}
+function finish(){
+  score();
+  const attempted=answers.filter(x=>x!==null).length;
+  const pct=attempted?Math.round(correctCount/QDB.length*100):0;
+  const r=document.getElementById('result');
+  r.style.display='block';
+  r.innerHTML='<h2>Result</h2><div class="big">'+correctCount+' / '+QDB.length+'</div><p>Attempted: '+attempted+' · Incorrect: '+wrongCount+' · Score: '+pct+'%</p><p>Use the numbered map above to revisit incorrect answers.</p>';
+  r.scrollIntoView({behavior:'smooth'});
+}
+showQ(0);
+</script>
+</body>
+</html>

@@ -1,0 +1,2918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jagat Prakash Mall — Videha Standard UPSC Prelims Quiz</title>
+  <link rel="stylesheet" href="assets/css/videha.css">
+  <style>
+    :root {
+      --videha-red:#8b1e1e;
+      --videha-gold:#f8e8b0;
+      --ink:#1f2933;
+      --muted:#667085;
+      --card:#fffdf8;
+      --green:#146c2e;
+      --red:#b42318;
+      --border:#ead9b5;
+      --blue:#0f4c81;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Georgia,'Times New Roman',serif;background:#fff9e8;color:var(--ink);line-height:1.55}
+    .topbar{background:var(--videha-red);color:#fff;padding:10px 16px;text-align:center;font-size:15px}
+    .topbar a{color:#fff;text-decoration:none;font-weight:bold}
+    header{background:linear-gradient(135deg,#fff5d2,#fffdf8);border-bottom:4px solid var(--videha-red);padding:22px 16px;text-align:center}
+    .brand{font-size:30px;font-weight:800;color:var(--videha-red);letter-spacing:.3px}
+    .tag{font-size:15px;color:#4b5563;margin-top:4px}
+    nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;background:#fff;border-bottom:1px solid var(--border);padding:10px}
+    nav a{text-decoration:none;color:var(--videha-red);border:1px solid var(--border);padding:7px 10px;border-radius:999px;background:#fffaf0;font-size:14px}
+    main{max-width:1120px;margin:0 auto;padding:18px}
+    .hero{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(139,30,30,.08);margin-bottom:18px}
+    h1{margin:0 0 8px;color:var(--videha-red);font-size:30px;line-height:1.2}
+    .subtitle{font-size:17px;color:#374151;margin-bottom:10px}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    .pill{border:1px solid var(--border);background:#fff7dc;color:#553816;border-radius:999px;padding:6px 10px;font-size:14px}
+    .quiz-wrap{display:grid;grid-template-columns:1fr 280px;gap:18px}
+    .panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+    .progress-box{margin-bottom:14px}
+    .progress-line{height:12px;background:#f2e5c2;border-radius:999px;overflow:hidden}
+    #bar{height:100%;width:0;background:linear-gradient(90deg,var(--videha-red),#d98c32);transition:.25s}
+    .qhead{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px;color:var(--muted);font-size:14px}
+    .question{font-size:20px;font-weight:700;color:#111827;white-space:pre-line;margin:12px 0 16px}
+    .opts{display:grid;gap:10px}
+    .opt{text-align:left;border:1px solid #d9c99e;background:#fffdf7;border-radius:12px;padding:12px 14px;cursor:pointer;font-size:16px;transition:.15s;color:#1f2933}
+    .opt:hover{border-color:var(--videha-red);background:#fff8e2}
+    .opt.correct{border-color:var(--green);background:#eaf7ee;color:var(--green);font-weight:700}
+    .opt.wrong{border-color:var(--red);background:#fff1f0;color:var(--red);font-weight:700}
+    .feedback{margin-top:14px;padding:12px;border-radius:12px;display:none}
+    .feedback.good{display:block;background:#eaf7ee;border:1px solid #a7d7b5;color:var(--green)}
+    .feedback.bad{display:block;background:#fff1f0;border:1px solid #f5b4ad;color:var(--red)}
+    .exp{margin-top:7px;color:#374151;font-weight:normal}
+    .controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    button.ctrl{border:0;background:var(--videha-red);color:#fff;border-radius:10px;padding:10px 13px;cursor:pointer;font-weight:700}
+    button.ctrl.secondary{background:#694b1f}
+    button.ctrl.light{background:#f4e2b8;color:#442b0e;border:1px solid #d8bd83}
+    .side h2{font-size:18px;margin:0 0 10px;color:var(--videha-red)}
+    .score{font-size:16px;margin-bottom:10px}
+    .map{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-height:460px;overflow:auto;padding-right:4px}
+    .map button{border:1px solid var(--border);background:#fffaf0;border-radius:8px;padding:7px 0;cursor:pointer;color:#5c3514;font-weight:bold}
+    .map button.active{background:var(--videha-red);color:#fff}
+    .map button.done{background:#e7f5ea;border-color:#acd7b6;color:#146c2e}
+    .map button.missed{background:#fff1f0;border-color:#f1aaa4;color:#b42318}
+    .result{display:none;margin-top:14px;border-top:1px solid var(--border);padding-top:14px}
+    .result.show{display:block}
+    .back{text-align:center;margin:22px 0}
+    .back a{color:var(--videha-red);font-weight:bold;text-decoration:none;border:1px solid var(--border);padding:10px 14px;border-radius:999px;background:#fff}
+    footer{background:#3b1d12;color:#fff;text-align:center;padding:18px;font-size:14px;margin-top:24px}
+    @media(max-width:860px){
+      .quiz-wrap{grid-template-columns:1fr}
+      .map{grid-template-columns:repeat(8,1fr);max-height:260px}
+      .brand{font-size:24px}
+      h1{font-size:24px}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">Videha — First Maithili Fortnightly eJournal  |  <a href="https://www.videha.co.in/">www.videha.co.in</a></div>
+  <header>
+    <div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज</div>
+    <div class="tag">Videha eLearning Quiz · UPSC Prelims-level factual practice</div>
+  </header>
+  <nav aria-label="Videha navigation">
+    <a href="https://www.videha.co.in/">विदेह नूतन अंक</a>
+    <a href="https://www.videha.co.in/videha-elearning.htm">विदेह ई-लर्निङ्ग</a>
+    <a href="https://videha-ejournal.github.io/videha-quiz/">विदेह प्रश्नोत्तरी</a>
+    <a href="https://www.videha.co.in/pothi.htm">विदेह पोथी</a>
+  </nav>
+  <main>
+    <section class="hero">
+      <h1>Jagat Prakash Mall — Videha Standard UPSC Prelims Quiz</h1>
+      <div class="subtitle">Hard factual quiz on medieval Maithili literature, Nepalese Maithili tradition, Jagat Prakash Mall’s life, plays, songs, language, and cultural contribution</div>
+      <div class="meta">
+        <span class="pill">Questions: <strong id="totalTop"></strong></span>
+        <span class="pill">Level: UPSC Prelims</span>
+        <span class="pill">Format: Videha Standard</span>
+        <span class="pill">Language: English</span>
+      </div>
+    </section>
+    <section class="quiz-wrap">
+      <div class="panel">
+        <div class="progress-box">
+          <div class="qhead"><span id="qno"></span><span id="progressText"></span></div>
+          <div class="progress-line"><div id="bar"></div></div>
+        </div>
+        <div class="question" id="question"></div>
+        <div class="opts" id="opts"></div>
+        <div id="feedback" class="feedback"></div>
+        <div class="controls">
+          <button class="ctrl light" onclick="firstQ()">First</button>
+          <button class="ctrl light" onclick="prevQ()">Previous</button>
+          <button class="ctrl" onclick="nextQ()">Next</button>
+          <button class="ctrl secondary" onclick="restartQuiz()">Restart</button>
+        </div>
+        <div class="result" id="result"></div>
+      </div>
+      <aside class="panel side">
+        <h2>Score</h2>
+        <div class="score">Correct: <strong id="correctCount">0</strong></div>
+        <div class="score">Attempted: <strong id="attemptedCount">0</strong></div>
+        <div class="score">Current score: <strong id="scorePct">0%</strong></div>
+        <h2>Question Map</h2>
+        <div class="map" id="map"></div>
+      </aside>
+    </section>
+    <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+  </main>
+  <footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
+  <script>
+    const QDB = [
+  {
+    "q": "Who wrote the Sahitya Akademi monograph Jagat Prakash Mall?",
+    "opts": [
+      "Jyotirishwar Thakur",
+      "Jagat Prakash Mall",
+      "Jayakanta Mishra",
+      "Ramdeo Jha"
+    ],
+    "ans": 3,
+    "exp": "The monograph identifies Ramdeo Jha as the author.",
+    "id": 1
+  },
+  {
+    "q": "Which institution published the monograph Jagat Prakash Mall?",
+    "opts": [
+      "Mithila Mandal",
+      "Tirabhukti Publications",
+      "Sahitya Akademi",
+      "Chaukhambha Orientalia"
+    ],
+    "ans": 2,
+    "exp": "The publication page places the monograph under Sahitya Akademi.",
+    "id": 2
+  },
+  {
+    "q": "In which year was the first edition of Jagat Prakash Mall published?",
+    "opts": [
+      "1972",
+      "1949",
+      "1976",
+      "1990"
+    ],
+    "ans": 3,
+    "exp": "The publication page gives the first edition as 1990.",
+    "id": 3
+  },
+  {
+    "q": "The English publication note describes Jagat Prakash Mall as what kind of book?",
+    "opts": [
+      "A grammar of Maithili",
+      "A translation of Vidyapati’s songs",
+      "A monograph on a medieval Maithili poet",
+      "A modern political pamphlet"
+    ],
+    "ans": 2,
+    "exp": "The English note calls it a monograph on a medieval Maithili poet.",
+    "id": 4
+  },
+  {
+    "q": "In the series title printed on the title page, Jagat Prakash Mall belongs to which series?",
+    "opts": [
+      "Chaukhambha Oriental Research Studies",
+      "Videha Standard Series",
+      "Parallel History Series",
+      "Bharatiya Sahityik Nirmata"
+    ],
+    "ans": 3,
+    "exp": "The title page has the heading Bharatiya Sahityik Nirmata.",
+    "id": 5
+  },
+  {
+    "q": "What is the main language of the monograph?",
+    "opts": [
+      "English in Roman script",
+      "Persian in Nastaliq",
+      "Sanskrit in Grantha script",
+      "Maithili in Devanagari script"
+    ],
+    "ans": 3,
+    "exp": "The body text is Maithili printed in Devanagari.",
+    "id": 6
+  },
+  {
+    "q": "Which literary personality is the subject of the monograph?",
+    "opts": [
+      "Chandra Jha",
+      "Ramdeo Jha",
+      "Jagat Prakash Mall",
+      "Vidyapati"
+    ],
+    "ans": 2,
+    "exp": "The book is centered on Jagat Prakash Mall.",
+    "id": 7
+  },
+  {
+    "q": "Which region’s Maithili literary tradition is especially connected with Jagat Prakash Mall in the monograph?",
+    "opts": [
+      "Tamil devotional tradition",
+      "Marathi saint-poet tradition",
+      "Nepalese Maithili tradition",
+      "Persian court chronicle tradition"
+    ],
+    "ans": 2,
+    "exp": "The contents include a section on Nepalese Maithili literature and Jagat Prakash Mall.",
+    "id": 8
+  },
+  {
+    "q": "Which of the following is a main section in the monograph’s contents?",
+    "opts": [
+      "Jagat Prakash Mall’s plays",
+      "Greek poetics",
+      "Modern Hindi journalism",
+      "Bengal Renaissance prose"
+    ],
+    "ans": 0,
+    "exp": "The contents list a section on Jagat Prakash Mall’s plays.",
+    "id": 9
+  },
+  {
+    "q": "Which of the following appears as a major section in the contents?",
+    "opts": [
+      "Modern electoral politics",
+      "Tamil Sangam poetry",
+      "Jagat Prakash Mall’s songs",
+      "Kashmiri Shaiva metaphysics"
+    ],
+    "ans": 2,
+    "exp": "The contents list a section on Jagat Prakash Mall’s songs.",
+    "id": 10
+  },
+  {
+    "q": "Which section comes at the end of the main discussion before the reference list?",
+    "opts": [
+      "Family and background",
+      "Preface",
+      "Biography",
+      "Conclusion"
+    ],
+    "ans": 3,
+    "exp": "The contents place the conclusion before the reference list.",
+    "id": 11
+  },
+  {
+    "q": "The preface presents Jagat Prakash Mall as associated with which medieval royal house?",
+    "opts": [
+      "The Chola house of Tanjore",
+      "The Pala house of Bengal",
+      "The Mughal house of Delhi",
+      "The Malla royal house of Bhaktapur"
+    ],
+    "ans": 3,
+    "exp": "The cover/preface associates him with the Malla ruler-poet milieu of Bhaktapur.",
+    "id": 12
+  },
+  {
+    "q": "According to the cover matter, Jagat Prakash Mall is connected with which approximate life span?",
+    "opts": [
+      "1949–1990 CE",
+      "1200–1265 CE",
+      "1639–1673 CE",
+      "1769–1815 CE"
+    ],
+    "ans": 2,
+    "exp": "The cover matter gives 1639–73 for Jagat Prakash Mall.",
+    "id": 13
+  },
+  {
+    "q": "In addition to being a poet, Jagat Prakash Mall is repeatedly presented as what?",
+    "opts": [
+      "A modern novelist",
+      "A colonial administrator",
+      "A lexicographer only",
+      "A dramatist"
+    ],
+    "ans": 3,
+    "exp": "The book treats him as both poet and playwright/dramatist.",
+    "id": 14
+  },
+  {
+    "q": "Which art field is repeatedly linked with Jagat Prakash Mall’s contribution?",
+    "opts": [
+      "Music",
+      "Cinema",
+      "Modern printing technology",
+      "Oil painting alone"
+    ],
+    "ans": 0,
+    "exp": "The contents and discussion link him with literature, music, and arts.",
+    "id": 15
+  },
+  {
+    "q": "Which of these is a thematic section in the monograph?",
+    "opts": [
+      "Survey of modern newspapers",
+      "Contribution to literature, music, and arts",
+      "Chronology of British India",
+      "History of European drama"
+    ],
+    "ans": 1,
+    "exp": "The contents list his contribution to literature, music, and arts.",
+    "id": 16
+  },
+  {
+    "q": "Which of the following is treated as a background section before the biography?",
+    "opts": [
+      "Modern political manifestos",
+      "Colonial railway routes",
+      "Buddhist councils",
+      "Family and background"
+    ],
+    "ans": 3,
+    "exp": "The contents include a family and background section.",
+    "id": 17
+  },
+  {
+    "q": "Which section follows the biographical section in the contents?",
+    "opts": [
+      "Reference list",
+      "Preface",
+      "Works and language",
+      "Nepalese Maithili literature"
+    ],
+    "ans": 2,
+    "exp": "The contents place works and language after the biography.",
+    "id": 18
+  },
+  {
+    "q": "Which of the following is a work-type prominently associated with Jagat Prakash Mall?",
+    "opts": [
+      "Travelogue",
+      "Newspaper editorial",
+      "Modern short story",
+      "Play"
+    ],
+    "ans": 3,
+    "exp": "The monograph has a full section on plays.",
+    "id": 19
+  },
+  {
+    "q": "Which of the following is another work-type prominently associated with him?",
+    "opts": [
+      "Song",
+      "Statistical report",
+      "Constitutional commentary",
+      "Modern autobiography"
+    ],
+    "ans": 0,
+    "exp": "The monograph has a separate section on songs.",
+    "id": 20
+  },
+  {
+    "q": "What is the dominant cultural frame of many plays discussed in the monograph?",
+    "opts": [
+      "Krishna and Vaishnava narrative material",
+      "Greek tragedy only",
+      "Modern detective fiction",
+      "Industrial labour reform"
+    ],
+    "ans": 0,
+    "exp": "The drama discussion repeatedly connects the plays with Krishna, Bhagavata, Ramayana and related religious narratives.",
+    "id": 21
+  },
+  {
+    "q": "Which source tradition is connected with Krishna-centred dramatic material?",
+    "opts": [
+      "Shrimad Bhagavata",
+      "A railway timetable",
+      "A modern census report",
+      "Arthashastra only"
+    ],
+    "ans": 0,
+    "exp": "The drama section explicitly links Krishna material with the Bhagavata tradition.",
+    "id": 22
+  },
+  {
+    "q": "Which two epics are invoked as background sources for some dramatic material?",
+    "opts": [
+      "Iliad and Odyssey",
+      "Meghaduta and Raghuvamsa only",
+      "Shahnameh and Baburnama",
+      "Ramayana and Mahabharata"
+    ],
+    "ans": 3,
+    "exp": "The plays section refers to Ramayana and Mahabharata narrative backgrounds.",
+    "id": 23
+  },
+  {
+    "q": "Which Sanskrit dramatic theory feature is discussed in relation to the plays?",
+    "opts": [
+      "Free indirect discourse",
+      "Modern proscenium lighting",
+      "Nandi or opening benedictory verse",
+      "Blank verse sonnet"
+    ],
+    "ans": 2,
+    "exp": "The drama discussion speaks of nandi/opening elements in dramatic structure.",
+    "id": 24
+  },
+  {
+    "q": "Which stage convention is repeatedly noted in the drama discussion?",
+    "opts": [
+      "Television commercial break",
+      "Pravesha-gita or entrance song",
+      "Printed footnote apparatus only",
+      "Film montage"
+    ],
+    "ans": 1,
+    "exp": "The drama section discusses entrance songs as a stage device.",
+    "id": 25
+  },
+  {
+    "q": "Which kind of song is also discussed as part of dramatic functioning?",
+    "opts": [
+      "Election campaign song",
+      "Military bugle call",
+      "Nisar song",
+      "Steam-engine song"
+    ],
+    "ans": 2,
+    "exp": "The text treats nisar songs as part of the dramatic apparatus.",
+    "id": 26
+  },
+  {
+    "q": "Which of these is named among Jagat Prakash Mall’s plays?",
+    "opts": [
+      "Decoding the Panji",
+      "Mithila in India",
+      "A History of Maithili Literature",
+      "Prabhavati Haran"
+    ],
+    "ans": 3,
+    "exp": "Prabhavati Haran is listed among his plays.",
+    "id": 27
+  },
+  {
+    "q": "Which of these is named among the plays in the monograph?",
+    "opts": [
+      "Gita Govinda",
+      "Six Ways of Knowing",
+      "Madan Charitra",
+      "Lokayata"
+    ],
+    "ans": 2,
+    "exp": "Madan Charitra appears in the list of plays.",
+    "id": 28
+  },
+  {
+    "q": "Which of these is named among the plays?",
+    "opts": [
+      "Mithila Darpana",
+      "Gitavali",
+      "Madhava Malati",
+      "Prem Rahasya"
+    ],
+    "ans": 2,
+    "exp": "Madhava Malati is discussed as a play.",
+    "id": 29
+  },
+  {
+    "q": "Which of the following is a named song collection associated with Jagat Prakash Mall?",
+    "opts": [
+      "Gitavali",
+      "Lilavati",
+      "Rajatarangini",
+      "Raghuvamsa"
+    ],
+    "ans": 0,
+    "exp": "Gitavali is described in the song-collection discussion.",
+    "id": 30
+  },
+  {
+    "q": "Which of these is a named song collection in the monograph?",
+    "opts": [
+      "Git Panchak",
+      "Tirhuta grammar",
+      "Mughal farman",
+      "Modern Hindi essay"
+    ],
+    "ans": 0,
+    "exp": "Git Panchak appears in the song-collection section.",
+    "id": 31
+  },
+  {
+    "q": "Which of these is a named collection or group in the song discussion?",
+    "opts": [
+      "Kavyamala",
+      "New Series Letters",
+      "Panchasamuchchaya",
+      "Vartaman Bharat"
+    ],
+    "ans": 2,
+    "exp": "Panchasamuchchaya is listed in the discussion of song collections.",
+    "id": 32
+  },
+  {
+    "q": "Which song group is explicitly connected with the ten incarnations?",
+    "opts": [
+      "Nandi song",
+      "Nagar-varnana",
+      "Dashavatar song",
+      "Duti-nagar samvad"
+    ],
+    "ans": 2,
+    "exp": "Dashavatar is one of the identified song groups.",
+    "id": 33
+  },
+  {
+    "q": "Which of the following is a song category listed in the monograph?",
+    "opts": [
+      "Sonnet cycle",
+      "Blank verse ode",
+      "Epistolary novel",
+      "Nandi-gita"
+    ],
+    "ans": 3,
+    "exp": "Nandi-gita appears in the topic-wise song classification.",
+    "id": 34
+  },
+  {
+    "q": "Which of these is a song category in the list of twenty?",
+    "opts": [
+      "Modern ghazal only",
+      "Purushadhik gita",
+      "Folk census roll",
+      "Court diary"
+    ],
+    "ans": 1,
+    "exp": "Purushadhik gita is listed in the song-category enumeration.",
+    "id": 35
+  },
+  {
+    "q": "Which of these appears in the list of song categories?",
+    "opts": [
+      "Stri-adhik gita",
+      "Market-price song",
+      "Steamship song",
+      "Railway anthem"
+    ],
+    "ans": 0,
+    "exp": "Stri-adhik gita is one of the listed categories.",
+    "id": 36
+  },
+  {
+    "q": "Which of these is a listed song category?",
+    "opts": [
+      "Akrura biography",
+      "Purush-viraha gita",
+      "Ritual manual only",
+      "Coin catalogue"
+    ],
+    "ans": 1,
+    "exp": "Purush-viraha gita is explicitly listed.",
+    "id": 37
+  },
+  {
+    "q": "Which of the following is a dialogue-type song category?",
+    "opts": [
+      "Court judgement",
+      "Dharma-sutra commentary",
+      "Duti-Kalavati samvad",
+      "Copper-plate charter"
+    ],
+    "ans": 2,
+    "exp": "Duti-Kalavati samvad is listed in the song categories.",
+    "id": 38
+  },
+  {
+    "q": "Which other dialogue-type song category appears in the list?",
+    "opts": [
+      "Guild and weights",
+      "Trade and commerce",
+      "Duti-Nagar samvad",
+      "Nagarjuna debate"
+    ],
+    "ans": 2,
+    "exp": "Duti-Nagar samvad is a song category in the list.",
+    "id": 39
+  },
+  {
+    "q": "Which of the following is a song category in the monograph?",
+    "opts": [
+      "Tulsidas",
+      "Panini",
+      "Kalidasa",
+      "Krishna"
+    ],
+    "ans": 3,
+    "exp": "Krishna is a category in the song classification.",
+    "id": 40
+  },
+  {
+    "q": "Which rasa/feeling category is named in the song list?",
+    "opts": [
+      "Karuna only",
+      "Bhayanak",
+      "Shanta only",
+      "Hasya only"
+    ],
+    "ans": 1,
+    "exp": "Bhayanak is one of the enumerated categories.",
+    "id": 41
+  },
+  {
+    "q": "Which category in the song list is connected with city description?",
+    "opts": [
+      "Varnaratnakara",
+      "Nagar-varnana",
+      "Kamsa-vadha",
+      "Rajatarangini"
+    ],
+    "ans": 1,
+    "exp": "Nagar-varnana is a listed category.",
+    "id": 42
+  },
+  {
+    "q": "Which category in the song list is seasonal or monthly in character?",
+    "opts": [
+      "Kirtaniya",
+      "Barahmasa",
+      "Naiyayika",
+      "Dvipada"
+    ],
+    "ans": 1,
+    "exp": "Barahmasa is listed among the song categories.",
+    "id": 43
+  },
+  {
+    "q": "Which song category is connected with war?",
+    "opts": [
+      "Prem-rasa gita",
+      "Nandi-gita",
+      "Nagar-varnana",
+      "Yuddha gita"
+    ],
+    "ans": 3,
+    "exp": "Yuddha gita appears in the list of song categories.",
+    "id": 44
+  },
+  {
+    "q": "Which category is connected with divine feeling?",
+    "opts": [
+      "Nagar-varnana",
+      "Purush-viraha",
+      "Devabhav gita",
+      "Duti-Kalavati samvad"
+    ],
+    "ans": 2,
+    "exp": "Devabhav gita is explicitly listed.",
+    "id": 45
+  },
+  {
+    "q": "What language situation does the monograph stress for Jagat Prakash Mall’s works?",
+    "opts": [
+      "Only Tamil literary idiom",
+      "A mixed literary environment including Maithili, Sanskrit, Newari/Nepali and Braj-Awadhi elements",
+      "Only modern English",
+      "Only Persian court language"
+    ],
+    "ans": 1,
+    "exp": "The language discussion emphasizes a multilingual literary situation.",
+    "id": 46
+  },
+  {
+    "q": "How is the language of many songs characterized?",
+    "opts": [
+      "Purely administrative",
+      "Only legalistic",
+      "Completely scientific",
+      "Accessible, musical and emotionally expressive"
+    ],
+    "ans": 3,
+    "exp": "The book treats his songs as lyrical, musical and emotionally charged.",
+    "id": 47
+  },
+  {
+    "q": "What does the conclusion say about the broad nature of his dramatic and poetic work?",
+    "opts": [
+      "It is only a grammar",
+      "It is only a land-revenue manual",
+      "It is only a military chronicle",
+      "It joins devotional, romantic and life-experience elements"
+    ],
+    "ans": 3,
+    "exp": "The conclusion stresses bhakti, shringara and lived experience rather than one narrow genre.",
+    "id": 48
+  },
+  {
+    "q": "Which mode of expression is central to both his plays and songs?",
+    "opts": [
+      "Mathematical proof",
+      "Modern newspaper satire only",
+      "Colonial prose report",
+      "Song-based dramatic expression"
+    ],
+    "ans": 3,
+    "exp": "The monograph repeatedly shows songs functioning inside dramatic structures.",
+    "id": 49
+  },
+  {
+    "q": "Which of the following is a main reference-list item visible at the end?",
+    "opts": [
+      "A History of Maithili Literature by Dr. Jayakanta Mishra",
+      "Arthashastra edited by Grierson",
+      "The Republic by Plato",
+      "The Origin of Species by Darwin"
+    ],
+    "ans": 0,
+    "exp": "The reference list includes A History of Maithili Literature by Dr. Jayakanta Mishra.",
+    "id": 50
+  },
+  {
+    "q": "Which text by Dr. Suniti Kumar Chatterji is cited in the reference list?",
+    "opts": [
+      "Jayadeva, Maithili translation",
+      "Indian Museum Coins",
+      "Mithila in India",
+      "Buddhist Logic"
+    ],
+    "ans": 0,
+    "exp": "The reference list includes Jayadeva with Maithili translation by Dr. Suniti Kumar Chatterji.",
+    "id": 51
+  },
+  {
+    "q": "Which work by D. R. Regmi appears in the reference list?",
+    "opts": [
+      "Sangit Darpan",
+      "Medieval Nepal, Part-II",
+      "Nadiar Kahini",
+      "Mithila in India"
+    ],
+    "ans": 1,
+    "exp": "The reference list includes Medieval Nepal, Part-II by D. R. Regmi.",
+    "id": 52
+  },
+  {
+    "q": "Which of these is a reference-list item by Ramdev Jha himself?",
+    "opts": [
+      "Mithili Natakk Udbhav O Vikas",
+      "Creative India",
+      "Indian Logic and Atomism",
+      "Positive Science of Ancient Hindus"
+    ],
+    "ans": 0,
+    "exp": "The reference list includes a work on Maithili drama by Ramdev Jha.",
+    "id": 53
+  },
+  {
+    "q": "Which archive is connected with several unpublished works in the monograph’s final list?",
+    "opts": [
+      "National Archives, Kathmandu",
+      "British Library, London",
+      "Bodleian Library, Oxford",
+      "Library of Congress, Washington"
+    ],
+    "ans": 0,
+    "exp": "The final list repeatedly mentions National Archives, Kathmandu numbers.",
+    "id": 54
+  },
+  {
+    "q": "Which unpublished item is listed in the final source list?",
+    "opts": [
+      "Mithila in India",
+      "Parallel History",
+      "Panji Genealogy",
+      "Prabhavati Haran"
+    ],
+    "ans": 3,
+    "exp": "Prabhavati Haran appears in the list of unpublished works.",
+    "id": 55
+  },
+  {
+    "q": "Which unpublished item is listed with archival references?",
+    "opts": [
+      "Varna Ratnakara",
+      "Sahitya Darpana",
+      "Gitagovinda",
+      "Krishna Charit Natak"
+    ],
+    "ans": 3,
+    "exp": "Krishna Charit Natak is named in the final list of unpublished works.",
+    "id": 56
+  },
+  {
+    "q": "Which unpublished item is listed at the end?",
+    "opts": [
+      "Preface",
+      "Git Panchak",
+      "Bhasha-prayog",
+      "Nagar-varnana only"
+    ],
+    "ans": 1,
+    "exp": "Git Panchak appears in the final list of unpublished works.",
+    "id": 57
+  },
+  {
+    "q": "Which unpublished item is associated with Nala in the final list?",
+    "opts": [
+      "Nagar-varnana",
+      "Narayan Chowk",
+      "Nalcharit/Nalopakhyan",
+      "Nandi-gita"
+    ],
+    "ans": 2,
+    "exp": "The final list includes Nalcharit/Nalopakhyan.",
+    "id": 58
+  },
+  {
+    "q": "Which unpublished item is associated with Narada in the final list?",
+    "opts": [
+      "Nagar-varnana",
+      "Nala-charita",
+      "Naradiya gita",
+      "Nandi-gita"
+    ],
+    "ans": 2,
+    "exp": "Naradiya gita appears in the final unpublished list.",
+    "id": 59
+  },
+  {
+    "q": "Which unpublished item is associated with nana-raga songs?",
+    "opts": [
+      "Nana-ranga gita sangrah/Nana-raga gita",
+      "Madan Charitra",
+      "Prabhavati Haran",
+      "Madhava Malati"
+    ],
+    "ans": 0,
+    "exp": "The final list includes a nana-raga/nana-ranga song collection.",
+    "id": 60
+  },
+  {
+    "q": "Which unpublished item is linked with Parijat Haran?",
+    "opts": [
+      "Devabhav gita",
+      "Parijat Haran Natak",
+      "Git Panchak",
+      "Barahmasa"
+    ],
+    "ans": 1,
+    "exp": "Parijat Haran Natak appears in the final source list.",
+    "id": 61
+  },
+  {
+    "q": "Which statement best captures the monograph’s treatment of Jagat Prakash Mall?",
+    "opts": [
+      "It treats him only as a Sanskrit grammarian",
+      "It treats him only as a modern historian",
+      "It treats him as ruler, poet, dramatist and cultural patron",
+      "It treats him only as a colonial official"
+    ],
+    "ans": 2,
+    "exp": "The book repeatedly frames him as ruler, poet, dramatist and patron.",
+    "id": 62
+  },
+  {
+    "q": "Which cultural geography is central to the book?",
+    "opts": [
+      "Only the Deccan plateau",
+      "Only Tamilakam",
+      "The interaction of Mithila and Nepal",
+      "Only Mughal Delhi"
+    ],
+    "ans": 2,
+    "exp": "The monograph’s chapters emphasize Nepalese Maithili literature and Mithila–Nepal links.",
+    "id": 63
+  },
+  {
+    "q": "Which city/kingdom is most closely tied to Jagat Prakash Mall in the discussion?",
+    "opts": [
+      "Pune",
+      "Madurai",
+      "Ahmedabad",
+      "Bhaktapur"
+    ],
+    "ans": 3,
+    "exp": "The monograph connects him with Bhaktapur and the Malla court.",
+    "id": 64
+  },
+  {
+    "q": "Which Nepal valley polities are repeatedly relevant in the background discussion?",
+    "opts": [
+      "Bhaktapur, Kantipur/Kathmandu and Patan/Lalitpur",
+      "Ujjain, Vidisha and Sanchi",
+      "Kashi, Ayodhya and Mathura",
+      "Delhi, Agra and Lahore"
+    ],
+    "ans": 0,
+    "exp": "The text discusses the Malla-period valley polities such as Bhaktapur, Kantipur and Patan.",
+    "id": 65
+  },
+  {
+    "q": "Which historical event marks the end-point of the Malla background in the discussion?",
+    "opts": [
+      "The Battle of Plassey",
+      "The 1769 conquest/absorption by Prithvi Narayan Shah",
+      "The revolt of 1857",
+      "The founding of Patna University"
+    ],
+    "ans": 1,
+    "exp": "The Nepalese Maithili background section refers to 1769 and Prithvi Narayan Shah.",
+    "id": 66
+  },
+  {
+    "q": "Which ruler is mentioned in the background sequence after Jagat Prakash Mall?",
+    "opts": [
+      "Samudragupta",
+      "Ashoka",
+      "Harsha",
+      "Bhupatindra Malla"
+    ],
+    "ans": 3,
+    "exp": "The background discussion lists later Malla rulers including Bhupatindra Malla.",
+    "id": 67
+  },
+  {
+    "q": "Which later Malla ruler is also mentioned in the sequence?",
+    "opts": [
+      "Kanishka",
+      "Akbar",
+      "Ranjit Malla",
+      "Rajaraja Chola"
+    ],
+    "ans": 2,
+    "exp": "Ranjit Malla appears in the later Malla sequence.",
+    "id": 68
+  },
+  {
+    "q": "Which Kantipur ruler is referred to in comparison with Jagat Prakash Mall?",
+    "opts": [
+      "Krishnadevaraya",
+      "Sher Shah",
+      "Pratap Malla",
+      "Raja Bhoja"
+    ],
+    "ans": 2,
+    "exp": "The background and literary discussion compare him with Pratap Malla.",
+    "id": 69
+  },
+  {
+    "q": "Which Patan ruler is mentioned in relation to contemporary political background?",
+    "opts": [
+      "Nala",
+      "Siddhi Narasimha Malla",
+      "Bimbisara",
+      "Harsha"
+    ],
+    "ans": 1,
+    "exp": "Siddhi Narasimha Malla of Patan/Lalitpur appears in the background discussion.",
+    "id": 70
+  },
+  {
+    "q": "Which form of cultural patronage is linked with the courts in the monograph?",
+    "opts": [
+      "Only printing newspapers",
+      "Support for poets, dramatists, music and performance",
+      "Only minting coins",
+      "Only building railways"
+    ],
+    "ans": 1,
+    "exp": "The book emphasizes courtly support for literature, music, drama and art.",
+    "id": 71
+  },
+  {
+    "q": "How does the monograph treat available biographical material on Jagat Prakash Mall?",
+    "opts": [
+      "As entirely modern and printed",
+      "As irrelevant to literary study",
+      "As abundant and fully certain",
+      "As scarce and often indirect"
+    ],
+    "ans": 3,
+    "exp": "The preface and biography note difficulty in reconstructing life from limited sources.",
+    "id": 72
+  },
+  {
+    "q": "Which personal circumstance is repeatedly highlighted in the biography?",
+    "opts": [
+      "A long exile in Europe",
+      "A monastic life in Tibet",
+      "A career in British civil service",
+      "Early loss of parents and difficult childhood"
+    ],
+    "ans": 3,
+    "exp": "The biography emphasizes parental loss and childhood difficulty.",
+    "id": 73
+  },
+  {
+    "q": "What is the stated role of songs in the plays?",
+    "opts": [
+      "They are only decorative page numbers",
+      "They replace all dialogue completely",
+      "They are unrelated quotations",
+      "They carry emotion, movement and stage situation"
+    ],
+    "ans": 3,
+    "exp": "The drama section treats songs as functional within performance.",
+    "id": 74
+  },
+  {
+    "q": "Which type of language does the drama discussion say appears beside Maithili?",
+    "opts": [
+      "Sanskrit",
+      "Arabic only",
+      "Latin",
+      "Greek"
+    ],
+    "ans": 0,
+    "exp": "The drama discussion repeatedly notes Sanskrit use, especially in formal passages.",
+    "id": 75
+  },
+  {
+    "q": "Which local language is mentioned as part of the multilingual situation?",
+    "opts": [
+      "Russian",
+      "Newari/Nepali",
+      "German",
+      "Portuguese"
+    ],
+    "ans": 1,
+    "exp": "The language section discusses local Nepali/Newari elements.",
+    "id": 76
+  },
+  {
+    "q": "Which north Indian literary language stream is also mentioned in the language discussion?",
+    "opts": [
+      "Classical Tamil",
+      "Braj-Awadhi",
+      "Modern French",
+      "Old Norse"
+    ],
+    "ans": 1,
+    "exp": "The language discussion includes Braj-Awadhi elements.",
+    "id": 77
+  },
+  {
+    "q": "Which of these is NOT a main work-type foregrounded for Jagat Prakash Mall?",
+    "opts": [
+      "Modern novel",
+      "Song",
+      "Play",
+      "Devotional lyric"
+    ],
+    "ans": 0,
+    "exp": "The book foregrounds plays and songs, not the modern novel.",
+    "id": 78
+  },
+  {
+    "q": "Which of the following pairs is correctly matched?",
+    "opts": [
+      "Newari/Nepali — epic source for dramatic material",
+      "Ramayana — female-separation song category",
+      "Ramayana — song collection",
+      "Ramayana — epic source for dramatic material"
+    ],
+    "ans": 3,
+    "exp": "Ramayana is matched in the source with epic source for dramatic material.",
+    "id": 79
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (1)",
+    "opts": [
+      "Plays — separate major section",
+      "Bhakti — separate major section",
+      "Ruler-poet — separate major section",
+      "Newari/Nepali — separate major section"
+    ],
+    "ans": 0,
+    "exp": "Plays is treated in the source as separate major section.",
+    "id": 80
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (2)",
+    "opts": [
+      "Prithvi Narayan Shah — repository connected with unpublished works",
+      "National Archives, Kathmandu — repository connected with unpublished works",
+      "National Archives, Kathmandu — play listed in the monograph",
+      "National Archives, Kathmandu — epic source for dramatic material"
+    ],
+    "ans": 1,
+    "exp": "National Archives, Kathmandu is treated in the source as repository connected with unpublished works.",
+    "id": 81
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (3)",
+    "opts": [
+      "Siddhi Narasimha Malla — Patan/Lalitpur ruler mentioned in background",
+      "Ramayana — Patan/Lalitpur ruler mentioned in background",
+      "Nala story — Patan/Lalitpur ruler mentioned in background",
+      "1639–1673 CE — Patan/Lalitpur ruler mentioned in background"
+    ],
+    "ans": 0,
+    "exp": "Siddhi Narasimha Malla is treated in the source as Patan/Lalitpur ruler mentioned in background.",
+    "id": 82
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (4)",
+    "opts": [
+      "Parijat Haran Natak — local language element in the multilingual setting",
+      "Devabhav gita — local language element in the multilingual setting",
+      "Duti-Kalavati samvad — local language element in the multilingual setting",
+      "Newari/Nepali — local language element in the multilingual setting"
+    ],
+    "ans": 3,
+    "exp": "Newari/Nepali is treated in the source as local language element in the multilingual setting.",
+    "id": 83
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (5)",
+    "opts": [
+      "Jagat Prakash Mall — historical frame of Nepalese Maithili literary growth",
+      "Malla period — play listed in the monograph",
+      "Malla period — historical frame of Nepalese Maithili literary growth",
+      "Malla period — epic source for dramatic material"
+    ],
+    "ans": 2,
+    "exp": "Malla period is treated in the source as historical frame of Nepalese Maithili literary growth.",
+    "id": 84
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (6)",
+    "opts": [
+      "Jagat Prakash Mall — medieval Maithili poet-dramatist under discussion",
+      "Shrimad Bhagavata — medieval Maithili poet-dramatist under discussion",
+      "Parijat Haran Natak — medieval Maithili poet-dramatist under discussion",
+      "Pratap Malla — medieval Maithili poet-dramatist under discussion"
+    ],
+    "ans": 0,
+    "exp": "Jagat Prakash Mall is treated in the source as medieval Maithili poet-dramatist under discussion.",
+    "id": 85
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (7)",
+    "opts": [
+      "Maithili — main literary language of the monograph and songs",
+      "Krishna Charit Natak — main literary language of the monograph and songs",
+      "Ruler-poet — main literary language of the monograph and songs",
+      "Dr. Jayakanta Mishra — main literary language of the monograph and songs"
+    ],
+    "ans": 0,
+    "exp": "Maithili is treated in the source as main literary language of the monograph and songs.",
+    "id": 86
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (8)",
+    "opts": [
+      "Kamsa-vadha/Krishna-charita — Krishna dramatic narrative sphere",
+      "Kamsa-vadha/Krishna-charita — associated with the 1769 end-point of the Malla background",
+      "Kamsa-vadha/Krishna-charita — play listed in the monograph",
+      "Kamsa-vadha/Krishna-charita — later Malla ruler in the sequence"
+    ],
+    "ans": 0,
+    "exp": "Kamsa-vadha/Krishna-charita is treated in the source as Krishna dramatic narrative sphere.",
+    "id": 87
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (9)",
+    "opts": [
+      "Prithvi Narayan Shah — play listed in the monograph",
+      "Mahabharat Natak — play listed in the monograph",
+      "Mahabharat Natak — fearful rasa/feeling category in the song list",
+      "Mahabharat Natak — linked with Gitagovinda-style lyric influence"
+    ],
+    "ans": 1,
+    "exp": "Mahabharat Natak is treated in the source as play listed in the monograph.",
+    "id": 88
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (10)",
+    "opts": [
+      "Malati-Madhava material — play listed in the monograph",
+      "Sanskrit — background for Madhava Malati",
+      "Temple and stage patronage — background for Madhava Malati",
+      "Malati-Madhava material — background for Madhava Malati"
+    ],
+    "ans": 3,
+    "exp": "Malati-Madhava material is treated in the source as background for Madhava Malati.",
+    "id": 89
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (11)",
+    "opts": [
+      "D. R. Regmi — play listed in the monograph",
+      "D. R. Regmi — author cited for Medieval Nepal",
+      "D. R. Regmi — unpublished item listed at the end",
+      "Siddhi Narasimha Malla — author cited for Medieval Nepal"
+    ],
+    "ans": 1,
+    "exp": "D. R. Regmi is treated in the source as author cited for Medieval Nepal.",
+    "id": 90
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (12)",
+    "opts": [
+      "Krishna Charit Natak — epic source for dramatic material",
+      "Gita Govinda — unpublished item listed at the end",
+      "Krishna Charit Natak — unpublished item listed at the end",
+      "Nala story — unpublished item listed at the end"
+    ],
+    "ans": 2,
+    "exp": "Krishna Charit Natak is treated in the source as unpublished item listed at the end.",
+    "id": 91
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (13)",
+    "opts": [
+      "Jayadeva — play listed in the monograph",
+      "Courtly Maithili — play listed in the monograph",
+      "Madhava Malati — play listed in the monograph",
+      "Madhava Malati — major earlier inspiration in Maithili literary tradition"
+    ],
+    "ans": 2,
+    "exp": "Madhava Malati is treated in the source as play listed in the monograph.",
+    "id": 92
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (14)",
+    "opts": [
+      "Pratap Malla — part of the cultural-artistic contribution",
+      "Pratap Malla — Kantipur ruler used in comparison/background",
+      "Mahabharat Natak — Kantipur ruler used in comparison/background",
+      "Pratap Malla — source tradition for Krishna-centred drama"
+    ],
+    "ans": 1,
+    "exp": "Pratap Malla is treated in the source as Kantipur ruler used in comparison/background.",
+    "id": 93
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (15)",
+    "opts": [
+      "Bhaktapur — seasonal/monthly song category",
+      "Bhaktapur — Malla court context connected with Jagat Prakash Mall",
+      "Devabhav gita — Malla court context connected with Jagat Prakash Mall",
+      "Preface — Malla court context connected with Jagat Prakash Mall"
+    ],
+    "ans": 1,
+    "exp": "Bhaktapur is treated in the source as Malla court context connected with Jagat Prakash Mall.",
+    "id": 94
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (16)",
+    "opts": [
+      "Krishna Charit Natak — seasonal/monthly song category",
+      "Barahmasa — author of the monograph",
+      "Barahmasa — seasonal/monthly song category",
+      "Barahmasa — male-separation song category"
+    ],
+    "ans": 2,
+    "exp": "Barahmasa is treated in the source as seasonal/monthly song category.",
+    "id": 95
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (17)",
+    "opts": [
+      "1639–1673 CE — date range associated with Jagat Prakash Mall in the cover matter",
+      "Prithvi Narayan Shah — date range associated with Jagat Prakash Mall in the cover matter",
+      "1639–1673 CE — series of the monograph",
+      "1639–1673 CE — opening/benedictory song category"
+    ],
+    "ans": 0,
+    "exp": "1639–1673 CE is treated in the source as date range associated with Jagat Prakash Mall in the cover matter.",
+    "id": 96
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (18)",
+    "opts": [
+      "Jyotirishwar — play concerning love/romantic narrative",
+      "Madan-Charitra — date range associated with Jagat Prakash Mall in the cover matter",
+      "Madan-Charitra — first edition year",
+      "Madan-Charitra — play concerning love/romantic narrative"
+    ],
+    "ans": 3,
+    "exp": "Madan-Charitra is treated in the source as play concerning love/romantic narrative.",
+    "id": 97
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (19)",
+    "opts": [
+      "Duti-Kalavati samvad — part of the cultural-artistic contribution",
+      "Prithvi Narayan Shah — part of the cultural-artistic contribution",
+      "Temple and stage patronage — play listed in the monograph",
+      "Temple and stage patronage — part of the cultural-artistic contribution"
+    ],
+    "ans": 3,
+    "exp": "Temple and stage patronage is treated in the source as part of the cultural-artistic contribution.",
+    "id": 98
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (20)",
+    "opts": [
+      "Temple and stage patronage — linked with Jayadeva in the reference list",
+      "Dr. Suniti Kumar Chatterji — linked with Jayadeva in the reference list",
+      "Dr. Suniti Kumar Chatterji — series of the monograph",
+      "Malla period — linked with Jayadeva in the reference list"
+    ],
+    "ans": 1,
+    "exp": "Dr. Suniti Kumar Chatterji is treated in the source as linked with Jayadeva in the reference list.",
+    "id": 99
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (21)",
+    "opts": [
+      "Jayadeva — separate major section",
+      "Jayadeva — major romantic/aesthetic element in the works",
+      "Jayadeva — linked with Gitagovinda-style lyric influence",
+      "Kamsa-vadha/Krishna-charita — linked with Gitagovinda-style lyric influence"
+    ],
+    "ans": 2,
+    "exp": "Jayadeva is treated in the source as linked with Gitagovinda-style lyric influence.",
+    "id": 100
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (22)",
+    "opts": [
+      "Mahabharata — dialogue-type song category",
+      "Duti-Kalavati samvad — author cited for Medieval Nepal",
+      "Duti-Kalavati samvad — dialogue-type song category",
+      "Duti-Kalavati samvad — main literary language of the monograph and songs"
+    ],
+    "ans": 2,
+    "exp": "Duti-Kalavati samvad is treated in the source as dialogue-type song category.",
+    "id": 101
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (23)",
+    "opts": [
+      "Git-panchak — musical frame used for songs",
+      "Git-panchak — dialogue-type song category",
+      "Git-panchak — seasonal/monthly song category",
+      "Git-panchak — small song cluster mentioned in the source list"
+    ],
+    "ans": 3,
+    "exp": "Git-panchak is treated in the source as small song cluster mentioned in the source list.",
+    "id": 102
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (24)",
+    "opts": [
+      "Siddhi Narasimha Malla — author cited for A History of Maithili Literature",
+      "Newari/Nepali — author cited for A History of Maithili Literature",
+      "Dr. Jayakanta Mishra — literary environment of Nepalese Maithili",
+      "Dr. Jayakanta Mishra — author cited for A History of Maithili Literature"
+    ],
+    "ans": 3,
+    "exp": "Dr. Jayakanta Mishra is treated in the source as author cited for A History of Maithili Literature.",
+    "id": 103
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (25)",
+    "opts": [
+      "Prabhavati Haran — song collection",
+      "Gitavali — song collection",
+      "Preface — song collection",
+      "Bhupatindra Malla — song collection"
+    ],
+    "ans": 1,
+    "exp": "Gitavali is treated in the source as song collection.",
+    "id": 104
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (26)",
+    "opts": [
+      "Preface — publisher of the monograph",
+      "Sahitya Akademi — publisher of the monograph",
+      "Sahitya Akademi — earlier Maithili literary figure invoked in the background",
+      "Gita Govinda — publisher of the monograph"
+    ],
+    "ans": 1,
+    "exp": "Sahitya Akademi is treated in the source as publisher of the monograph.",
+    "id": 105
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (27)",
+    "opts": [
+      "1990 — play listed in the monograph",
+      "1990 — background for Madhava Malati",
+      "1990 — first edition year",
+      "1990 — historical frame of Nepalese Maithili literary growth"
+    ],
+    "ans": 2,
+    "exp": "1990 is treated in the source as first edition year.",
+    "id": 106
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (28)",
+    "opts": [
+      "Git Panchak — song collection",
+      "Purush-viraha gita — song collection",
+      "Git Panchak — epic source for dramatic material",
+      "Bharatiya Sahityik Nirmata — song collection"
+    ],
+    "ans": 0,
+    "exp": "Git Panchak is treated in the source as song collection.",
+    "id": 107
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (29)",
+    "opts": [
+      "Bharatiya Sahityik Nirmata — author cited for A History of Maithili Literature",
+      "Pravesha-gita — series of the monograph",
+      "Bharatiya Sahityik Nirmata — linked with Gitagovinda-style lyric influence",
+      "Bharatiya Sahityik Nirmata — series of the monograph"
+    ],
+    "ans": 3,
+    "exp": "Bharatiya Sahityik Nirmata is treated in the source as series of the monograph.",
+    "id": 108
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (30)",
+    "opts": [
+      "Shringara — Patan/Lalitpur ruler mentioned in background",
+      "Shringara — author cited for Medieval Nepal",
+      "Maithili — major romantic/aesthetic element in the works",
+      "Shringara — major romantic/aesthetic element in the works"
+    ],
+    "ans": 3,
+    "exp": "Shringara is treated in the source as major romantic/aesthetic element in the works.",
+    "id": 109
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (31)",
+    "opts": [
+      "Dashavatar song — song group connected with ten incarnations",
+      "1639–1673 CE — song group connected with ten incarnations",
+      "Git Panchak — song group connected with ten incarnations",
+      "Dashavatar song — source tradition for Krishna-centred drama"
+    ],
+    "ans": 0,
+    "exp": "Dashavatar song is treated in the source as song group connected with ten incarnations.",
+    "id": 110
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (32)",
+    "opts": [
+      "Nandi-gita — opening/benedictory song category",
+      "Nandi-gita — earlier Maithili prose/literary landmark",
+      "Nandi-gita — play concerning love/romantic narrative",
+      "Nandi-gita — major devotional element in the works"
+    ],
+    "ans": 0,
+    "exp": "Nandi-gita is treated in the source as opening/benedictory song category.",
+    "id": 111
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (33)",
+    "opts": [
+      "Jyotirishwar — earlier Maithili literary figure invoked in the background",
+      "Jyotirishwar — opening authorial statement",
+      "Sanskrit — earlier Maithili literary figure invoked in the background",
+      "Jyotirishwar — Malla court context connected with Jagat Prakash Mall"
+    ],
+    "ans": 0,
+    "exp": "Jyotirishwar is treated in the source as earlier Maithili literary figure invoked in the background.",
+    "id": 112
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (34)",
+    "opts": [
+      "Works and language — section after the biography",
+      "Works and language — opening/benedictory song category",
+      "Nala story — section after the biography",
+      "Works and language — repository connected with unpublished works"
+    ],
+    "ans": 0,
+    "exp": "Works and language is treated in the source as section after the biography.",
+    "id": 113
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (35)",
+    "opts": [
+      "Ruler-poet — composite identity of Jagat Prakash Mall",
+      "Ruler-poet — section after the biography",
+      "Raga-ragini — composite identity of Jagat Prakash Mall",
+      "Ruler-poet — Malla court context connected with Jagat Prakash Mall"
+    ],
+    "ans": 0,
+    "exp": "Ruler-poet is treated in the source as composite identity of Jagat Prakash Mall.",
+    "id": 114
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (36)",
+    "opts": [
+      "Yuddha gita — linked with Gitagovinda-style lyric influence",
+      "Jayadeva — war song category",
+      "Yuddha gita — war song category",
+      "Yuddha gita — earlier Maithili prose/literary landmark"
+    ],
+    "ans": 2,
+    "exp": "Yuddha gita is treated in the source as war song category.",
+    "id": 115
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (37)",
+    "opts": [
+      "Nagar-varnana — city-description song category",
+      "Nagar-varnana — play listed in the monograph",
+      "Nagar-varnana — Kantipur ruler used in comparison/background",
+      "Jayadeva — city-description song category"
+    ],
+    "ans": 0,
+    "exp": "Nagar-varnana is treated in the source as city-description song category.",
+    "id": 116
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (38)",
+    "opts": [
+      "Songs — separate major section",
+      "Songs — opening/benedictory song category",
+      "Ramayan Natak — separate major section",
+      "Songs — male-separation song category"
+    ],
+    "ans": 0,
+    "exp": "Songs is treated in the source as separate major section.",
+    "id": 117
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (39)",
+    "opts": [
+      "Varna Ratnakara — earlier Maithili prose/literary landmark",
+      "Dashavatar song — earlier Maithili prose/literary landmark",
+      "Varna Ratnakara — unpublished item listed at the end",
+      "Varna Ratnakara — section after the biography"
+    ],
+    "ans": 0,
+    "exp": "Varna Ratnakara is treated in the source as earlier Maithili prose/literary landmark.",
+    "id": 118
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (40)",
+    "opts": [
+      "Purush-viraha gita — section before the biography",
+      "Purush-viraha gita — male-separation song category",
+      "National Archives, Kathmandu — male-separation song category",
+      "Purush-viraha gita — north Indian literary language stream mentioned in language discussion"
+    ],
+    "ans": 1,
+    "exp": "Purush-viraha gita is treated in the source as male-separation song category.",
+    "id": 119
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (41)",
+    "opts": [
+      "Dr. Suniti Kumar Chatterji — early play attributed to Jagat Prakash Mall",
+      "Prabhavati-Haran — medieval Maithili poet-dramatist under discussion",
+      "Prabhavati-Haran — early play attributed to Jagat Prakash Mall",
+      "Prabhavati-Haran — main literary language of the monograph and songs"
+    ],
+    "ans": 2,
+    "exp": "Prabhavati-Haran is treated in the source as early play attributed to Jagat Prakash Mall.",
+    "id": 120
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (42)",
+    "opts": [
+      "Bhupatindra Malla — play concerning love/romantic narrative",
+      "Bhupatindra Malla — later Malla ruler in the sequence",
+      "Bhupatindra Malla — Malla court context connected with Jagat Prakash Mall",
+      "Bhupatindra Malla — entrance song device in drama"
+    ],
+    "ans": 1,
+    "exp": "Bhupatindra Malla is treated in the source as later Malla ruler in the sequence.",
+    "id": 121
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (43)",
+    "opts": [
+      "Plays — play listed in the monograph",
+      "Siddhi Narasimha Malla — play listed in the monograph",
+      "Prabhavati Haran — play listed in the monograph",
+      "Prabhavati Haran — opening authorial statement"
+    ],
+    "ans": 2,
+    "exp": "Prabhavati Haran is treated in the source as play listed in the monograph.",
+    "id": 122
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (44)",
+    "opts": [
+      "Ramayana — epic source for dramatic material",
+      "Ramayana — Patan/Lalitpur ruler mentioned in background",
+      "Raga-ragini — epic source for dramatic material",
+      "Git-panchak — epic source for dramatic material"
+    ],
+    "ans": 0,
+    "exp": "Ramayana is treated in the source as epic source for dramatic material.",
+    "id": 123
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (45)",
+    "opts": [
+      "Panchasamuchchaya — author cited for Medieval Nepal",
+      "Dr. Jayakanta Mishra — song collection/group",
+      "1639–1673 CE — song collection/group",
+      "Panchasamuchchaya — song collection/group"
+    ],
+    "ans": 3,
+    "exp": "Panchasamuchchaya is treated in the source as song collection/group.",
+    "id": 124
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (46)",
+    "opts": [
+      "Preface — opening authorial statement",
+      "Preface — epic source for dramatic material",
+      "Gitavali — opening authorial statement",
+      "Preface — song collection"
+    ],
+    "ans": 0,
+    "exp": "Preface is treated in the source as opening authorial statement.",
+    "id": 125
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (47)",
+    "opts": [
+      "Ramayan Natak — fearful rasa/feeling category in the song list",
+      "Bhupatindra Malla — fearful rasa/feeling category in the song list",
+      "Bhayanak — fearful rasa/feeling category in the song list",
+      "Bhayanak — separate major section"
+    ],
+    "ans": 2,
+    "exp": "Bhayanak is treated in the source as fearful rasa/feeling category in the song list.",
+    "id": 126
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (48)",
+    "opts": [
+      "Nandi-gita — source for Nala/Nalopakhyan dramatic material",
+      "Nala story — source for Nala/Nalopakhyan dramatic material",
+      "Varna Ratnakara — source for Nala/Nalopakhyan dramatic material",
+      "Nala story — first edition year"
+    ],
+    "ans": 1,
+    "exp": "Nala story is treated in the source as source for Nala/Nalopakhyan dramatic material.",
+    "id": 127
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (49)",
+    "opts": [
+      "Prabhavati Haran — literary environment of Nepalese Maithili",
+      "Duti-Kalavati samvad — literary environment of Nepalese Maithili",
+      "Courtly Maithili — song collection",
+      "Courtly Maithili — literary environment of Nepalese Maithili"
+    ],
+    "ans": 3,
+    "exp": "Courtly Maithili is treated in the source as literary environment of Nepalese Maithili.",
+    "id": 128
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (50)",
+    "opts": [
+      "Panchasamuchchaya — epic source for dramatic material",
+      "Mahabharata — song collection",
+      "Ramayan Natak — epic source for dramatic material",
+      "Mahabharata — epic source for dramatic material"
+    ],
+    "ans": 3,
+    "exp": "Mahabharata is treated in the source as epic source for dramatic material.",
+    "id": 129
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (51)",
+    "opts": [
+      "Bhakti — major devotional element in the works",
+      "Ramayana — major devotional element in the works",
+      "Bhakti — musical frame used for songs",
+      "Purush-viraha gita — major devotional element in the works"
+    ],
+    "ans": 0,
+    "exp": "Bhakti is treated in the source as major devotional element in the works.",
+    "id": 130
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (52)",
+    "opts": [
+      "Family and background — stage-related song type",
+      "Family and background — major romantic/aesthetic element in the works",
+      "Family and background — section before the biography",
+      "Mahabharata — section before the biography"
+    ],
+    "ans": 2,
+    "exp": "Family and background is treated in the source as section before the biography.",
+    "id": 131
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (53)",
+    "opts": [
+      "Parijat Haran Natak — entrance song device in drama",
+      "Siddhi Narasimha Malla — entrance song device in drama",
+      "1639–1673 CE — entrance song device in drama",
+      "Pravesha-gita — entrance song device in drama"
+    ],
+    "ans": 3,
+    "exp": "Pravesha-gita is treated in the source as entrance song device in drama.",
+    "id": 132
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (54)",
+    "opts": [
+      "Parijat Haran Natak — formal/classical language used in dramatic passages",
+      "Parijat Haran Natak — song group connected with ten incarnations",
+      "Parijat Haran Natak — unpublished item listed at the end",
+      "Parijat Haran Natak — early play attributed to Jagat Prakash Mall"
+    ],
+    "ans": 2,
+    "exp": "Parijat Haran Natak is treated in the source as unpublished item listed at the end.",
+    "id": 133
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (55)",
+    "opts": [
+      "Prithvi Narayan Shah — series of the monograph",
+      "Prithvi Narayan Shah — associated with the 1769 end-point of the Malla background",
+      "Vidyapati — associated with the 1769 end-point of the Malla background",
+      "Raga-ragini — associated with the 1769 end-point of the Malla background"
+    ],
+    "ans": 1,
+    "exp": "Prithvi Narayan Shah is treated in the source as associated with the 1769 end-point of the Malla background.",
+    "id": 134
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (56)",
+    "opts": [
+      "Braj-Awadhi — author of the monograph",
+      "D. R. Regmi — author of the monograph",
+      "Ramdeo Jha — author of the monograph",
+      "Ramdeo Jha — Patan/Lalitpur ruler mentioned in background"
+    ],
+    "ans": 2,
+    "exp": "Ramdeo Jha is treated in the source as author of the monograph.",
+    "id": 135
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (57)",
+    "opts": [
+      "Courtly Maithili — divine-feeling song category",
+      "Parijat Haran Natak — divine-feeling song category",
+      "Devabhav gita — literary environment of Nepalese Maithili",
+      "Devabhav gita — divine-feeling song category"
+    ],
+    "ans": 3,
+    "exp": "Devabhav gita is treated in the source as divine-feeling song category.",
+    "id": 136
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (58)",
+    "opts": [
+      "Nisar song — small song cluster mentioned in the source list",
+      "Nisar song — war song category",
+      "Nisar song — stage-related song type",
+      "Gitavali — stage-related song type"
+    ],
+    "ans": 2,
+    "exp": "Nisar song is treated in the source as stage-related song type.",
+    "id": 137
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (59)",
+    "opts": [
+      "Braj-Awadhi — play listed in the monograph",
+      "Braj-Awadhi — north Indian literary language stream mentioned in language discussion",
+      "Varna Ratnakara — north Indian literary language stream mentioned in language discussion",
+      "Braj-Awadhi — part of the cultural-artistic contribution"
+    ],
+    "ans": 1,
+    "exp": "Braj-Awadhi is treated in the source as north Indian literary language stream mentioned in language discussion.",
+    "id": 138
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (60)",
+    "opts": [
+      "Sanskrit — formal/classical language used in dramatic passages",
+      "Ramdeo Jha — formal/classical language used in dramatic passages",
+      "Sanskrit — unpublished item listed at the end",
+      "Madan-Charitra — formal/classical language used in dramatic passages"
+    ],
+    "ans": 0,
+    "exp": "Sanskrit is treated in the source as formal/classical language used in dramatic passages.",
+    "id": 139
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (61)",
+    "opts": [
+      "Gita Govinda — associated with the 1769 end-point of the Malla background",
+      "Plays — lyric model/influence discussed in earlier tradition",
+      "Nandi-gita — lyric model/influence discussed in earlier tradition",
+      "Gita Govinda — lyric model/influence discussed in earlier tradition"
+    ],
+    "ans": 3,
+    "exp": "Gita Govinda is treated in the source as lyric model/influence discussed in earlier tradition.",
+    "id": 140
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (62)",
+    "opts": [
+      "Raga-ragini — Kantipur ruler used in comparison/background",
+      "Raga-ragini — first edition year",
+      "Bhaktapur — musical frame used for songs",
+      "Raga-ragini — musical frame used for songs"
+    ],
+    "ans": 3,
+    "exp": "Raga-ragini is treated in the source as musical frame used for songs.",
+    "id": 141
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (63)",
+    "opts": [
+      "Ranjit Malla — later Malla ruler in the sequence",
+      "Dr. Suniti Kumar Chatterji — later Malla ruler in the sequence",
+      "Ranjit Malla — repository connected with unpublished works",
+      "Madan Charitra — later Malla ruler in the sequence"
+    ],
+    "ans": 0,
+    "exp": "Ranjit Malla is treated in the source as later Malla ruler in the sequence.",
+    "id": 142
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (64)",
+    "opts": [
+      "Shrimad Bhagavata — part of the cultural-artistic contribution",
+      "Shrimad Bhagavata — unpublished item listed at the end",
+      "Shrimad Bhagavata — source tradition for Krishna-centred drama",
+      "Malla period — source tradition for Krishna-centred drama"
+    ],
+    "ans": 2,
+    "exp": "Shrimad Bhagavata is treated in the source as source tradition for Krishna-centred drama.",
+    "id": 143
+  },
+  {
+    "q": "Which pair is correctly matched in the source material? (65)",
+    "opts": [
+      "Ramayan Natak — play listed in the monograph",
+      "Dr. Jayakanta Mishra — play listed in the monograph",
+      "Ramayan Natak — background for Madhava Malati",
+      "Ramayan Natak — Malla court context connected with Jagat Prakash Mall"
+    ],
+    "ans": 0,
+    "exp": "Ramayan Natak is treated in the source as play listed in the monograph.",
+    "id": 144
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Nandi-gita appears in the song classification.\n2. The work contains no reference list.\n3. Yuddha gita is a war-song category.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 3 only",
+      "2 only",
+      "1, 2 and 3",
+      "1 and 2 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 145
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The central figure is Vidyapati rather than Jagat Prakash Mall.\n2. Nagar-varnana is a city-description song category.\n3. Barahmasa is listed as a court office.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 2 only",
+      "2 and 3 only",
+      "1, 2 and 3",
+      "2 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 146
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Pravesha-gita is treated as an entrance-song device.\n2. Devabhav gita is connected with divine feeling.\n3. Braj-Awadhi is presented as a printer’s address.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 3 only",
+      "1 and 2 only",
+      "2 only",
+      "1, 2 and 3"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 147
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The drama discussion relates some material to Krishna narratives.\n2. Duti-Kalavati samvad is a publisher’s series.\n3. Barahmasa is a seasonal/monthly song category.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1, 2 and 3",
+      "1 and 3 only",
+      "1 and 2 only",
+      "None"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 148
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Maithili literary activity in Nepal is placed in a courtly and cultural setting.\n2. Jayadeva is discussed as a nineteenth-century printer.\n3. Braj-Awadhi is presented as a printer’s address.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "None",
+      "3 only",
+      "2 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 149
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Braj-Awadhi is presented as a printer’s address.\n2. The book belongs to the Bharatiya Sahityik Nirmata series.\n3. Panchasamuchchaya is discussed as a song group/collection.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "1 and 2 only",
+      "None",
+      "2 and 3 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 150
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Duti-Kalavati samvad is a publisher’s series.\n2. Dashavatar songs are connected with the ten incarnations.\n3. Nisar songs are treated as part of dramatic functioning.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 and 3 only",
+      "1 only",
+      "None",
+      "2 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 151
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Krishna Charit Natak is listed among the unpublished works.\n2. Bhaktapur is presented as a song category rather than a courtly context.\n3. The book is unrelated to Nepalese Maithili literature.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "2 and 3 only",
+      "1 only",
+      "1 and 2 only"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 152
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The preface emphasizes that biographical material on him is not abundant.\n2. National Archives, Kathmandu is not connected with any source material.\n3. The publication page names Chaukhambha Orientalia as publisher.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 only",
+      "1 only",
+      "1 and 2 only",
+      "1, 2 and 3"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 153
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Prithvi Narayan Shah’s 1769 conquest is treated as an end-point in the Malla background.\n2. Nandi or opening benediction is discussed as a dramatic element.\n3. Prithvi Narayan Shah is mentioned as the author of the monograph.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 and 3 only",
+      "3 only",
+      "1 and 2 only",
+      "None"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 154
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Ramayana and Mahabharata are never invoked in the drama discussion.\n2. Ranjit Malla is a song collection.\n3. Madhava Malati is listed among the plays.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 and 3 only",
+      "3 only",
+      "None",
+      "1 and 2 only"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 155
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The contents include separate discussions of his plays and songs.\n2. The work denies any link between music and Jagat Prakash Mall.\n3. Gitavali is treated as a political manifesto.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 3 only",
+      "2 and 3 only",
+      "1, 2 and 3",
+      "1 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 156
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Devabhav gita is connected with divine feeling.\n2. National Archives, Kathmandu is not connected with any source material.\n3. Yuddha gita is a postal address.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 and 3 only",
+      "1, 2 and 3",
+      "1 only",
+      "3 only"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 157
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The contents contain no section on songs.\n2. The Nepalese Maithili literary stream is a major frame of the book.\n3. All works are described as written only in English.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 only",
+      "3 only",
+      "None",
+      "1 and 2 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 158
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Ramayan Natak is listed among the plays.\n2. The subject is a modern Hindi novelist of the twentieth century.\n3. Duti-Kalavati samvad is a publisher’s series.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "1 and 2 only",
+      "1, 2 and 3",
+      "1 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 159
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Pratap Malla appears in comparative background discussion.\n2. Yuddha gita is a postal address.\n3. Braj-Awadhi is presented as a printer’s address.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "None",
+      "2 and 3 only",
+      "2 only",
+      "1 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 160
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Duti-Kalavati samvad and Duti-Nagar samvad are dialogue-type song categories.\n2. The monograph stresses that available biographical evidence is fragmentary.\n3. Braj-Awadhi is presented as a printer’s address.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 2 only",
+      "1 and 3 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 161
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The work denies any link between music and Jagat Prakash Mall.\n2. Mahabharat Natak is listed among the plays.\n3. Nandi-gita appears in the song classification.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 and 3 only",
+      "1 only",
+      "1, 2 and 3",
+      "2 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 162
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Braj-Awadhi is presented as a printer’s address.\n2. The language discussion notes a multilingual environment.\n3. The monograph stresses that available biographical evidence is fragmentary.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "2 and 3 only",
+      "None",
+      "1, 2 and 3"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 163
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The contents begin with a modern census appendix.\n2. Music is part of the cultural field in which he is discussed.\n3. The book does not present Jagat Prakash Mall as merely a modern novelist.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 2 only",
+      "3 only",
+      "2 and 3 only",
+      "1 only"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 164
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Ramayana and Mahabharata narrative material is mentioned in relation to plays.\n2. Gitavali is treated as a political manifesto.\n3. Jayadeva is discussed as a nineteenth-century printer.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "1 and 2 only",
+      "1 only",
+      "None"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 165
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The book does not present Jagat Prakash Mall as merely a modern novelist.\n2. Ramayana and Mahabharata are never invoked in the drama discussion.\n3. The reference list includes D. R. Regmi’s Medieval Nepal, Part-II.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "None",
+      "1 and 3 only",
+      "1 and 2 only"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 166
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The contents include a section on Nepalese Maithili literature.\n2. Shrimad Bhagavata is a relevant narrative source in the drama discussion.\n3. Ramayana and Mahabharata are never invoked in the drama discussion.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 and 3 only",
+      "1 only",
+      "3 only",
+      "1 and 2 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 167
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Prabhavati Haran is presented as a modern newspaper.\n2. Nandi-gita appears in the song classification.\n3. Maithili is central to the songs and literary identity of the works.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 and 3 only",
+      "1 and 3 only",
+      "1, 2 and 3",
+      "1 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 168
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Panchasamuchchaya is discussed as a song group/collection.\n2. All works are described as written only in English.\n3. National Archives, Kathmandu is not connected with any source material.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "None",
+      "2 and 3 only",
+      "1, 2 and 3",
+      "1 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 169
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The language discussion excludes Sanskrit entirely.\n2. Gitavali is discussed as a song collection.\n3. The language discussion notes a multilingual environment.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 only",
+      "2 and 3 only",
+      "1 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 170
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The book belongs to the Bharatiya Sahityik Nirmata series.\n2. Prithvi Narayan Shah is mentioned as the author of the monograph.\n3. The contents contain no section on songs.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "1 and 3 only",
+      "3 only",
+      "2 and 3 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 171
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Dashavatar songs are connected with the ten incarnations.\n2. Sahitya Akademi is listed as a play by Jagat Prakash Mall.\n3. Braj-Awadhi is presented as a printer’s address.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "None",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 172
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Gitavali is discussed as a song collection.\n2. The monograph was published by Sahitya Akademi.\n3. The contents begin with a modern census appendix.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "1 and 3 only",
+      "2 and 3 only",
+      "1 and 2 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 173
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Newari/Nepali elements are unrelated to the book’s discussion.\n2. Madan Charitra is listed among the plays.\n3. The contents include a section on Nepalese Maithili literature.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 3 only",
+      "1, 2 and 3",
+      "2 and 3 only",
+      "None"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 174
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Art and performance are linked with his cultural contribution.\n2. The monograph is mainly an English grammar of Maithili.\n3. The subject is a modern Hindi novelist of the twentieth century.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "3 only",
+      "None",
+      "1 and 3 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 175
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Jayadeva and Gita Govinda are invoked in the discussion of earlier lyric influence.\n2. All works are described as written only in English.\n3. The subject is a modern Hindi novelist of the twentieth century.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 3 only",
+      "1 only",
+      "1, 2 and 3",
+      "2 and 3 only"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 176
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Raga-ragini and musical awareness are part of the song world.\n2. The language discussion excludes Sanskrit entirely.\n3. The language discussion notes a multilingual environment.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 3 only",
+      "1 and 2 only",
+      "2 only",
+      "2 and 3 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 177
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Bhaktapur is presented as a song category rather than a courtly context.\n2. Nandi or opening benediction is discussed as a dramatic element.\n3. The work denies any link between music and Jagat Prakash Mall.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 only",
+      "1 and 3 only",
+      "1, 2 and 3",
+      "None"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 178
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Shrimad Bhagavata is a relevant narrative source in the drama discussion.\n2. The Nepalese Maithili literary stream is a major frame of the book.\n3. Newari/Nepali elements are unrelated to the book’s discussion.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 only",
+      "1 and 3 only",
+      "1 and 2 only",
+      "3 only"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 179
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Newari/Nepali elements are part of the language discussion.\n2. The conclusion rejects both bhakti and shringara.\n3. National Archives, Kathmandu is not connected with any source material.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "3 only",
+      "1 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 180
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Music is part of the cultural field in which he is discussed.\n2. Jayadeva and Gita Govinda are invoked in the discussion of earlier lyric influence.\n3. Braj-Awadhi is presented as a printer’s address.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 and 3 only",
+      "1 and 2 only",
+      "1 only",
+      "2 only"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 181
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The monograph treats him as both ruler and literary creator.\n2. Barahmasa is listed as a court office.\n3. The contents begin with a modern census appendix.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 only",
+      "3 only",
+      "1, 2 and 3",
+      "1 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 182
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Duti-Kalavati samvad is a publisher’s series.\n2. Several unpublished works are linked with National Archives, Kathmandu.\n3. The reference list includes Dr. Jayakanta Mishra’s A History of Maithili Literature.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "1 only",
+      "None",
+      "2 and 3 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 183
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Barahmasa is listed as a court office.\n2. The work contains no reference list.\n3. Siddhi Narasimha Malla is mentioned in relation to Patan/Lalitpur.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "1, 2 and 3",
+      "1 and 3 only",
+      "None"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 184
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The work denies any link between music and Jagat Prakash Mall.\n2. The monograph is by Ramdeo Jha.\n3. Newari/Nepali elements are unrelated to the book’s discussion.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "None",
+      "1 and 2 only",
+      "2 only",
+      "1 and 3 only"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 185
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The contents begin with a modern census appendix.\n2. Art and performance are linked with his cultural contribution.\n3. Ranjit Malla appears as a later ruler in the Malla sequence.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 only",
+      "1, 2 and 3",
+      "3 only",
+      "2 and 3 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 186
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Ranjit Malla appears as a later ruler in the Malla sequence.\n2. Siddhi Narasimha Malla is mentioned in relation to Patan/Lalitpur.\n3. Braj-Awadhi is presented as a printer’s address.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 and 3 only",
+      "None",
+      "1 and 2 only",
+      "1 and 3 only"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 187
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Ramayana and Mahabharata are never invoked in the drama discussion.\n2. Bhupatindra Malla appears as a later ruler in the Malla sequence.\n3. The contents contain no section on songs.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 only",
+      "1 and 2 only",
+      "1 and 3 only",
+      "1 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 188
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Nandi or opening benediction is discussed as a dramatic element.\n2. The monograph is by Ramdeo Jha.\n3. The book is unrelated to Nepalese Maithili literature.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "2 only",
+      "1, 2 and 3",
+      "1 and 2 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 189
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Nandi-gita appears in the song classification.\n2. Yuddha gita is a postal address.\n3. All works are described as written only in English.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1, 2 and 3",
+      "1 only",
+      "1 and 2 only",
+      "2 only"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 190
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Jayadeva and Gita Govinda are invoked in the discussion of earlier lyric influence.\n2. The contents contain no section on songs.\n3. Ramayana and Mahabharata are never invoked in the drama discussion.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 3 only",
+      "1 only",
+      "1, 2 and 3",
+      "2 and 3 only"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 191
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The cover matter connects Jagat Prakash Mall with the Bhaktapur Malla royal line.\n2. All works are described as written only in English.\n3. National Archives, Kathmandu is not connected with any source material.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "2 only",
+      "None",
+      "2 and 3 only",
+      "1 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 192
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Pratap Malla appears in comparative background discussion.\n2. The contents begin with a modern census appendix.\n3. Jayadeva is discussed as a nineteenth-century printer.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1, 2 and 3",
+      "2 only",
+      "1 only",
+      "3 only"
+    ],
+    "ans": 2,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 193
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The conclusion stresses both bhakti and shringara in the works.\n2. All works are described as written only in English.\n3. The contents contain no section on songs.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "2 only",
+      "None"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 194
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The book is unrelated to Nepalese Maithili literature.\n2. Vidyapati is said to be completely irrelevant to Maithili literary tradition.\n3. Dashavatar songs are connected with the ten incarnations.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "3 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 1,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 195
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Ramayana and Mahabharata are never invoked in the drama discussion.\n2. The conclusion rejects both bhakti and shringara.\n3. The contents include separate discussions of his plays and songs.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "2 only",
+      "1 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 196
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The cover matter connects Jagat Prakash Mall with the Bhaktapur Malla royal line.\n2. Git Panchak is discussed as a song collection.\n3. Yuddha gita is a postal address.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 and 2 only",
+      "1 only",
+      "3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 197
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. The monograph is mainly an English grammar of Maithili.\n2. Vidyapati is said to be completely irrelevant to Maithili literary tradition.\n3. Prabhavati Haran is listed among the plays.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "3 only",
+      "1 and 3 only",
+      "1, 2 and 3",
+      "2 and 3 only"
+    ],
+    "ans": 0,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 198
+  },
+  {
+    "q": "Consider the following statements about Jagat Prakash Mall and the monograph:\n1. Prabhavati Haran is presented as a modern newspaper.\n2. National Archives, Kathmandu is not connected with any source material.\n3. Mahabharat Natak is listed among the plays.\nWhich of the statements given above is/are correct?",
+    "opts": [
+      "1 only",
+      "2 only",
+      "1, 2 and 3",
+      "3 only"
+    ],
+    "ans": 3,
+    "exp": "The answer follows from the monograph’s visible title, contents, preface, literary discussion, work-list and reference/source sections; the wrong statement misassigns a real item or invents a role not given there.",
+    "id": 199
+  },
+  {
+    "q": "Which statement is incorrect about the publication details?",
+    "opts": [
+      "It belongs to the Bharatiya Sahityik Nirmata series.",
+      "Its first edition is printed as 1990.",
+      "It was first published by Chaukhambha Orientalia in 1976.",
+      "The monograph is authored by Ramdeo Jha."
+    ],
+    "ans": 2,
+    "exp": "The publication page identifies Sahitya Akademi and first edition 1990; Chaukhambha Orientalia 1976 belongs to a different book.",
+    "id": 200
+  },
+  {
+    "q": "Which statement is incorrect about the contents?",
+    "opts": [
+      "The contents include Jagat Prakash Mall’s biography.",
+      "The contents include sections on plays and songs.",
+      "The contents are arranged as a modern geography atlas.",
+      "The contents include a preface."
+    ],
+    "ans": 2,
+    "exp": "The visible contents are literary and biographical, not an atlas.",
+    "id": 201
+  },
+  {
+    "q": "Which statement is incorrect about the central figure?",
+    "opts": [
+      "He is connected with Bhaktapur’s Malla background.",
+      "He is treated as a medieval Maithili poet.",
+      "He is treated as a ruler and dramatist.",
+      "He is presented as a twentieth-century novelist."
+    ],
+    "ans": 3,
+    "exp": "The book treats him as a medieval poet-dramatist, not a modern novelist.",
+    "id": 202
+  },
+  {
+    "q": "Which statement is incorrect about the literary forms discussed?",
+    "opts": [
+      "Modern short-story technique is the dominant subject.",
+      "Plays are discussed separately.",
+      "Language and style are discussed.",
+      "Songs are discussed separately."
+    ],
+    "ans": 0,
+    "exp": "The major sections are plays, songs, works and language, not modern short-story technique.",
+    "id": 203
+  },
+  {
+    "q": "Which statement is incorrect about the plays?",
+    "opts": [
+      "Ramayan Natak is listed among plays.",
+      "Prabhavati Haran is listed among plays.",
+      "Madan Charitra is listed among plays.",
+      "Gitavali is listed as a play."
+    ],
+    "ans": 3,
+    "exp": "Gitavali is discussed as a song collection, not a play.",
+    "id": 204
+  },
+  {
+    "q": "Which statement is incorrect about the song material?",
+    "opts": [
+      "Mahabharat Natak is a song collection.",
+      "Barahmasa is a song category.",
+      "Gitavali is discussed as a song collection.",
+      "Git Panchak is a song collection."
+    ],
+    "ans": 0,
+    "exp": "Mahabharat Natak belongs to the play discussion.",
+    "id": 205
+  },
+  {
+    "q": "Which statement is incorrect about the song-category list?",
+    "opts": [
+      "Bharatiya Sahityik Nirmata appears as a song category.",
+      "Purush-viraha gita appears in the classification.",
+      "Nandi-gita appears in the classification.",
+      "Duti-Nagar samvad appears in the classification."
+    ],
+    "ans": 0,
+    "exp": "Bharatiya Sahityik Nirmata is the series title, not a song category.",
+    "id": 206
+  },
+  {
+    "q": "Which statement is incorrect about language?",
+    "opts": [
+      "The works are said to use only modern English.",
+      "The discussion notes Sanskrit.",
+      "The discussion notes Maithili.",
+      "The discussion notes Newari/Nepali and Braj-Awadhi elements."
+    ],
+    "ans": 0,
+    "exp": "The monograph stresses a multilingual environment, not modern English-only composition.",
+    "id": 207
+  },
+  {
+    "q": "Which statement is incorrect about sources and references?",
+    "opts": [
+      "The book has no reference or source list.",
+      "National Archives, Kathmandu is connected with unpublished works.",
+      "A History of Maithili Literature is included in the reference list.",
+      "D. R. Regmi is cited for Medieval Nepal, Part-II."
+    ],
+    "ans": 0,
+    "exp": "The final pages show both a reference list and a list of unpublished works.",
+    "id": 208
+  },
+  {
+    "q": "Which statement is incorrect about dramatic technique?",
+    "opts": [
+      "Nandi is discussed as an opening device.",
+      "Songs carry stage situation and emotion.",
+      "Pravesha-gita is discussed as an entrance-song device.",
+      "Cinema montage is treated as the central medieval technique."
+    ],
+    "ans": 3,
+    "exp": "Cinema montage is not the source’s medieval dramatic technique.",
+    "id": 209
+  },
+  {
+    "q": "Which statement is incorrect about narrative backgrounds?",
+    "opts": [
+      "Bhagavata material is relevant.",
+      "Only modern industrial plots are relevant.",
+      "Ramayana and Mahabharata material is relevant.",
+      "Krishna narratives are relevant."
+    ],
+    "ans": 1,
+    "exp": "The dramatic discussion is rooted in religious and epic narratives, not industrial modernity.",
+    "id": 210
+  },
+  {
+    "q": "Which statement is incorrect about historical setting?",
+    "opts": [
+      "The Malla background is central.",
+      "Bhaktapur is important.",
+      "Kantipur/Kathmandu and Patan/Lalitpur appear in the background.",
+      "The book’s setting is exclusively colonial Calcutta."
+    ],
+    "ans": 3,
+    "exp": "The background is medieval Nepalese Maithili and Malla, not exclusively colonial Calcutta.",
+    "id": 211
+  },
+  {
+    "q": "Which statement is incorrect about Jagat Prakash Mall’s identity?",
+    "opts": [
+      "He is treated only as a grammarian without literary works.",
+      "He is linked with music and arts.",
+      "He is treated as a dramatist.",
+      "He is treated as a ruler-poet."
+    ],
+    "ans": 0,
+    "exp": "The book foregrounds his literary and artistic works.",
+    "id": 212
+  },
+  {
+    "q": "Which statement is incorrect about the conclusion’s emphasis?",
+    "opts": [
+      "Bhakti is important.",
+      "Shringara is important.",
+      "The conclusion says poetry is irrelevant.",
+      "Human life-experience is important."
+    ],
+    "ans": 2,
+    "exp": "The conclusion values his poetic and dramatic contribution.",
+    "id": 213
+  },
+  {
+    "q": "Which statement is incorrect about the source list?",
+    "opts": [
+      "Git Panchak appears.",
+      "Krishna Charit Natak appears.",
+      "Prabhavati Haran appears.",
+      "Sahitya Akademi appears as an unpublished play title."
+    ],
+    "ans": 3,
+    "exp": "Sahitya Akademi is the publisher, not an unpublished play title.",
+    "id": 214
+  },
+  {
+    "q": "Which statement is incorrect about song categories?",
+    "opts": [
+      "Nagar-varnana appears.",
+      "Devabhav gita appears.",
+      "Yuddha gita appears.",
+      "British budget speech appears."
+    ],
+    "ans": 3,
+    "exp": "The source lists literary/song categories, not a British budget speech.",
+    "id": 215
+  },
+  {
+    "q": "Which statement is incorrect about dialogue song forms?",
+    "opts": [
+      "Dialogue is used in song-dramatic structure.",
+      "Duti-Kalavati samvad is the printer’s address.",
+      "Duti-Kalavati samvad is listed.",
+      "Duti-Nagar samvad is listed."
+    ],
+    "ans": 1,
+    "exp": "Duti-Kalavati samvad is a dialogue-type song category.",
+    "id": 216
+  },
+  {
+    "q": "Which statement is incorrect about the preface?",
+    "opts": [
+      "It acknowledges scholarly help.",
+      "It introduces the difficulty of biographical reconstruction.",
+      "It gives a recipe book as the main subject.",
+      "It presents the need to reassess Jagat Prakash Mall."
+    ],
+    "ans": 2,
+    "exp": "The preface is literary-historical, not culinary.",
+    "id": 217
+  },
+  {
+    "q": "Which statement is incorrect about the book’s scope?",
+    "opts": [
+      "It deals with Jagat Prakash Mall’s works and language.",
+      "It deals with pre-Jagat Prakash Mall Maithili literary stream.",
+      "It deals with Nepalese Maithili literature.",
+      "It deals with modern parliamentary elections."
+    ],
+    "ans": 3,
+    "exp": "Modern elections are not a section in the contents.",
+    "id": 218
+  },
+  {
+    "q": "Which statement is incorrect about the reference list?",
+    "opts": [
+      "It includes works related to drama.",
+      "It includes works on Maithili literature.",
+      "It includes works on Nepal.",
+      "It is entirely blank."
+    ],
+    "ans": 3,
+    "exp": "The final pages display a populated reference list.",
+    "id": 219
+  },
+  {
+    "q": "Which statement is incorrect about the song discussion?",
+    "opts": [
+      "Some songs are romantic or shringara-oriented.",
+      "The songs are grouped by types.",
+      "All songs are treated as legal documents.",
+      "Some songs are devotional."
+    ],
+    "ans": 2,
+    "exp": "The song discussion is literary and musical, not legal-documentary.",
+    "id": 220
+  },
+  {
+    "q": "Which statement is incorrect about drama in the monograph?",
+    "opts": [
+      "Songs are integrated into dramatic structure.",
+      "The plays are not treated merely as printed texts.",
+      "Performance and stage movement matter.",
+      "Stagecraft is replaced by railway timetables."
+    ],
+    "ans": 3,
+    "exp": "The drama section emphasizes theatrical devices, not timetables.",
+    "id": 221
+  },
+  {
+    "q": "Which statement is incorrect about the historical-literary frame?",
+    "opts": [
+      "Malla rulers are relevant.",
+      "The book denies any Nepal connection.",
+      "Mithila and Nepal are connected.",
+      "Court patronage matters."
+    ],
+    "ans": 1,
+    "exp": "Nepalese Maithili literary context is central.",
+    "id": 222
+  },
+  {
+    "q": "Which statement is incorrect about the title-page identity?",
+    "opts": [
+      "The author shown is Ramdeo Jha.",
+      "The title is Jagat Prakash Mall.",
+      "The publisher shown is Sahitya Akademi.",
+      "The title-page presents the book as a medical textbook."
+    ],
+    "ans": 3,
+    "exp": "The title pages present a literary monograph, not a medical textbook.",
+    "id": 223
+  },
+  {
+    "q": "Which statement is incorrect about final source materials?",
+    "opts": [
+      "Archival numbers are attached to several items.",
+      "The National Archives at Kathmandu are referenced.",
+      "All works are said to be lost without any source trace.",
+      "Unpublished works are listed."
+    ],
+    "ans": 2,
+    "exp": "The source list preserves several archival references.",
+    "id": 224
+  }
+];
+
+    let idx = 0;
+    let answers = Array(QDB.length).fill(null);
+
+    const el = id => document.getElementById(id);
+    el('totalTop').textContent = QDB.length;
+
+    function renderMap(){
+      const map = el('map');
+      map.innerHTML = '';
+      QDB.forEach((_, i) => {
+        const b = document.createElement('button');
+        b.textContent = i + 1;
+        if(i === idx) b.classList.add('active');
+        if(answers[i] !== null) {
+          b.classList.add(answers[i] === QDB[i].ans ? 'done' : 'missed');
+        }
+        b.onclick = () => { idx = i; render(); };
+        map.appendChild(b);
+      });
+    }
+
+    function stats(){
+      const attempted = answers.filter(a => a !== null).length;
+      const correct = answers.reduce((n,a,i) => n + (a === QDB[i].ans ? 1 : 0), 0);
+      el('correctCount').textContent = correct;
+      el('attemptedCount').textContent = attempted;
+      el('scorePct').textContent = attempted ? Math.round(correct * 100 / attempted) + '%' : '0%';
+      const donePct = Math.round(attempted * 100 / QDB.length);
+      el('progressText').textContent = donePct + '% attempted';
+      el('bar').style.width = Math.round((idx+1) * 100 / QDB.length) + '%';
+      return {attempted, correct};
+    }
+
+    function render(){
+      const item = QDB[idx];
+      el('qno').textContent = 'Question ' + (idx + 1) + ' of ' + QDB.length;
+      el('question').textContent = item.q;
+      const opts = el('opts');
+      opts.innerHTML = '';
+      item.opts.forEach((o, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'opt';
+        btn.innerHTML = '<strong>' + String.fromCharCode(65+i) + '.</strong> ' + escapeHtml(o);
+        if(answers[idx] !== null){
+          if(i === item.ans) btn.classList.add('correct');
+          if(i === answers[idx] && i !== item.ans) btn.classList.add('wrong');
+        }
+        btn.onclick = () => choose(i);
+        opts.appendChild(btn);
+      });
+      renderFeedback();
+      renderMap();
+      const s = stats();
+      if(s.attempted === QDB.length) showResult();
+      else el('result').classList.remove('show');
+    }
+
+    function escapeHtml(s){
+      return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+
+    function choose(choice){
+      if(answers[idx] !== null) return;
+      answers[idx] = choice;
+      render();
+    }
+
+    function renderFeedback(){
+      const fb = el('feedback');
+      const a = answers[idx];
+      if(a === null){ fb.className = 'feedback'; fb.innerHTML=''; return; }
+      const good = a === QDB[idx].ans;
+      fb.className = 'feedback ' + (good ? 'good' : 'bad');
+      const right = QDB[idx].opts[QDB[idx].ans];
+      fb.innerHTML = (good ? 'Correct.' : 'Incorrect. Correct answer: <strong>' + escapeHtml(right) + '</strong>.') +
+        '<div class="exp">' + escapeHtml(QDB[idx].exp) + '</div>';
+    }
+
+    function nextQ(){ if(idx < QDB.length - 1) { idx++; render(); } else showResult(); }
+    function prevQ(){ if(idx > 0) { idx--; render(); } }
+    function firstQ(){ idx = 0; render(); }
+    function restartQuiz(){
+      if(confirm('Restart the quiz?')) {
+        idx = 0;
+        answers = Array(QDB.length).fill(null);
+        render();
+      }
+    }
+
+    function showResult(){
+      const s = stats();
+      const pct = Math.round(s.correct * 100 / QDB.length);
+      el('result').classList.add('show');
+      el('result').innerHTML = '<h2>Final Result</h2><p>You scored <strong>' + s.correct + '</strong> out of <strong>' + QDB.length + '</strong> (' + pct + '%).</p>';
+    }
+
+    render();
+  </script>
+</body>
+</html>

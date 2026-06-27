@@ -1,0 +1,2613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gangesh Upadhyaya — Videha Standard UPSC Prelims Quiz</title>
+  <link rel="stylesheet" href="assets/css/videha.css">
+  <style>
+    :root{--videha-red:#8b1e1e;--videha-gold:#f8e8b0;--ink:#1f2933;--muted:#667085;--card:#fffdf8;--green:#146c2e;--red:#b42318;--border:#ead9b5;--blue:#0f4c81}
+    *{box-sizing:border-box} body{margin:0;font-family:Georgia,'Times New Roman',serif;background:#fff9e8;color:var(--ink);line-height:1.55}
+    .topbar{background:var(--videha-red);color:#fff;padding:10px 16px;text-align:center;font-size:15px} .topbar a{color:#fff;text-decoration:none;font-weight:bold}
+    header{background:linear-gradient(135deg,#fff5d2,#fffdf8);border-bottom:4px solid var(--videha-red);padding:22px 16px;text-align:center}
+    .brand{font-size:30px;font-weight:800;color:var(--videha-red);letter-spacing:.3px} .tag{font-size:15px;color:#4b5563;margin-top:4px}
+    nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;background:#fff;border-bottom:1px solid var(--border);padding:10px}
+    nav a{text-decoration:none;color:var(--videha-red);border:1px solid var(--border);padding:7px 10px;border-radius:999px;background:#fffaf0;font-size:14px}
+    main{max-width:1120px;margin:0 auto;padding:18px} .hero{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:20px;box-shadow:0 8px 24px rgba(139,30,30,.08);margin-bottom:18px}
+    h1{margin:0 0 8px;color:var(--videha-red);font-size:30px;line-height:1.2} .subtitle{font-size:17px;color:#374151;margin-bottom:10px}
+    .meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px} .pill{border:1px solid var(--border);background:#fff7dc;color:#553816;border-radius:999px;padding:6px 10px;font-size:14px}
+    .quiz-wrap{display:grid;grid-template-columns:1fr 280px;gap:18px} .panel{background:#fff;border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:0 6px 18px rgba(0,0,0,.04)}
+    .progress-box{margin-bottom:14px} .progress-line{height:12px;background:#f2e5c2;border-radius:999px;overflow:hidden} #bar{height:100%;width:0;background:linear-gradient(90deg,var(--videha-red),#d98c32);transition:.25s}
+    .qhead{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px;color:var(--muted);font-size:14px} .question{font-size:20px;font-weight:700;color:#111827;white-space:pre-line;margin:12px 0 16px}
+    .opts{display:grid;gap:10px} .opt{text-align:left;border:1px solid #d9c99e;background:#fffdf7;border-radius:12px;padding:12px 14px;cursor:pointer;font-size:16px;transition:.15s;color:#1f2933}
+    .opt:hover{border-color:var(--videha-red);background:#fff8e2} .opt.correct{border-color:var(--green);background:#eaf7ee;color:var(--green);font-weight:700} .opt.wrong{border-color:var(--red);background:#fff1f0;color:var(--red);font-weight:700}
+    .feedback{margin-top:14px;padding:12px;border-radius:12px;display:none} .feedback.good{display:block;background:#eaf7ee;border:1px solid #a7d7b5;color:var(--green)} .feedback.bad{display:block;background:#fff1f0;border:1px solid #f5b4ad;color:var(--red)} .exp{margin-top:7px;color:#374151;font-weight:normal}
+    .controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px} button.ctrl{border:0;background:var(--videha-red);color:#fff;border-radius:10px;padding:10px 13px;cursor:pointer;font-weight:700} button.ctrl.secondary{background:#694b1f} button.ctrl.light{background:#f4e2b8;color:#442b0e;border:1px solid #d8bd83}
+    .side h2{font-size:18px;margin:0 0 10px;color:var(--videha-red)} .score{font-size:16px;margin-bottom:10px} .map{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;max-height:460px;overflow:auto;padding-right:4px}
+    .map button{border:1px solid var(--border);background:#fffaf0;border-radius:8px;padding:7px 0;cursor:pointer;color:#5c3514;font-weight:bold} .map button.active{background:var(--videha-red);color:#fff} .map button.done{background:#e7f5ea;border-color:#acd7b6;color:#146c2e} .map button.missed{background:#fff1f0;border-color:#f1aaa4;color:#b42318}
+    .result{display:none;margin-top:14px;border-top:1px solid var(--border);padding-top:14px} .result.show{display:block} .back{text-align:center;margin:22px 0} .back a{color:var(--videha-red);font-weight:bold;text-decoration:none;border:1px solid var(--border);padding:10px 14px;border-radius:999px;background:#fff}
+    footer{background:#3b1d12;color:#fff;text-align:center;padding:18px;font-size:14px;margin-top:24px} @media(max-width:860px){.quiz-wrap{grid-template-columns:1fr}.map{grid-template-columns:repeat(8,1fr);max-height:260px}.brand{font-size:24px}h1{font-size:24px}}
+  </style>
+</head>
+<body>
+  <div class="topbar">Videha — First Maithili Fortnightly eJournal  |  <a href="https://www.videha.co.in/">www.videha.co.in</a></div>
+  <header><div class="brand">Videha QUIZ | विदेह ई-लर्निङ्ग क्विज</div><div class="tag">Videha eLearning Quiz · UPSC Prelims-level factual practice</div></header>
+  <nav aria-label="Videha navigation"><a href="https://www.videha.co.in/">विदेह नूतन अंक</a><a href="https://www.videha.co.in/videha-elearning.htm">विदेह ई-लर्निङ्ग</a><a href="https://videha-ejournal.github.io/videha-quiz/">विदेह प्रश्नोत्तरी</a><a href="https://www.videha.co.in/pothi.htm">विदेह पोथी</a></nav>
+  <main>
+    <section class="hero"><h1>Gangesh Upadhyaya — Videha Standard UPSC Prelims Quiz</h1><div class="subtitle">Hard factual quiz on Gangeśa, Nyāya, Navya-Nyāya, Mithila’s philosophical tradition, Tattvacintāmaṇi, pramāṇa theory, and the later commentary tradition</div><div class="meta"><span class="pill">Questions: <strong id="totalTop"></strong></span><span class="pill">Level: UPSC Prelims</span><span class="pill">Format: Videha Standard</span><span class="pill">Language: English</span></div></section>
+    <section class="quiz-wrap"><div class="panel"><div class="progress-box"><div class="qhead"><span id="qno"></span><span id="progressText"></span></div><div class="progress-line"><div id="bar"></div></div></div><div class="question" id="question"></div><div class="opts" id="opts"></div><div id="feedback" class="feedback"></div><div class="controls"><button class="ctrl light" onclick="firstQ()">First</button><button class="ctrl light" onclick="prevQ()">Previous</button><button class="ctrl" onclick="nextQ()">Next</button><button class="ctrl secondary" onclick="restartQuiz()">Restart</button></div><div class="result" id="result"></div></div><aside class="panel side"><h2>Score</h2><div class="score">Correct: <strong id="correctCount">0</strong></div><div class="score">Attempted: <strong id="attemptedCount">0</strong></div><div class="score">Current score: <strong id="scorePct">0%</strong></div><h2>Question Map</h2><div class="map" id="qmap"></div></aside></section>
+    <div class="back"><a href="https://www.videha.co.in/videha-elearning.htm">← विदेह ई-लर्निङ्ग हब पर वापस जाउ</a></div>
+  </main>
+  <footer>© Gajendra Thakur, Editor — Videha eJournal</footer>
+  <script>
+const QDB = [
+  {
+    "q": "Which statement best reflects the Gangeśa-focused discussion?",
+    "opts": [
+      "Gangeśa Upādhyāya is presented as a central Maithil thinker in the rise of Navya-Nyāya.",
+      "Gangeśa is treated only as a poet without philosophical significance.",
+      "Gangeśa is presented as unrelated to Mithila’s intellectual history.",
+      "The discussion avoids Nyāya, pramāṇa, and Tattvacintāmaṇi altogether."
+    ],
+    "ans": 0,
+    "exp": "The text treats Gangeśa as the decisive figure through whom Nyāya in Mithila took a new analytical form."
+  },
+  {
+    "q": "Which option is most accurate about Gangeśa and the Nyāya tradition?",
+    "opts": [
+      "The source separates Gangeśa entirely from Navya-Nyāya.",
+      "Gangeśa Upādhyāya is presented as a central Maithil thinker in the rise of Navya-Nyāya.",
+      "The source treats Tattvacintāmaṇi as a devotional songbook.",
+      "The source reduces the entire topic to dynastic politics."
+    ],
+    "ans": 1,
+    "exp": "The text treats Gangeśa as the decisive figure through whom Nyāya in Mithila took a new analytical form."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'Nyāya philosophy' primarily concern?",
+    "opts": [
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta",
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the pre-Gangeśa line of Maithil scholars who prepared the ground for Navya-Nyāya"
+    ],
+    "ans": 2,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the discipline of reasoning, evidence, debate, and valid cognition."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'Nyāyaśāstra and its synonyms' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta",
+      "the pre-Gangeśa line of Maithil scholars who prepared the ground for Navya-Nyāya",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra"
+    ],
+    "ans": 3,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'development of philosophy in Mithila' primarily concern?",
+    "opts": [
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta",
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "the pre-Gangeśa line of Maithil scholars who prepared the ground for Navya-Nyāya"
+    ],
+    "ans": 0,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'Prāg-Gangeśa Maithil logicians' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the pre-Gangeśa line of Maithil scholars who prepared the ground for Navya-Nyāya",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 1,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the pre-Gangeśa line of Maithil scholars who prepared the ground for Navya-Nyāya."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'historical background' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "the intellectual and social conditions in which Nyāya and Navya-Nyāya grew in Mithila",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 2,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the intellectual and social conditions in which Nyāya and Navya-Nyāya grew in Mithila."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'Gangeśa and Gangeśvara' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta",
+      "the distinction and discussion around names connected with Gangeśa"
+    ],
+    "ans": 3,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the distinction and discussion around names connected with Gangeśa."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'birthplace discussion' primarily concern?",
+    "opts": [
+      "the traditions and arguments around Gangeśa’s place of birth",
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 0,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the traditions and arguments around Gangeśa’s place of birth."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'mūla and gotra' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "genealogical and lineage traditions connected with Gangeśa",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 1,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine genealogical and lineage traditions connected with Gangeśa."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'praśna-śruti' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "traditions and reports connected with questions, learning, and memory around Gangeśa",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 2,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine traditions and reports connected with questions, learning, and memory around Gangeśa."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'period of Gangeśa' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta",
+      "the chronological placement of Gangeśa in the history of Mithila and Nyāya"
+    ],
+    "ans": 3,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the chronological placement of Gangeśa in the history of Mithila and Nyāya."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'Mahāmahopādhyāya title' primarily concern?",
+    "opts": [
+      "the discussion of the honorific used for learned scholars",
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 0,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the discussion of the honorific used for learned scholars."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'family and oral tradition' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "family memory, learned lineage, and janashruti surrounding Gangeśa",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 1,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine family memory, learned lineage, and janashruti surrounding Gangeśa."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'Vardhamāna Upādhyāya' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "the learned successor connected with Gangeśa’s family and scholastic tradition",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 2,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the learned successor connected with Gangeśa’s family and scholastic tradition."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'Navya-Nyāya and Tattvacintāmaṇi' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta",
+      "the transformation of Nyāya through Gangeśa’s technical and analytical work"
+    ],
+    "ans": 3,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the transformation of Nyāya through Gangeśa’s technical and analytical work."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'Tattvacintāmaṇi commentary tradition' primarily concern?",
+    "opts": [
+      "later expository and critical writing on Gangeśa’s masterwork",
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 0,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine later expository and critical writing on Gangeśa’s masterwork."
+  },
+  {
+    "q": "In a content-based study of Gangeśa, what does the theme 'sources cited in Tattvacintāmaṇi' primarily concern?",
+    "opts": [
+      "the discipline of reasoning, evidence, debate, and valid cognition",
+      "the earlier works and scholars with whom Gangeśa’s reasoning is in dialogue",
+      "the different names and functional descriptions of Nyāya such as anvīkṣikī, tarka, and pramāṇa-śāstra",
+      "Mithila’s role as a major centre of Sanskrit learning, Nyāya, Mīmāṃsā, and Vedānta"
+    ],
+    "ans": 1,
+    "exp": "The Gangeśa-focused treatment uses this theme to examine the earlier works and scholars with whom Gangeśa’s reasoning is in dialogue."
+  },
+  {
+    "q": "In Nyāya epistemology, what does pratyakṣa denote?",
+    "opts": [
+      "anumāna — knowledge produced through a sign, reason, or inferential mark",
+      "upamāna — knowledge produced through similarity or comparison",
+      "perception — knowledge produced through direct perceptual contact",
+      "śabda — knowledge produced through reliable words or testimony"
+    ],
+    "ans": 2,
+    "exp": "pratyakṣa is treated as perception, meaning knowledge produced through direct perceptual contact."
+  },
+  {
+    "q": "Which pramāṇa is most directly connected with perception?",
+    "opts": [
+      "anumāna",
+      "upamāna",
+      "śabda",
+      "pratyakṣa"
+    ],
+    "ans": 3,
+    "exp": "pratyakṣa is the Nyāya term for perception."
+  },
+  {
+    "q": "In Nyāya epistemology, what does anumāna denote?",
+    "opts": [
+      "inference — knowledge produced through a sign, reason, or inferential mark",
+      "pratyakṣa — knowledge produced through direct perceptual contact",
+      "upamāna — knowledge produced through similarity or comparison",
+      "śabda — knowledge produced through reliable words or testimony"
+    ],
+    "ans": 0,
+    "exp": "anumāna is treated as inference, meaning knowledge produced through a sign, reason, or inferential mark."
+  },
+  {
+    "q": "Which pramāṇa is most directly connected with inference?",
+    "opts": [
+      "pratyakṣa",
+      "anumāna",
+      "upamāna",
+      "śabda"
+    ],
+    "ans": 1,
+    "exp": "anumāna is the Nyāya term for inference."
+  },
+  {
+    "q": "In Nyāya epistemology, what does upamāna denote?",
+    "opts": [
+      "pratyakṣa — knowledge produced through direct perceptual contact",
+      "anumāna — knowledge produced through a sign, reason, or inferential mark",
+      "comparison — knowledge produced through similarity or comparison",
+      "śabda — knowledge produced through reliable words or testimony"
+    ],
+    "ans": 2,
+    "exp": "upamāna is treated as comparison, meaning knowledge produced through similarity or comparison."
+  },
+  {
+    "q": "Which pramāṇa is most directly connected with comparison?",
+    "opts": [
+      "pratyakṣa",
+      "anumāna",
+      "śabda",
+      "upamāna"
+    ],
+    "ans": 3,
+    "exp": "upamāna is the Nyāya term for comparison."
+  },
+  {
+    "q": "In Nyāya epistemology, what does śabda denote?",
+    "opts": [
+      "verbal testimony — knowledge produced through reliable words or testimony",
+      "pratyakṣa — knowledge produced through direct perceptual contact",
+      "anumāna — knowledge produced through a sign, reason, or inferential mark",
+      "upamāna — knowledge produced through similarity or comparison"
+    ],
+    "ans": 0,
+    "exp": "śabda is treated as verbal testimony, meaning knowledge produced through reliable words or testimony."
+  },
+  {
+    "q": "Which pramāṇa is most directly connected with verbal testimony?",
+    "opts": [
+      "pratyakṣa",
+      "śabda",
+      "anumāna",
+      "upamāna"
+    ],
+    "ans": 1,
+    "exp": "śabda is the Nyāya term for verbal testimony."
+  },
+  {
+    "q": "Which pair is correctly matched in the Nyāya categories?",
+    "opts": [
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt",
+      "pramāṇa — means of valid knowledge",
+      "prayojana — purpose or motive"
+    ],
+    "ans": 2,
+    "exp": "In the Nyāya framework, pramāṇa means means of valid knowledge."
+  },
+  {
+    "q": "What is the best explanation of pramāṇa in Nyāya reasoning?",
+    "opts": [
+      "object of valid knowledge",
+      "doubt",
+      "purpose or motive",
+      "means of valid knowledge"
+    ],
+    "ans": 3,
+    "exp": "The category pramāṇa is used for means of valid knowledge."
+  },
+  {
+    "q": "What is the best explanation of prameya in Nyāya reasoning?",
+    "opts": [
+      "object of valid knowledge",
+      "means of valid knowledge",
+      "doubt",
+      "purpose or motive"
+    ],
+    "ans": 0,
+    "exp": "The category prameya is used for object of valid knowledge."
+  },
+  {
+    "q": "What is the best explanation of saṃśaya in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "doubt",
+      "object of valid knowledge",
+      "purpose or motive"
+    ],
+    "ans": 1,
+    "exp": "The category saṃśaya is used for doubt."
+  },
+  {
+    "q": "What is the best explanation of prayojana in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "purpose or motive",
+      "doubt"
+    ],
+    "ans": 2,
+    "exp": "The category prayojana is used for purpose or motive."
+  },
+  {
+    "q": "What is the best explanation of dṛṣṭānta in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "doubt",
+      "example used in reasoning"
+    ],
+    "ans": 3,
+    "exp": "The category dṛṣṭānta is used for example used in reasoning."
+  },
+  {
+    "q": "What is the best explanation of siddhānta in Nyāya reasoning?",
+    "opts": [
+      "established conclusion",
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "doubt"
+    ],
+    "ans": 0,
+    "exp": "The category siddhānta is used for established conclusion."
+  },
+  {
+    "q": "What is the best explanation of avayava in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "member of a syllogistic argument",
+      "object of valid knowledge",
+      "doubt"
+    ],
+    "ans": 1,
+    "exp": "The category avayava is used for member of a syllogistic argument."
+  },
+  {
+    "q": "What is the best explanation of tarka in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "suppositional reasoning used to test a position",
+      "doubt"
+    ],
+    "ans": 2,
+    "exp": "The category tarka is used for suppositional reasoning used to test a position."
+  },
+  {
+    "q": "What is the best explanation of nirṇaya in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "doubt",
+      "ascertainment or settled judgement"
+    ],
+    "ans": 3,
+    "exp": "The category nirṇaya is used for ascertainment or settled judgement."
+  },
+  {
+    "q": "What is the best explanation of vāda in Nyāya reasoning?",
+    "opts": [
+      "truth-oriented debate",
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "doubt"
+    ],
+    "ans": 0,
+    "exp": "The category vāda is used for truth-oriented debate."
+  },
+  {
+    "q": "What is the best explanation of jalpa in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "wrangling or victory-seeking debate",
+      "object of valid knowledge",
+      "doubt"
+    ],
+    "ans": 1,
+    "exp": "The category jalpa is used for wrangling or victory-seeking debate."
+  },
+  {
+    "q": "What is the best explanation of vitaṇḍā in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "destructive criticism without establishing one's own thesis",
+      "doubt"
+    ],
+    "ans": 2,
+    "exp": "The category vitaṇḍā is used for destructive criticism without establishing one's own thesis."
+  },
+  {
+    "q": "What is the best explanation of hetvābhāsa in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "doubt",
+      "fallacious reason"
+    ],
+    "ans": 3,
+    "exp": "The category hetvābhāsa is used for fallacious reason."
+  },
+  {
+    "q": "What is the best explanation of chala in Nyāya reasoning?",
+    "opts": [
+      "quibble or unfair verbal shift",
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "doubt"
+    ],
+    "ans": 0,
+    "exp": "The category chala is used for quibble or unfair verbal shift."
+  },
+  {
+    "q": "What is the best explanation of jāti in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "futile rejoinder or specious objection",
+      "object of valid knowledge",
+      "doubt"
+    ],
+    "ans": 1,
+    "exp": "The category jāti is used for futile rejoinder or specious objection."
+  },
+  {
+    "q": "What is the best explanation of nigrahasthāna in Nyāya reasoning?",
+    "opts": [
+      "means of valid knowledge",
+      "object of valid knowledge",
+      "point of defeat in debate",
+      "doubt"
+    ],
+    "ans": 2,
+    "exp": "The category nigrahasthāna is used for point of defeat in debate."
+  },
+  {
+    "q": "Which description best fits the Nyāya-related term anvīkṣikī?",
+    "opts": [
+      "science of reasoning",
+      "discipline of reasons or grounds",
+      "discipline of valid means of knowledge",
+      "critical inquiry or reflective investigation"
+    ],
+    "ans": 3,
+    "exp": "anvīkṣikī names Nyāya from the angle of critical inquiry or reflective investigation."
+  },
+  {
+    "q": "Which description best fits the Nyāya-related term tarkaśāstra?",
+    "opts": [
+      "science of reasoning",
+      "critical inquiry or reflective investigation",
+      "discipline of reasons or grounds",
+      "discipline of valid means of knowledge"
+    ],
+    "ans": 0,
+    "exp": "tarkaśāstra names Nyāya from the angle of science of reasoning."
+  },
+  {
+    "q": "Which description best fits the Nyāya-related term hetuśāstra?",
+    "opts": [
+      "critical inquiry or reflective investigation",
+      "discipline of reasons or grounds",
+      "science of reasoning",
+      "discipline of valid means of knowledge"
+    ],
+    "ans": 1,
+    "exp": "hetuśāstra names Nyāya from the angle of discipline of reasons or grounds."
+  },
+  {
+    "q": "Which description best fits the Nyāya-related term pramāṇaśāstra?",
+    "opts": [
+      "critical inquiry or reflective investigation",
+      "science of reasoning",
+      "discipline of valid means of knowledge",
+      "discipline of reasons or grounds"
+    ],
+    "ans": 2,
+    "exp": "pramāṇaśāstra names Nyāya from the angle of discipline of valid means of knowledge."
+  },
+  {
+    "q": "Which description best fits the Nyāya-related term nyāyaśāstra?",
+    "opts": [
+      "critical inquiry or reflective investigation",
+      "science of reasoning",
+      "discipline of reasons or grounds",
+      "discipline of methodical reasoning and examination"
+    ],
+    "ans": 3,
+    "exp": "nyāyaśāstra names Nyāya from the angle of discipline of methodical reasoning and examination."
+  },
+  {
+    "q": "Which description best fits the Nyāya-related term vāda-vidyā?",
+    "opts": [
+      "knowledge of disciplined debate",
+      "critical inquiry or reflective investigation",
+      "science of reasoning",
+      "discipline of reasons or grounds"
+    ],
+    "ans": 0,
+    "exp": "vāda-vidyā names Nyāya from the angle of knowledge of disciplined debate."
+  },
+  {
+    "q": "Which statement correctly identifies Tattvacintāmaṇi in the Nyāya/Navya-Nyāya context?",
+    "opts": [
+      "Tattvacintāmaṇi is a ritual manual unrelated to reasoning.",
+      "Tattvacintāmaṇi is Gangeśa’s principal work and the foundational text of Navya-Nyāya.",
+      "Tattvacintāmaṇi is a modern political manifesto.",
+      "Tattvacintāmaṇi is a folk ballad with no philosophical role."
+    ],
+    "ans": 1,
+    "exp": "The correct identification is that Tattvacintāmaṇi is Gangeśa’s principal work and the foundational text of Navya-Nyāya."
+  },
+  {
+    "q": "Match the text with its role: Tattvacintāmaṇi — ?",
+    "opts": [
+      "the older foundational sūtra text of the Nyāya tradition",
+      "the bhāṣya tradition associated with Vātsyāyana",
+      "Gangeśa’s principal work and the foundational text of Navya-Nyāya",
+      "the vārttika tradition associated with Uddyotakara"
+    ],
+    "ans": 2,
+    "exp": "Tattvacintāmaṇi is associated with Gangeśa’s principal work and the foundational text of Navya-Nyāya."
+  },
+  {
+    "q": "Which statement correctly identifies Nyāyasūtra in the Nyāya/Navya-Nyāya context?",
+    "opts": [
+      "Nyāyasūtra is a ritual manual unrelated to reasoning.",
+      "Nyāyasūtra is a modern political manifesto.",
+      "Nyāyasūtra is a folk ballad with no philosophical role.",
+      "Nyāyasūtra is the older foundational sūtra text of the Nyāya tradition."
+    ],
+    "ans": 3,
+    "exp": "The correct identification is that Nyāyasūtra is the older foundational sūtra text of the Nyāya tradition."
+  },
+  {
+    "q": "Match the text with its role: Nyāyasūtra — ?",
+    "opts": [
+      "the older foundational sūtra text of the Nyāya tradition",
+      "Gangeśa’s principal work and the foundational text of Navya-Nyāya",
+      "the bhāṣya tradition associated with Vātsyāyana",
+      "the vārttika tradition associated with Uddyotakara"
+    ],
+    "ans": 0,
+    "exp": "Nyāyasūtra is associated with the older foundational sūtra text of the Nyāya tradition."
+  },
+  {
+    "q": "Which statement correctly identifies Nyāyabhāṣya in the Nyāya/Navya-Nyāya context?",
+    "opts": [
+      "Nyāyabhāṣya is a ritual manual unrelated to reasoning.",
+      "Nyāyabhāṣya is the bhāṣya tradition associated with Vātsyāyana.",
+      "Nyāyabhāṣya is a modern political manifesto.",
+      "Nyāyabhāṣya is a folk ballad with no philosophical role."
+    ],
+    "ans": 1,
+    "exp": "The correct identification is that Nyāyabhāṣya is the bhāṣya tradition associated with Vātsyāyana."
+  },
+  {
+    "q": "Match the text with its role: Nyāyabhāṣya — ?",
+    "opts": [
+      "Gangeśa’s principal work and the foundational text of Navya-Nyāya",
+      "the older foundational sūtra text of the Nyāya tradition",
+      "the bhāṣya tradition associated with Vātsyāyana",
+      "the vārttika tradition associated with Uddyotakara"
+    ],
+    "ans": 2,
+    "exp": "Nyāyabhāṣya is associated with the bhāṣya tradition associated with Vātsyāyana."
+  },
+  {
+    "q": "Which statement correctly identifies Nyāyavārttika in the Nyāya/Navya-Nyāya context?",
+    "opts": [
+      "Nyāyavārttika is a ritual manual unrelated to reasoning.",
+      "Nyāyavārttika is a modern political manifesto.",
+      "Nyāyavārttika is a folk ballad with no philosophical role.",
+      "Nyāyavārttika is the vārttika tradition associated with Uddyotakara."
+    ],
+    "ans": 3,
+    "exp": "The correct identification is that Nyāyavārttika is the vārttika tradition associated with Uddyotakara."
+  },
+  {
+    "q": "Match the text with its role: Nyāyavārttika — ?",
+    "opts": [
+      "the vārttika tradition associated with Uddyotakara",
+      "Gangeśa’s principal work and the foundational text of Navya-Nyāya",
+      "the older foundational sūtra text of the Nyāya tradition",
+      "the bhāṣya tradition associated with Vātsyāyana"
+    ],
+    "ans": 0,
+    "exp": "Nyāyavārttika is associated with the vārttika tradition associated with Uddyotakara."
+  },
+  {
+    "q": "Which statement correctly identifies Nyāyavārttikatātparyaṭīkā in the Nyāya/Navya-Nyāya context?",
+    "opts": [
+      "Nyāyavārttikatātparyaṭīkā is a ritual manual unrelated to reasoning.",
+      "Nyāyavārttikatātparyaṭīkā is Vācaspati Miśra’s major contribution in the older Nyāya commentary line.",
+      "Nyāyavārttikatātparyaṭīkā is a modern political manifesto.",
+      "Nyāyavārttikatātparyaṭīkā is a folk ballad with no philosophical role."
+    ],
+    "ans": 1,
+    "exp": "The correct identification is that Nyāyavārttikatātparyaṭīkā is Vācaspati Miśra’s major contribution in the older Nyāya commentary line."
+  },
+  {
+    "q": "Match the text with its role: Nyāyavārttikatātparyaṭīkā — ?",
+    "opts": [
+      "Gangeśa’s principal work and the foundational text of Navya-Nyāya",
+      "the older foundational sūtra text of the Nyāya tradition",
+      "Vācaspati Miśra’s major contribution in the older Nyāya commentary line",
+      "the bhāṣya tradition associated with Vātsyāyana"
+    ],
+    "ans": 2,
+    "exp": "Nyāyavārttikatātparyaṭīkā is associated with Vācaspati Miśra’s major contribution in the older Nyāya commentary line."
+  },
+  {
+    "q": "Which statement correctly identifies Kusumāñjali in the Nyāya/Navya-Nyāya context?",
+    "opts": [
+      "Kusumāñjali is a ritual manual unrelated to reasoning.",
+      "Kusumāñjali is a modern political manifesto.",
+      "Kusumāñjali is a folk ballad with no philosophical role.",
+      "Kusumāñjali is Udayana’s important work defending the existence of Īśvara."
+    ],
+    "ans": 3,
+    "exp": "The correct identification is that Kusumāñjali is Udayana’s important work defending the existence of Īśvara."
+  },
+  {
+    "q": "Match the text with its role: Kusumāñjali — ?",
+    "opts": [
+      "Udayana’s important work defending the existence of Īśvara",
+      "Gangeśa’s principal work and the foundational text of Navya-Nyāya",
+      "the older foundational sūtra text of the Nyāya tradition",
+      "the bhāṣya tradition associated with Vātsyāyana"
+    ],
+    "ans": 0,
+    "exp": "Kusumāñjali is associated with Udayana’s important work defending the existence of Īśvara."
+  },
+  {
+    "q": "Which description best fits Gautama in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "the bhāṣyakāra of the Nyāya tradition",
+      "the traditional author of the Nyāyasūtra",
+      "a major early Nyāya vārttikakāra",
+      "a pre-Gangeśa Maithil scholar linked with the older Nyāya commentary tradition"
+    ],
+    "ans": 1,
+    "exp": "Gautama is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which description best fits Vātsyāyana in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "the traditional author of the Nyāyasūtra",
+      "a major early Nyāya vārttikakāra",
+      "the bhāṣyakāra of the Nyāya tradition",
+      "a pre-Gangeśa Maithil scholar linked with the older Nyāya commentary tradition"
+    ],
+    "ans": 2,
+    "exp": "Vātsyāyana is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which description best fits Uddyotakara in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "the traditional author of the Nyāyasūtra",
+      "the bhāṣyakāra of the Nyāya tradition",
+      "a pre-Gangeśa Maithil scholar linked with the older Nyāya commentary tradition",
+      "a major early Nyāya vārttikakāra"
+    ],
+    "ans": 3,
+    "exp": "Uddyotakara is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which description best fits Vācaspati Miśra in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "a pre-Gangeśa Maithil scholar linked with the older Nyāya commentary tradition",
+      "the traditional author of the Nyāyasūtra",
+      "the bhāṣyakāra of the Nyāya tradition",
+      "a major early Nyāya vārttikakāra"
+    ],
+    "ans": 0,
+    "exp": "Vācaspati Miśra is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which description best fits Udayana in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "the traditional author of the Nyāyasūtra",
+      "a major Naiyāyika before Gangeśa and an important figure in Mithila’s logical tradition",
+      "the bhāṣyakāra of the Nyāya tradition",
+      "a major early Nyāya vārttikakāra"
+    ],
+    "ans": 1,
+    "exp": "Udayana is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which description best fits Gangeśa Upādhyāya in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "the traditional author of the Nyāyasūtra",
+      "the bhāṣyakāra of the Nyāya tradition",
+      "the central figure associated with Navya-Nyāya and Tattvacintāmaṇi",
+      "a major early Nyāya vārttikakāra"
+    ],
+    "ans": 2,
+    "exp": "Gangeśa Upādhyāya is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which description best fits Vardhamāna Upādhyāya in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "the traditional author of the Nyāyasūtra",
+      "the bhāṣyakāra of the Nyāya tradition",
+      "a major early Nyāya vārttikakāra",
+      "a later learned figure connected with Gangeśa’s family and intellectual succession"
+    ],
+    "ans": 3,
+    "exp": "Vardhamāna Upādhyāya is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which description best fits Pakṣadhara Miśra in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "a later Maithil name associated with Navya-Nyāya learning",
+      "the traditional author of the Nyāyasūtra",
+      "the bhāṣyakāra of the Nyāya tradition",
+      "a major early Nyāya vārttikakāra"
+    ],
+    "ans": 0,
+    "exp": "Pakṣadhara Miśra is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which description best fits Raghunātha Śiromaṇi in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "the traditional author of the Nyāyasūtra",
+      "a major later Navya-Nyāya philosopher in the post-Gangeśa tradition",
+      "the bhāṣyakāra of the Nyāya tradition",
+      "a major early Nyāya vārttikakāra"
+    ],
+    "ans": 1,
+    "exp": "Raghunātha Śiromaṇi is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which description best fits Gadādhara Bhaṭṭācārya in the Nyāya/Navya-Nyāya chain?",
+    "opts": [
+      "the traditional author of the Nyāyasūtra",
+      "the bhāṣyakāra of the Nyāya tradition",
+      "a later scholar in the extended Navya-Nyāya commentary world",
+      "a major early Nyāya vārttikakāra"
+    ],
+    "ans": 2,
+    "exp": "Gadādhara Bhaṭṭācārya is treated in relation to this role in the Nyāya tradition."
+  },
+  {
+    "q": "Which Tattvacintāmaṇi division is linked with perception?",
+    "opts": [
+      "Anumāna-khaṇḍa",
+      "Upamāna-khaṇḍa",
+      "Śabda-khaṇḍa",
+      "Pratyakṣa-khaṇḍa"
+    ],
+    "ans": 3,
+    "exp": "Pratyakṣa-khaṇḍa is the division connected with perception."
+  },
+  {
+    "q": "What is the subject of Pratyakṣa-khaṇḍa?",
+    "opts": [
+      "perception",
+      "inference",
+      "comparison",
+      "verbal testimony"
+    ],
+    "ans": 0,
+    "exp": "Pratyakṣa-khaṇḍa concerns perception."
+  },
+  {
+    "q": "Which Tattvacintāmaṇi division is linked with inference?",
+    "opts": [
+      "Pratyakṣa-khaṇḍa",
+      "Anumāna-khaṇḍa",
+      "Upamāna-khaṇḍa",
+      "Śabda-khaṇḍa"
+    ],
+    "ans": 1,
+    "exp": "Anumāna-khaṇḍa is the division connected with inference."
+  },
+  {
+    "q": "What is the subject of Anumāna-khaṇḍa?",
+    "opts": [
+      "perception",
+      "comparison",
+      "inference",
+      "verbal testimony"
+    ],
+    "ans": 2,
+    "exp": "Anumāna-khaṇḍa concerns inference."
+  },
+  {
+    "q": "Which Tattvacintāmaṇi division is linked with comparison?",
+    "opts": [
+      "Pratyakṣa-khaṇḍa",
+      "Anumāna-khaṇḍa",
+      "Śabda-khaṇḍa",
+      "Upamāna-khaṇḍa"
+    ],
+    "ans": 3,
+    "exp": "Upamāna-khaṇḍa is the division connected with comparison."
+  },
+  {
+    "q": "What is the subject of Upamāna-khaṇḍa?",
+    "opts": [
+      "comparison",
+      "perception",
+      "inference",
+      "verbal testimony"
+    ],
+    "ans": 0,
+    "exp": "Upamāna-khaṇḍa concerns comparison."
+  },
+  {
+    "q": "Which Tattvacintāmaṇi division is linked with verbal testimony?",
+    "opts": [
+      "Pratyakṣa-khaṇḍa",
+      "Śabda-khaṇḍa",
+      "Anumāna-khaṇḍa",
+      "Upamāna-khaṇḍa"
+    ],
+    "ans": 1,
+    "exp": "Śabda-khaṇḍa is the division connected with verbal testimony."
+  },
+  {
+    "q": "What is the subject of Śabda-khaṇḍa?",
+    "opts": [
+      "perception",
+      "inference",
+      "verbal testimony",
+      "comparison"
+    ],
+    "ans": 2,
+    "exp": "Śabda-khaṇḍa concerns verbal testimony."
+  },
+  {
+    "q": "Which pair is correct in inference-related vocabulary?",
+    "opts": [
+      "sādhya — the property to be established",
+      "hetu — the reason or inferential mark",
+      "vyāpti — invariable concomitance between reason and probandum",
+      "pakṣa — the subject or locus under consideration in an inference"
+    ],
+    "ans": 3,
+    "exp": "pakṣa is used for the subject or locus under consideration in an inference in the logic of inference."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does pakṣa most nearly mean?",
+    "opts": [
+      "the subject or locus under consideration in an inference",
+      "the property to be established",
+      "the reason or inferential mark",
+      "invariable concomitance between reason and probandum"
+    ],
+    "ans": 0,
+    "exp": "The inferential role of pakṣa is the subject or locus under consideration in an inference."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does sādhya most nearly mean?",
+    "opts": [
+      "the subject or locus under consideration in an inference",
+      "the property to be established",
+      "the reason or inferential mark",
+      "invariable concomitance between reason and probandum"
+    ],
+    "ans": 1,
+    "exp": "The inferential role of sādhya is the property to be established."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does hetu most nearly mean?",
+    "opts": [
+      "the subject or locus under consideration in an inference",
+      "the property to be established",
+      "the reason or inferential mark",
+      "invariable concomitance between reason and probandum"
+    ],
+    "ans": 2,
+    "exp": "The inferential role of hetu is the reason or inferential mark."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does vyāpti most nearly mean?",
+    "opts": [
+      "the subject or locus under consideration in an inference",
+      "the property to be established",
+      "the reason or inferential mark",
+      "invariable concomitance between reason and probandum"
+    ],
+    "ans": 3,
+    "exp": "The inferential role of vyāpti is invariable concomitance between reason and probandum."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does dṛṣṭānta most nearly mean?",
+    "opts": [
+      "example used to show the relation between reason and probandum",
+      "the subject or locus under consideration in an inference",
+      "the property to be established",
+      "the reason or inferential mark"
+    ],
+    "ans": 0,
+    "exp": "The inferential role of dṛṣṭānta is example used to show the relation between reason and probandum."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does upādhi most nearly mean?",
+    "opts": [
+      "the subject or locus under consideration in an inference",
+      "a condition that restricts or qualifies an inference",
+      "the property to be established",
+      "the reason or inferential mark"
+    ],
+    "ans": 1,
+    "exp": "The inferential role of upādhi is a condition that restricts or qualifies an inference."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does pakṣadharmatā most nearly mean?",
+    "opts": [
+      "the subject or locus under consideration in an inference",
+      "the property to be established",
+      "the presence of the reason in the subject",
+      "the reason or inferential mark"
+    ],
+    "ans": 2,
+    "exp": "The inferential role of pakṣadharmatā is the presence of the reason in the subject."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does parāmarśa most nearly mean?",
+    "opts": [
+      "the subject or locus under consideration in an inference",
+      "the property to be established",
+      "the reason or inferential mark",
+      "reflective cognition connecting the subject with the reason and the universal relation"
+    ],
+    "ans": 3,
+    "exp": "The inferential role of parāmarśa is reflective cognition connecting the subject with the reason and the universal relation."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does vyabhicāra most nearly mean?",
+    "opts": [
+      "deviation or irregularity that weakens an inference",
+      "the subject or locus under consideration in an inference",
+      "the property to be established",
+      "the reason or inferential mark"
+    ],
+    "ans": 0,
+    "exp": "The inferential role of vyabhicāra is deviation or irregularity that weakens an inference."
+  },
+  {
+    "q": "In a Navya-Nyāya style discussion of inference, what does lakṣaṇa most nearly mean?",
+    "opts": [
+      "the subject or locus under consideration in an inference",
+      "definition or mark used to fix a concept",
+      "the property to be established",
+      "the reason or inferential mark"
+    ],
+    "ans": 1,
+    "exp": "The inferential role of lakṣaṇa is definition or mark used to fix a concept."
+  },
+  {
+    "q": "Consider the following statements about Gangeśa: 1. He is associated with Navya-Nyāya. 2. Tattvacintāmaṇi is his principal philosophical work. 3. His importance is unrelated to Nyāya reasoning.",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "1 and 2 only",
+      "1, 2 and 3"
+    ],
+    "ans": 2,
+    "exp": "Gangeśa is linked with Navya-Nyāya and Tattvacintāmaṇi; the third statement is wrong."
+  },
+  {
+    "q": "Consider the following statements about Nyāya: 1. It is concerned with valid knowledge. 2. It uses pramāṇa and prameya categories. 3. It rejects reasoning and debate as irrelevant.",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "1, 2 and 3",
+      "1 and 2 only"
+    ],
+    "ans": 3,
+    "exp": "Nyāya studies valid means and objects of knowledge; it does not reject reasoning."
+  },
+  {
+    "q": "Which of the following are pramāṇas in the Nyāya framework? 1. Pratyakṣa 2. Anumāna 3. Upamāna 4. Śabda",
+    "opts": [
+      "1, 2, 3 and 4",
+      "1 and 2 only",
+      "2 and 3 only",
+      "1, 3 and 4 only"
+    ],
+    "ans": 0,
+    "exp": "The four pramāṇas are perception, inference, comparison, and verbal testimony."
+  },
+  {
+    "q": "Consider the following pairs: 1. Pratyakṣa — perception 2. Anumāna — inference 3. Śabda — verbal testimony",
+    "opts": [
+      "1 only",
+      "1, 2 and 3",
+      "1 and 2 only",
+      "2 and 3 only"
+    ],
+    "ans": 1,
+    "exp": "All three pairs correctly reflect Nyāya epistemology."
+  },
+  {
+    "q": "Consider the following pairs: 1. Pramāṇa — means of valid knowledge 2. Prameya — object of valid knowledge 3. Hetvābhāsa — fallacious reason",
+    "opts": [
+      "1 only",
+      "1 and 2 only",
+      "1, 2 and 3",
+      "2 and 3 only"
+    ],
+    "ans": 2,
+    "exp": "Each pair is a standard Nyāya category."
+  },
+  {
+    "q": "Which of the following are associated with debate in Nyāya? 1. Vāda 2. Jalpa 3. Vitaṇḍā 4. Nigrahasthāna",
+    "opts": [
+      "1 and 2 only",
+      "2 and 4 only",
+      "1, 3 and 4 only",
+      "1, 2, 3 and 4"
+    ],
+    "ans": 3,
+    "exp": "Nyāya analyses debate, wrangling, destructive criticism, and points of defeat."
+  },
+  {
+    "q": "Consider the following statements about Tattvacintāmaṇi: 1. It is central to Gangeśa’s fame. 2. It is linked with the rise of Navya-Nyāya. 3. It avoids pramāṇa inquiry.",
+    "opts": [
+      "1 and 2 only",
+      "1 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "The work is central to Gangeśa and Navya-Nyāya; it does not avoid pramāṇa inquiry."
+  },
+  {
+    "q": "Which of the following divisions are associated with Tattvacintāmaṇi? 1. Pratyakṣa-khaṇḍa 2. Anumāna-khaṇḍa 3. Upamāna-khaṇḍa 4. Śabda-khaṇḍa",
+    "opts": [
+      "1 and 2 only",
+      "1, 2, 3 and 4",
+      "2 and 3 only",
+      "1, 3 and 4 only"
+    ],
+    "ans": 1,
+    "exp": "The work is organised around the pramāṇa divisions."
+  },
+  {
+    "q": "Consider the following statements about Mithila’s philosophical setting: 1. Mithila is treated as a major place for Nyāya learning. 2. Gangeśa is placed inside that tradition. 3. The tradition is presented as unrelated to Sanskrit scholarship.",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "1 and 2 only",
+      "1, 2 and 3"
+    ],
+    "ans": 2,
+    "exp": "Mithila’s Sanskrit-Nyāya learning forms the background for Gangeśa."
+  },
+  {
+    "q": "Which of the following belong to the old-to-new Nyāya chain? 1. Gautama 2. Vātsyāyana 3. Uddyotakara 4. Gangeśa",
+    "opts": [
+      "1 and 2 only",
+      "2 and 3 only",
+      "1, 3 and 4 only",
+      "1, 2, 3 and 4"
+    ],
+    "ans": 3,
+    "exp": "The discussion connects older Nyāya authorities and the later Navya-Nyāya turn associated with Gangeśa."
+  },
+  {
+    "q": "Consider the following statements about inference: 1. Hetu is the reason. 2. Sādhya is what is to be established. 3. Vyāpti is irrelevant to inference.",
+    "opts": [
+      "1 and 2 only",
+      "1 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "Inference requires hetu, sādhya, and vyāpti; the third statement is false."
+  },
+  {
+    "q": "Which of the following are inferential terms? 1. Pakṣa 2. Hetu 3. Sādhya 4. Vyāpti",
+    "opts": [
+      "1 and 2 only",
+      "1, 2, 3 and 4",
+      "2 and 4 only",
+      "1, 3 and 4 only"
+    ],
+    "ans": 1,
+    "exp": "All four belong to inference vocabulary."
+  },
+  {
+    "q": "Consider the following statements about Navya-Nyāya: 1. It is marked by technical precision. 2. It develops rather than erases older Nyāya. 3. It is mainly a school of lyric poetry.",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "1 and 2 only",
+      "1, 2 and 3"
+    ],
+    "ans": 2,
+    "exp": "Navya-Nyāya refines Nyāya with technical precision; it is not lyric poetry."
+  },
+  {
+    "q": "Which of the following are real concerns in the Gangeśa discussion? 1. Birthplace traditions 2. Lineage and gotra 3. Period and honorific title 4. Modern electoral manifestos",
+    "opts": [
+      "1 and 4 only",
+      "2 and 4 only",
+      "1, 2, 3 and 4",
+      "1, 2 and 3 only"
+    ],
+    "ans": 3,
+    "exp": "The source discusses biographical and scholastic traditions, not electoral politics."
+  },
+  {
+    "q": "Assertion (A): Gangeśa is crucial to the rise of Navya-Nyāya. Reason (R): Tattvacintāmaṇi became a foundational work for later technical Nyāya analysis.",
+    "opts": [
+      "Both A and R are true, and R correctly explains A.",
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "A is false, but R is true."
+    ],
+    "ans": 0,
+    "exp": "Gangeśa’s importance is tied to Tattvacintāmaṇi and its later analytical tradition."
+  },
+  {
+    "q": "Assertion (A): Nyāya gives importance to pramāṇa. Reason (R): Valid knowledge depends on reliable means of knowing.",
+    "opts": [
+      "Both A and R are true, but R does not explain A.",
+      "Both A and R are true, and R correctly explains A.",
+      "A is true, but R is false.",
+      "A is false, but R is true."
+    ],
+    "ans": 1,
+    "exp": "Nyāya studies means of valid knowledge because reliability of cognition is central to it."
+  },
+  {
+    "q": "Assertion (A): Anumāna is important in Nyāya. Reason (R): Inference depends on the relation between hetu and sādhya through vyāpti.",
+    "opts": [
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "Both A and R are true, and R correctly explains A.",
+      "A is false, but R is true."
+    ],
+    "ans": 2,
+    "exp": "Inference is intelligible only through the reason, probandum, and their invariable relation."
+  },
+  {
+    "q": "Assertion (A): Tarka is part of disciplined Nyāya inquiry. Reason (R): Tarka helps test and clarify positions rather than functioning as mere quarrel.",
+    "opts": [
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "A is false, but R is true.",
+      "Both A and R are true, and R correctly explains A."
+    ],
+    "ans": 3,
+    "exp": "Tarka in Nyāya has a methodological role."
+  },
+  {
+    "q": "Assertion (A): Mithila is significant in the history of Navya-Nyāya. Reason (R): Gangeśa and later scholars are placed within its scholastic environment.",
+    "opts": [
+      "Both A and R are true, and R correctly explains A.",
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "A is false, but R is true."
+    ],
+    "ans": 0,
+    "exp": "The source links Gangeśa’s work with Mithila’s learned milieu."
+  },
+  {
+    "q": "Which set correctly matches Nyāya categories with their functions?",
+    "opts": [
+      "pramāṇa — object of valid knowledge; prameya — doubt; saṃśaya — purpose or motive; prayojana — means of valid knowledge",
+      "pramāṇa — means of valid knowledge; prameya — object of valid knowledge; saṃśaya — doubt; prayojana — purpose or motive",
+      "pramāṇa — unrelated biographical detail; prameya — unrelated biographical detail; saṃśaya — unrelated biographical detail; prayojana — unrelated biographical detail",
+      "pramāṇa — doubt; prameya — purpose or motive; saṃśaya — means of valid knowledge; prayojana — object of valid knowledge"
+    ],
+    "ans": 1,
+    "exp": "The correct set keeps each Nyāya category with its standard function."
+  },
+  {
+    "q": "Which set correctly places figures in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Gautama — the bhāṣyakāra of the Nyāya tradition; Vātsyāyana — a major early Nyāya vārttikakāra; Uddyotakara — the traditional author of the Nyāyasūtra",
+      "Gautama — unrelated modern political role; Vātsyāyana — unrelated modern political role; Uddyotakara — unrelated modern political role",
+      "Gautama — the traditional author of the Nyāyasūtra; Vātsyāyana — the bhāṣyakāra of the Nyāya tradition; Uddyotakara — a major early Nyāya vārttikakāra",
+      "Gautama — a major early Nyāya vārttikakāra; Vātsyāyana — the traditional author of the Nyāyasūtra; Uddyotakara — the bhāṣyakāra of the Nyāya tradition"
+    ],
+    "ans": 2,
+    "exp": "The correct set preserves the roles of the scholars in the Nyāya line."
+  },
+  {
+    "q": "Why is Tattvacintāmaṇi treated as a turning point?",
+    "opts": [
+      "Because it replaced philosophy with epic narration.",
+      "Because it rejected all discussion of pramāṇa.",
+      "Because it focused only on ritual performance.",
+      "Because it sharpened Nyāya analysis into the technical style associated with Navya-Nyāya."
+    ],
+    "ans": 3,
+    "exp": "The source connects the work with the new analytical turn in Nyāya."
+  },
+  {
+    "q": "What makes Navya-Nyāya distinct in the discussion of Gangeśa?",
+    "opts": [
+      "Its refined technical language and precise analysis of cognition and inference.",
+      "Its rejection of logic as useless.",
+      "Its exclusive concern with royal genealogy.",
+      "Its dependence on lyrical metres alone."
+    ],
+    "ans": 0,
+    "exp": "Navya-Nyāya is marked by technical precision."
+  },
+  {
+    "q": "Why are earlier Maithil logicians discussed before Gangeśa?",
+    "opts": [
+      "To show that Gangeśa had no relation to Mithila.",
+      "To show the intellectual preparation behind his achievement.",
+      "To replace philosophy with folklore.",
+      "To avoid discussion of Tattvacintāmaṇi."
+    ],
+    "ans": 1,
+    "exp": "The pre-Gangeśa background explains the continuity of learned debate in Mithila."
+  },
+  {
+    "q": "Why does the discussion include Gangeśa’s mūla and gotra?",
+    "opts": [
+      "Because gotra replaces his philosophical work.",
+      "Because Nyāya accepts only genealogy as pramāṇa.",
+      "Because lineage traditions are part of reconstructing his intellectual and biographical identity.",
+      "Because Tattvacintāmaṇi is a genealogy manual."
+    ],
+    "ans": 2,
+    "exp": "The biographical sections place philosophical work alongside lineage memory."
+  },
+  {
+    "q": "What is the role of commentary tradition in Gangeśa’s legacy?",
+    "opts": [
+      "It proves that Tattvacintāmaṇi had no influence.",
+      "It changes the subject to modern politics.",
+      "It erases all technical language from Nyāya.",
+      "It expands, explains, and contests the arguments of Tattvacintāmaṇi."
+    ],
+    "ans": 3,
+    "exp": "The later commentary tradition is central to the survival of Navya-Nyāya."
+  },
+  {
+    "q": "What kind of knowledge problem lies at the centre of pramāṇa inquiry?",
+    "opts": [
+      "How a cognition becomes valid, reliable, and tied to its object.",
+      "How to compose a royal eulogy.",
+      "How to count dynasties only.",
+      "How to avoid reasoning altogether."
+    ],
+    "ans": 0,
+    "exp": "Pramāṇa inquiry examines the conditions of valid cognition."
+  },
+  {
+    "q": "Why is vyāpti crucial in inference?",
+    "opts": [
+      "Because it means the defeat of an opponent.",
+      "Because it connects the hetu with the sādhya through invariable concomitance.",
+      "Because it is another name for verbal testimony.",
+      "Because it refers to a birthplace tradition."
+    ],
+    "ans": 1,
+    "exp": "Inference depends on a reliable relation between reason and probandum."
+  },
+  {
+    "q": "What distinguishes vāda from jalpa in Nyāya debate vocabulary?",
+    "opts": [
+      "Vāda is a fallacy and jalpa is perception.",
+      "Both are names of gotra traditions.",
+      "Vāda aims at truth, while jalpa is victory-oriented wrangling.",
+      "Both mean verbal testimony only."
+    ],
+    "ans": 2,
+    "exp": "Nyāya analyses different forms of debate."
+  },
+  {
+    "q": "What is the role of hetvābhāsa?",
+    "opts": [
+      "It is the subject under consideration.",
+      "It is the direct sense-object contact.",
+      "It is the title of a biographical chapter.",
+      "It marks a reason that appears valid but is fallacious."
+    ],
+    "ans": 3,
+    "exp": "Hetvābhāsa is a fallacious reason."
+  },
+  {
+    "q": "Why is Anvīkṣikī an apt name for Nyāya?",
+    "opts": [
+      "Because Nyāya involves critical investigation and reflective examination.",
+      "Because it names a royal title.",
+      "Because it excludes all inquiry.",
+      "Because it means comparison only."
+    ],
+    "ans": 0,
+    "exp": "Anvīkṣikī stresses inquiry and examination."
+  },
+  {
+    "q": "What is the relation between older Nyāya and Navya-Nyāya in the Gangeśa discussion?",
+    "opts": [
+      "Navya-Nyāya is wholly unrelated to Nyāya.",
+      "Navya-Nyāya develops older Nyāya through more exact analysis and terminology.",
+      "Older Nyāya is treated as poetry only.",
+      "Gangeśa is excluded from both traditions."
+    ],
+    "ans": 1,
+    "exp": "The source presents a line of development rather than total discontinuity."
+  },
+  {
+    "q": "What is the philosophical relevance of Gangeśa’s period?",
+    "opts": [
+      "It replaces the need to discuss Tattvacintāmaṇi.",
+      "It proves that logic began only in the modern age.",
+      "It helps place the emergence of Navya-Nyāya within Mithila’s intellectual history.",
+      "It is unrelated to learned traditions."
+    ],
+    "ans": 2,
+    "exp": "Chronological discussion helps locate Gangeśa in the history of Nyāya."
+  },
+  {
+    "q": "How should oral traditions about Gangeśa be used?",
+    "opts": [
+      "As proof that philosophical texts are unnecessary.",
+      "As a reason to ignore all scholarship.",
+      "As a substitute for every pramāṇa category.",
+      "As material to be compared with reasoning, lineage, and textual evidence."
+    ],
+    "ans": 3,
+    "exp": "The source treats tradition seriously but evaluates it through inquiry."
+  },
+  {
+    "q": "Why are cited works and authors in Tattvacintāmaṇi important?",
+    "opts": [
+      "They show the earlier intellectual material with which Gangeśa’s arguments interact.",
+      "They show that Gangeśa wrote no philosophical work.",
+      "They show that Nyāya had no debate tradition.",
+      "They are only decorative names without relevance."
+    ],
+    "ans": 0,
+    "exp": "The cited material connects Gangeśa with prior śāstric discussions."
+  },
+  {
+    "q": "What is the best content-based description of Gangeśa’s achievement?",
+    "opts": [
+      "He abolished all forms of reasoning.",
+      "He gave Nyāya a sharper technical form through Tattvacintāmaṇi.",
+      "He wrote only on music and theatre.",
+      "He treated pramāṇa as irrelevant to knowledge."
+    ],
+    "ans": 1,
+    "exp": "The source presents Gangeśa as a decisive technical thinker in Nyāya."
+  },
+  {
+    "q": "Choose the most accurate content-based completion.",
+    "opts": [
+      "Gangeśa belongs to the learned world of Mithila, but only as a non-philosophical anecdote.",
+      "The source treats this issue as unrelated to Gangeśa and Nyāya.",
+      "Gangeśa belongs to the learned world of Mithila, not to an isolated, non-scholastic setting.",
+      "The source replaces this topic with page-number memorisation."
+    ],
+    "ans": 2,
+    "exp": "The accurate point is that Gangeśa belongs to the learned world of Mithila and not to an isolated, non-scholastic setting."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving pramāṇa?",
+    "opts": [
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt",
+      "prayojana — purpose or motive",
+      "pramāṇa — one of the four pramāṇas"
+    ],
+    "ans": 3,
+    "exp": "pramāṇa is not one of the four pramāṇas; it means means of valid knowledge."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving prameya?",
+    "opts": [
+      "prameya — one of the four pramāṇas",
+      "pramāṇa — means of valid knowledge",
+      "saṃśaya — doubt",
+      "prayojana — purpose or motive"
+    ],
+    "ans": 0,
+    "exp": "prameya is not one of the four pramāṇas; it means object of valid knowledge."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving saṃśaya?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "saṃśaya — one of the four pramāṇas",
+      "prameya — object of valid knowledge",
+      "prayojana — purpose or motive"
+    ],
+    "ans": 1,
+    "exp": "saṃśaya is not one of the four pramāṇas; it means doubt."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving prayojana?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "prayojana — one of the four pramāṇas",
+      "saṃśaya — doubt"
+    ],
+    "ans": 2,
+    "exp": "prayojana is not one of the four pramāṇas; it means purpose or motive."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving dṛṣṭānta?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt",
+      "dṛṣṭānta — one of the four pramāṇas"
+    ],
+    "ans": 3,
+    "exp": "dṛṣṭānta is not one of the four pramāṇas; it means example used in reasoning."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving siddhānta?",
+    "opts": [
+      "siddhānta — one of the four pramāṇas",
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt"
+    ],
+    "ans": 0,
+    "exp": "siddhānta is not one of the four pramāṇas; it means established conclusion."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving avayava?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "avayava — one of the four pramāṇas",
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt"
+    ],
+    "ans": 1,
+    "exp": "avayava is not one of the four pramāṇas; it means member of a syllogistic argument."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving tarka?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "tarka — one of the four pramāṇas",
+      "saṃśaya — doubt"
+    ],
+    "ans": 2,
+    "exp": "tarka is not one of the four pramāṇas; it means suppositional reasoning used to test a position."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving nirṇaya?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt",
+      "nirṇaya — one of the four pramāṇas"
+    ],
+    "ans": 3,
+    "exp": "nirṇaya is not one of the four pramāṇas; it means ascertainment or settled judgement."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving vāda?",
+    "opts": [
+      "vāda — one of the four pramāṇas",
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt"
+    ],
+    "ans": 0,
+    "exp": "vāda is not one of the four pramāṇas; it means truth-oriented debate."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving jalpa?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "jalpa — one of the four pramāṇas",
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt"
+    ],
+    "ans": 1,
+    "exp": "jalpa is not one of the four pramāṇas; it means wrangling or victory-seeking debate."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving vitaṇḍā?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "vitaṇḍā — one of the four pramāṇas",
+      "saṃśaya — doubt"
+    ],
+    "ans": 2,
+    "exp": "vitaṇḍā is not one of the four pramāṇas; it means destructive criticism without establishing one’s own thesis."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving hetvābhāsa?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt",
+      "hetvābhāsa — one of the four pramāṇas"
+    ],
+    "ans": 3,
+    "exp": "hetvābhāsa is not one of the four pramāṇas; it means fallacious reason."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving chala?",
+    "opts": [
+      "chala — one of the four pramāṇas",
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt"
+    ],
+    "ans": 0,
+    "exp": "chala is not one of the four pramāṇas; it means quibble or unfair verbal shift."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving jāti?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "jāti — one of the four pramāṇas",
+      "prameya — object of valid knowledge",
+      "saṃśaya — doubt"
+    ],
+    "ans": 1,
+    "exp": "jāti is not one of the four pramāṇas; it means futile rejoinder or specious objection."
+  },
+  {
+    "q": "Which pair is NOT correctly matched in the Nyāya category vocabulary involving nigrahasthāna?",
+    "opts": [
+      "pramāṇa — means of valid knowledge",
+      "prameya — object of valid knowledge",
+      "nigrahasthāna — one of the four pramāṇas",
+      "saṃśaya — doubt"
+    ],
+    "ans": 2,
+    "exp": "nigrahasthāna is not one of the four pramāṇas; it means point of defeat in debate."
+  },
+  {
+    "q": "Which of the following is not one of the four pramāṇas in the Nyāya framework?",
+    "opts": [
+      "pratyakṣa",
+      "anumāna",
+      "upamāna",
+      "saṃśaya"
+    ],
+    "ans": 3,
+    "exp": "saṃśaya is a Nyāya category, but the four pramāṇas are pratyakṣa, anumāna, upamāna, and śabda."
+  },
+  {
+    "q": "If a cognition is obtained through perception, which pramāṇa is involved?",
+    "opts": [
+      "pratyakṣa",
+      "anumāna",
+      "upamāna",
+      "śabda"
+    ],
+    "ans": 0,
+    "exp": "pratyakṣa is the pramāṇa corresponding to perception."
+  },
+  {
+    "q": "If a cognition is obtained through inference, which pramāṇa is involved?",
+    "opts": [
+      "pratyakṣa",
+      "anumāna",
+      "upamāna",
+      "śabda"
+    ],
+    "ans": 1,
+    "exp": "anumāna is the pramāṇa corresponding to inference."
+  },
+  {
+    "q": "If a cognition is obtained through comparison, which pramāṇa is involved?",
+    "opts": [
+      "pratyakṣa",
+      "anumāna",
+      "upamāna",
+      "śabda"
+    ],
+    "ans": 2,
+    "exp": "upamāna is the pramāṇa corresponding to comparison."
+  },
+  {
+    "q": "If a cognition is obtained through verbal testimony, which pramāṇa is involved?",
+    "opts": [
+      "pratyakṣa",
+      "anumāna",
+      "upamāna",
+      "śabda"
+    ],
+    "ans": 3,
+    "exp": "śabda is the pramāṇa corresponding to verbal testimony."
+  },
+  {
+    "q": "Which statement would be incorrect about Gautama in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Gautama is chiefly presented as the author of Tattvacintāmaṇi.",
+      "Vātsyāyana is associated with author of the Nyāyabhāṣya.",
+      "Uddyotakara is associated with author of the Nyāyavārttika.",
+      "Vācaspati Miśra is associated with author of Nyāyavārttikatātparyaṭīkā."
+    ],
+    "ans": 0,
+    "exp": "The accurate role of Gautama is: traditional author of the Nyāyasūtra."
+  },
+  {
+    "q": "Which statement would be incorrect about Vātsyāyana in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Gautama is associated with traditional author of the Nyāyasūtra.",
+      "Vātsyāyana is chiefly presented as the author of Tattvacintāmaṇi.",
+      "Uddyotakara is associated with author of the Nyāyavārttika.",
+      "Vācaspati Miśra is associated with author of Nyāyavārttikatātparyaṭīkā."
+    ],
+    "ans": 1,
+    "exp": "The accurate role of Vātsyāyana is: author of the Nyāyabhāṣya."
+  },
+  {
+    "q": "Which statement would be incorrect about Uddyotakara in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Gautama is associated with traditional author of the Nyāyasūtra.",
+      "Vātsyāyana is associated with author of the Nyāyabhāṣya.",
+      "Uddyotakara is chiefly presented as the author of Tattvacintāmaṇi.",
+      "Vācaspati Miśra is associated with author of Nyāyavārttikatātparyaṭīkā."
+    ],
+    "ans": 2,
+    "exp": "The accurate role of Uddyotakara is: author of the Nyāyavārttika."
+  },
+  {
+    "q": "Which statement would be incorrect about Vācaspati Miśra in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Gautama is associated with traditional author of the Nyāyasūtra.",
+      "Vātsyāyana is associated with author of the Nyāyabhāṣya.",
+      "Uddyotakara is associated with author of the Nyāyavārttika.",
+      "Vācaspati Miśra is chiefly presented as the author of Tattvacintāmaṇi."
+    ],
+    "ans": 3,
+    "exp": "The accurate role of Vācaspati Miśra is: author of Nyāyavārttikatātparyaṭīkā."
+  },
+  {
+    "q": "Which statement would be incorrect about Udayana in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Udayana is chiefly presented as the author of Tattvacintāmaṇi.",
+      "Gautama is associated with traditional author of the Nyāyasūtra.",
+      "Vātsyāyana is associated with author of the Nyāyabhāṣya.",
+      "Uddyotakara is associated with author of the Nyāyavārttika."
+    ],
+    "ans": 0,
+    "exp": "The accurate role of Udayana is: a pre-Gangeśa Naiyāyika associated with works such as Kusumāñjali."
+  },
+  {
+    "q": "Which statement would be incorrect about Gangeśa Upādhyāya in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Gautama is associated with traditional author of the Nyāyasūtra.",
+      "Gangeśa Upādhyāya is chiefly presented as the author of the Nyāyasūtra.",
+      "Vātsyāyana is associated with author of the Nyāyabhāṣya.",
+      "Uddyotakara is associated with author of the Nyāyavārttika."
+    ],
+    "ans": 1,
+    "exp": "The accurate role of Gangeśa Upādhyāya is: author of Tattvacintāmaṇi."
+  },
+  {
+    "q": "Which statement would be incorrect about Vardhamāna Upādhyāya in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Gautama is associated with traditional author of the Nyāyasūtra.",
+      "Vātsyāyana is associated with author of the Nyāyabhāṣya.",
+      "Vardhamāna Upādhyāya is chiefly presented as the author of Nyāyasūtra.",
+      "Uddyotakara is associated with author of the Nyāyavārttika."
+    ],
+    "ans": 2,
+    "exp": "The accurate role of Vardhamāna Upādhyāya is: later learned figure connected with Gangeśa’s line."
+  },
+  {
+    "q": "Which statement would be incorrect about Pakṣadhara Miśra in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Gautama is associated with traditional author of the Nyāyasūtra.",
+      "Vātsyāyana is associated with author of the Nyāyabhāṣya.",
+      "Uddyotakara is associated with author of the Nyāyavārttika.",
+      "Pakṣadhara Miśra is chiefly presented as the author of Nyāyasūtra."
+    ],
+    "ans": 3,
+    "exp": "The accurate role of Pakṣadhara Miśra is: important later Maithil scholar in the Navya-Nyāya world."
+  },
+  {
+    "q": "Which statement would be incorrect about Raghunātha Śiromaṇi in the Nyāya/Navya-Nyāya tradition?",
+    "opts": [
+      "Raghunātha Śiromaṇi is chiefly presented as the author of Nyāyasūtra.",
+      "Gautama is associated with traditional author of the Nyāyasūtra.",
+      "Vātsyāyana is associated with author of the Nyāyabhāṣya.",
+      "Uddyotakara is associated with author of the Nyāyavārttika."
+    ],
+    "ans": 0,
+    "exp": "The accurate role of Raghunātha Śiromaṇi is: major later Navya-Nyāya philosopher."
+  },
+  {
+    "q": "Which work-role pair is incorrectly matched with respect to Nyāyasūtra?",
+    "opts": [
+      "Nyāyabhāṣya — bhāṣya in the older Nyāya tradition",
+      "Nyāyasūtra — Gangeśa’s central Navya-Nyāya work",
+      "Nyāyavārttika — vārttika in the older Nyāya tradition",
+      "Nyāyavārttikatātparyaṭīkā — Vācaspati Miśra’s expository contribution in the older Nyāya line"
+    ],
+    "ans": 1,
+    "exp": "Nyāyasūtra should be understood as older foundational sūtra text of the Nyāya tradition."
+  },
+  {
+    "q": "Which work-role pair is incorrectly matched with respect to Nyāyabhāṣya?",
+    "opts": [
+      "Nyāyasūtra — older foundational sūtra text of the Nyāya tradition",
+      "Nyāyavārttika — vārttika in the older Nyāya tradition",
+      "Nyāyabhāṣya — Gangeśa’s central Navya-Nyāya work",
+      "Nyāyavārttikatātparyaṭīkā — Vācaspati Miśra’s expository contribution in the older Nyāya line"
+    ],
+    "ans": 2,
+    "exp": "Nyāyabhāṣya should be understood as bhāṣya in the older Nyāya tradition."
+  },
+  {
+    "q": "Which work-role pair is incorrectly matched with respect to Nyāyavārttika?",
+    "opts": [
+      "Nyāyasūtra — older foundational sūtra text of the Nyāya tradition",
+      "Nyāyabhāṣya — bhāṣya in the older Nyāya tradition",
+      "Nyāyavārttikatātparyaṭīkā — Vācaspati Miśra’s expository contribution in the older Nyāya line",
+      "Nyāyavārttika — Gangeśa’s central Navya-Nyāya work"
+    ],
+    "ans": 3,
+    "exp": "Nyāyavārttika should be understood as vārttika in the older Nyāya tradition."
+  },
+  {
+    "q": "Which work-role pair is incorrectly matched with respect to Nyāyavārttikatātparyaṭīkā?",
+    "opts": [
+      "Nyāyavārttikatātparyaṭīkā — Gangeśa’s central Navya-Nyāya work",
+      "Nyāyasūtra — older foundational sūtra text of the Nyāya tradition",
+      "Nyāyabhāṣya — bhāṣya in the older Nyāya tradition",
+      "Nyāyavārttika — vārttika in the older Nyāya tradition"
+    ],
+    "ans": 0,
+    "exp": "Nyāyavārttikatātparyaṭīkā should be understood as Vācaspati Miśra’s expository contribution in the older Nyāya line."
+  },
+  {
+    "q": "Which work-role pair is incorrectly matched with respect to Kusumāñjali?",
+    "opts": [
+      "Nyāyasūtra — older foundational sūtra text of the Nyāya tradition",
+      "Kusumāñjali — Gangeśa’s central Navya-Nyāya work",
+      "Nyāyabhāṣya — bhāṣya in the older Nyāya tradition",
+      "Nyāyavārttika — vārttika in the older Nyāya tradition"
+    ],
+    "ans": 1,
+    "exp": "Kusumāñjali should be understood as Udayana’s work connected with defence of Īśvara."
+  },
+  {
+    "q": "Which work-role pair is incorrectly matched with respect to Tattvacintāmaṇi?",
+    "opts": [
+      "Nyāyasūtra — older foundational sūtra text of the Nyāya tradition",
+      "Nyāyabhāṣya — bhāṣya in the older Nyāya tradition",
+      "Tattvacintāmaṇi — the older sūtra text of Gautama",
+      "Nyāyavārttika — vārttika in the older Nyāya tradition"
+    ],
+    "ans": 2,
+    "exp": "Tattvacintāmaṇi should be understood as Gangeśa’s central Navya-Nyāya work."
+  },
+  {
+    "q": "Which Tattvacintāmaṇi division is incorrectly paired?",
+    "opts": [
+      "Anumāna-khaṇḍa — inference",
+      "Upamāna-khaṇḍa — comparison",
+      "Śabda-khaṇḍa — verbal testimony",
+      "Pratyakṣa-khaṇḍa — royal genealogy"
+    ],
+    "ans": 3,
+    "exp": "Pratyakṣa-khaṇḍa is associated with perception, not with the incorrect pairing."
+  },
+  {
+    "q": "In a standard inference, what is the relation called when the hetu is invariably connected with the sādhya?",
+    "opts": [
+      "vyāpti",
+      "pakṣa",
+      "chala",
+      "jāti"
+    ],
+    "ans": 0,
+    "exp": "Vyāpti is the invariable concomitance required for inference."
+  },
+  {
+    "q": "In an inference, what is the term for the subject in which the sādhya is to be established?",
+    "opts": [
+      "sādhya",
+      "pakṣa",
+      "vyāpti",
+      "nigrahasthāna"
+    ],
+    "ans": 1,
+    "exp": "Pakṣa is the subject under consideration."
+  },
+  {
+    "q": "In an inference, what is the reason or inferential mark called?",
+    "opts": [
+      "upamāna",
+      "vāda",
+      "hetu",
+      "jāti"
+    ],
+    "ans": 2,
+    "exp": "Hetu is the reason used to prove the sādhya."
+  },
+  {
+    "q": "What does sādhya refer to in an inferential structure?",
+    "opts": [
+      "the opponent’s defeat point",
+      "a verbal quibble",
+      "a form of comparison",
+      "the property to be established"
+    ],
+    "ans": 3,
+    "exp": "Sādhya is the probandum or property to be established."
+  },
+  {
+    "q": "Which term identifies the defect created by an apparent reason that fails as proof?",
+    "opts": [
+      "hetvābhāsa",
+      "pramāṇa",
+      "prameya",
+      "siddhānta"
+    ],
+    "ans": 0,
+    "exp": "Hetvābhāsa is a fallacious reason."
+  },
+  {
+    "q": "Which concept marks a condition that restricts an otherwise overwide inference?",
+    "opts": [
+      "pratyakṣa",
+      "upādhi",
+      "śabda",
+      "prayojana"
+    ],
+    "ans": 1,
+    "exp": "Upādhi is used to qualify or restrict an inference."
+  },
+  {
+    "q": "Which item is closest to a five-member Nyāya-style inferential expression?",
+    "opts": [
+      "saṃśaya",
+      "chala",
+      "avayava",
+      "jāti"
+    ],
+    "ans": 2,
+    "exp": "Avayava is the member of an argument."
+  },
+  {
+    "q": "Which debate type aims at truth rather than mere victory?",
+    "opts": [
+      "jalpa",
+      "vitaṇḍā",
+      "chala",
+      "vāda"
+    ],
+    "ans": 3,
+    "exp": "Vāda is the truth-oriented form of debate."
+  },
+  {
+    "q": "Which debate type consists mainly in attacking without establishing one’s own thesis?",
+    "opts": [
+      "vitaṇḍā",
+      "vāda",
+      "pratyakṣa",
+      "upamāna"
+    ],
+    "ans": 0,
+    "exp": "Vitaṇḍā is destructive criticism without setting up one’s own position."
+  },
+  {
+    "q": "Which item is a quibble rather than a means of valid knowledge?",
+    "opts": [
+      "pratyakṣa",
+      "chala",
+      "anumāna",
+      "śabda"
+    ],
+    "ans": 1,
+    "exp": "Chala is a quibble; it is not one of the four pramāṇas."
+  },
+  {
+    "q": "Why is Gangeśa placed after discussion of earlier Maithil logicians?",
+    "opts": [
+      "To prove that earlier Nyāya did not exist.",
+      "To replace Tattvacintāmaṇi with folklore.",
+      "To show that his work arose from a prepared scholastic background.",
+      "To deny Mithila’s role in philosophy."
+    ],
+    "ans": 2,
+    "exp": "The pre-Gangeśa discussion supplies the intellectual background for his achievement."
+  },
+  {
+    "q": "Why is the Gangeśa–Gangeśvara issue treated carefully?",
+    "opts": [
+      "Because it is a question of modern spelling only.",
+      "Because it is a debate about poetry metres.",
+      "Because it removes the need to discuss Nyāya.",
+      "Because names and traditions around Gangeśa require critical distinction."
+    ],
+    "ans": 3,
+    "exp": "The source treats names and traditions as part of careful biographical reconstruction."
+  },
+  {
+    "q": "What is the point of discussing Gangeśa’s birthplace traditions?",
+    "opts": [
+      "To assess inherited claims about his life with evidence and reasoning.",
+      "To turn Nyāya into geographical trivia only.",
+      "To deny his philosophical importance.",
+      "To replace all texts with maps."
+    ],
+    "ans": 0,
+    "exp": "Birthplace traditions are part of a larger critical life-account."
+  },
+  {
+    "q": "Why is Gangeśa’s period philosophically significant?",
+    "opts": [
+      "It proves that all Nyāya began in modern times.",
+      "It helps locate the rise of Navya-Nyāya in historical sequence.",
+      "It is unrelated to textual tradition.",
+      "It avoids all discussion of Tattvacintāmaṇi."
+    ],
+    "ans": 1,
+    "exp": "The period discussion places Gangeśa in the history of Nyāya."
+  },
+  {
+    "q": "What is the strongest reason for linking Gangeśa with Navya-Nyāya?",
+    "opts": [
+      "He rejected all logical analysis.",
+      "He wrote only ritual songs.",
+      "His Tattvacintāmaṇi reshaped the analytical language of Nyāya.",
+      "He treated pramāṇa as unnecessary."
+    ],
+    "ans": 2,
+    "exp": "Tattvacintāmaṇi is central to the emergence of Navya-Nyāya style."
+  },
+  {
+    "q": "What does the treatment of Vardhamāna Upādhyāya show?",
+    "opts": [
+      "That Gangeśa had no family or scholastic succession.",
+      "That Navya-Nyāya ended before Gangeśa.",
+      "That Tattvacintāmaṇi was never studied.",
+      "That Gangeśa’s intellectual line continued through later learned figures."
+    ],
+    "ans": 3,
+    "exp": "Vardhamāna is treated in connection with Gangeśa’s family and tradition."
+  },
+  {
+    "q": "What is the main role of the Tattvacintāmaṇi commentary tradition?",
+    "opts": [
+      "To explain, refine, and contest Gangeśa’s arguments.",
+      "To prove that the work had no readers.",
+      "To convert Nyāya into folk drama.",
+      "To remove all technical vocabulary."
+    ],
+    "ans": 0,
+    "exp": "The commentary tradition is central to the later life of Gangeśa’s work."
+  },
+  {
+    "q": "Why are cited works and authors important in Tattvacintāmaṇi?",
+    "opts": [
+      "They are unrelated decorations.",
+      "They reveal the prior śāstric debate with which Gangeśa engaged.",
+      "They replace philosophical argument with genealogy.",
+      "They show that Gangeśa avoided earlier learning."
+    ],
+    "ans": 1,
+    "exp": "Citation shows dialogue with inherited philosophical material."
+  },
+  {
+    "q": "What is the meaning of calling Tattvacintāmaṇi a Navya-Nyāya work?",
+    "opts": [
+      "It is a devotional manual unrelated to logic.",
+      "It is a drama about Mithila.",
+      "It belongs to a newer, highly technical mode of Nyāya analysis.",
+      "It is an anti-philosophical pamphlet."
+    ],
+    "ans": 2,
+    "exp": "Navya-Nyāya is marked by technical precision and analytical refinement."
+  },
+  {
+    "q": "What is the safest content-based description of Gangeśa in the monograph?",
+    "opts": [
+      "A king whose main work was a legal code.",
+      "A playwright whose only concern was theatre.",
+      "A poet unrelated to Nyāya and pramāṇa.",
+      "A Maithil philosopher whose Tattvacintāmaṇi became foundational for Navya-Nyāya."
+    ],
+    "ans": 3,
+    "exp": "The discussion centres on Gangeśa as a philosopher of Nyāya and Navya-Nyāya."
+  },
+  {
+    "q": "A student says that pakṣa means 'subject under consideration' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Correct",
+      "Incorrect; it means verbal testimony only",
+      "Incorrect; it means a royal title",
+      "Incorrect; it means a birthplace tradition"
+    ],
+    "ans": 0,
+    "exp": "pakṣa is correctly explained as subject under consideration."
+  },
+  {
+    "q": "A student says that sādhya means 'property to be established' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Incorrect; it means verbal testimony only",
+      "Correct",
+      "Incorrect; it means a royal title",
+      "Incorrect; it means a birthplace tradition"
+    ],
+    "ans": 1,
+    "exp": "sādhya is correctly explained as property to be established."
+  },
+  {
+    "q": "A student says that hetu means 'reason or inferential mark' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Incorrect; it means verbal testimony only",
+      "Incorrect; it means a royal title",
+      "Correct",
+      "Incorrect; it means a birthplace tradition"
+    ],
+    "ans": 2,
+    "exp": "hetu is correctly explained as reason or inferential mark."
+  },
+  {
+    "q": "A student says that vyāpti means 'invariable concomitance' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Incorrect; it means verbal testimony only",
+      "Incorrect; it means a royal title",
+      "Incorrect; it means a birthplace tradition",
+      "Correct"
+    ],
+    "ans": 3,
+    "exp": "vyāpti is correctly explained as invariable concomitance."
+  },
+  {
+    "q": "A student says that dṛṣṭānta means 'example' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Correct",
+      "Incorrect; it means verbal testimony only",
+      "Incorrect; it means a royal title",
+      "Incorrect; it means a birthplace tradition"
+    ],
+    "ans": 0,
+    "exp": "dṛṣṭānta is correctly explained as example."
+  },
+  {
+    "q": "A student says that upādhi means 'limiting condition' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Incorrect; it means verbal testimony only",
+      "Correct",
+      "Incorrect; it means a royal title",
+      "Incorrect; it means a birthplace tradition"
+    ],
+    "ans": 1,
+    "exp": "upādhi is correctly explained as limiting condition."
+  },
+  {
+    "q": "A student says that pakṣadharmatā means 'presence of the reason in the subject' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Incorrect; it means verbal testimony only",
+      "Incorrect; it means a royal title",
+      "Correct",
+      "Incorrect; it means a birthplace tradition"
+    ],
+    "ans": 2,
+    "exp": "pakṣadharmatā is correctly explained as presence of the reason in the subject."
+  },
+  {
+    "q": "A student says that parāmarśa means 'reflective inferential cognition' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Incorrect; it means verbal testimony only",
+      "Incorrect; it means a royal title",
+      "Incorrect; it means a birthplace tradition",
+      "Correct"
+    ],
+    "ans": 3,
+    "exp": "parāmarśa is correctly explained as reflective inferential cognition."
+  },
+  {
+    "q": "A student says that vyabhicāra means 'irregularity or deviation' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Correct",
+      "Incorrect; it means verbal testimony only",
+      "Incorrect; it means a royal title",
+      "Incorrect; it means a birthplace tradition"
+    ],
+    "ans": 0,
+    "exp": "vyabhicāra is correctly explained as irregularity or deviation."
+  },
+  {
+    "q": "A student says that hetvābhāsa means 'fallacious reason' in an inference-focused discussion. How should this be evaluated?",
+    "opts": [
+      "Incorrect; it means verbal testimony only",
+      "Correct",
+      "Incorrect; it means a royal title",
+      "Incorrect; it means a birthplace tradition"
+    ],
+    "ans": 1,
+    "exp": "hetvābhāsa is correctly explained as fallacious reason."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of Nyāya philosophy?",
+    "opts": [
+      "pramāṇa, reasoning, debate, and the search for valid knowledge",
+      "Nyāya and Navya-Nyāya learning",
+      "court poetry and royal entertainment",
+      "Mithila’s scholastic culture"
+    ],
+    "ans": 2,
+    "exp": "The unrelated option is court poetry and royal entertainment; the relevant concern is pramāṇa, reasoning, debate, and the search for valid knowledge."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of Nyāyaśāstra synonyms?",
+    "opts": [
+      "anvīkṣikī, tarkaśāstra, hetuśāstra, and pramāṇaśāstra",
+      "Nyāya and Navya-Nyāya learning",
+      "Mithila’s scholastic culture",
+      "agricultural revenue lists"
+    ],
+    "ans": 3,
+    "exp": "The unrelated option is agricultural revenue lists; the relevant concern is anvīkṣikī, tarkaśāstra, hetuśāstra, and pramāṇaśāstra."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of Mithila’s philosophical development?",
+    "opts": [
+      "modern municipal elections",
+      "the growth of Nyāya, Mīmāṃsā, Vedānta, and Sanskrit learning in Mithila",
+      "Nyāya and Navya-Nyāya learning",
+      "Mithila’s scholastic culture"
+    ],
+    "ans": 0,
+    "exp": "The unrelated option is modern municipal elections; the relevant concern is the growth of Nyāya, Mīmāṃsā, Vedānta, and Sanskrit learning in Mithila."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of Prāg-Gangeśa Naiyāyikas?",
+    "opts": [
+      "earlier Maithil thinkers before Gangeśa",
+      "nineteenth-century printing policy",
+      "Nyāya and Navya-Nyāya learning",
+      "Mithila’s scholastic culture"
+    ],
+    "ans": 1,
+    "exp": "The unrelated option is nineteenth-century printing policy; the relevant concern is earlier Maithil thinkers before Gangeśa."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of Gangeśa’s historical setting?",
+    "opts": [
+      "the background that made Navya-Nyāya possible",
+      "Nyāya and Navya-Nyāya learning",
+      "film production techniques",
+      "Mithila’s scholastic culture"
+    ],
+    "ans": 2,
+    "exp": "The unrelated option is film production techniques; the relevant concern is the background that made Navya-Nyāya possible."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of birthplace and lineage traditions?",
+    "opts": [
+      "critical treatment of biographical claims about Gangeśa",
+      "Nyāya and Navya-Nyāya learning",
+      "Mithila’s scholastic culture",
+      "classification of musical rāgas only"
+    ],
+    "ans": 3,
+    "exp": "The unrelated option is classification of musical rāgas only; the relevant concern is critical treatment of biographical claims about Gangeśa."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of Mahāmahopādhyāya title?",
+    "opts": [
+      "tax collection hierarchy",
+      "scholarly honor and learned authority",
+      "Nyāya and Navya-Nyāya learning",
+      "Mithila’s scholastic culture"
+    ],
+    "ans": 0,
+    "exp": "The unrelated option is tax collection hierarchy; the relevant concern is scholarly honor and learned authority."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of Vardhamāna Upādhyāya?",
+    "opts": [
+      "family-linked succession in Gangeśa’s scholarly line",
+      "foreign travel narrative",
+      "Nyāya and Navya-Nyāya learning",
+      "Mithila’s scholastic culture"
+    ],
+    "ans": 1,
+    "exp": "The unrelated option is foreign travel narrative; the relevant concern is family-linked succession in Gangeśa’s scholarly line."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of Tattvacintāmaṇi?",
+    "opts": [
+      "Gangeśa’s technical pramāṇa-centred work",
+      "Nyāya and Navya-Nyāya learning",
+      "a folk song anthology",
+      "Mithila’s scholastic culture"
+    ],
+    "ans": 2,
+    "exp": "The unrelated option is a folk song anthology; the relevant concern is Gangeśa’s technical pramāṇa-centred work."
+  },
+  {
+    "q": "Which option is LEAST related to the Gangeśa-centred discussion of commentary tradition?",
+    "opts": [
+      "later explanation and debate around Tattvacintāmaṇi",
+      "Nyāya and Navya-Nyāya learning",
+      "Mithila’s scholastic culture",
+      "food customs only"
+    ],
+    "ans": 3,
+    "exp": "The unrelated option is food customs only; the relevant concern is later explanation and debate around Tattvacintāmaṇi."
+  },
+  {
+    "q": "Consider the following statements on Gangeśa and Tattvacintāmaṇi: 1. Gangeśa is linked with Tattvacintāmaṇi. 2. Tattvacintāmaṇi is central to Navya-Nyāya. 3. Tattvacintāmaṇi is a work of modern electoral law. Which of the statements are correct?",
+    "opts": [
+      "1 and 2 only",
+      "1 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Consider the following statements on Mithila and Navya-Nyāya: 1. Mithila is important in the rise of Navya-Nyāya. 2. Gangeśa is placed inside Mithila’s learned culture. 3. Mithila is presented as unrelated to Nyāya. Which of the statements are correct?",
+    "opts": [
+      "1 only",
+      "1 and 2 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 1,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Consider the following statements on Pramāṇa theory: 1. Nyāya studies valid means of knowledge. 2. Pratyakṣa and anumāna are pramāṇas. 3. Pramāṇa means a royal lineage title. Which of the statements are correct?",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "1 and 2 only",
+      "1, 2 and 3"
+    ],
+    "ans": 2,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Consider the following statements on Nyāya debate: 1. Vāda is a form of debate. 2. Hetvābhāsa is a fallacious reason. 3. Jalpa is the same as direct perception. Which of the statements are correct?",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "1, 2 and 3",
+      "1 and 2 only"
+    ],
+    "ans": 3,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Consider the following statements on Inference structure: 1. Hetu is the reason. 2. Sādhya is the property to be established. 3. Vyāpti means a verbal quibble. Which of the statements are correct?",
+    "opts": [
+      "1 and 2 only",
+      "1 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Consider the following statements on Tattvacintāmaṇi divisions: 1. Pratyakṣa-khaṇḍa concerns perception. 2. Anumāna-khaṇḍa concerns inference. 3. Śabda-khaṇḍa concerns royal genealogy. Which of the statements are correct?",
+    "opts": [
+      "1 only",
+      "1 and 2 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 1,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Consider the following statements on Older Nyāya line: 1. Gautama is linked with Nyāyasūtra. 2. Vātsyāyana is linked with Nyāyabhāṣya. 3. Gangeśa is the author of Nyāyasūtra. Which of the statements are correct?",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "1 and 2 only",
+      "1, 2 and 3"
+    ],
+    "ans": 2,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Consider the following statements on Commentarial continuity: 1. Vācaspati Miśra belongs to the older commentary line. 2. Later scholars explain and debate Tattvacintāmaṇi. 3. A commentary tradition means there was no influence. Which of the statements are correct?",
+    "opts": [
+      "1 only",
+      "2 and 3 only",
+      "1, 2 and 3",
+      "1 and 2 only"
+    ],
+    "ans": 3,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Consider the following statements on Gangeśa biography: 1. Birthplace traditions are examined. 2. Lineage and gotra are discussed. 3. Biographical inquiry replaces the need for philosophy. Which of the statements are correct?",
+    "opts": [
+      "1 and 2 only",
+      "1 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 0,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Consider the following statements on Scholastic honor: 1. Mahāmahopādhyāya is a learned honorific. 2. Honorifics reflect scholarly culture. 3. Mahāmahopādhyāya is treated as a military rank. Which of the statements are correct?",
+    "opts": [
+      "1 only",
+      "1 and 2 only",
+      "2 and 3 only",
+      "1, 2 and 3"
+    ],
+    "ans": 1,
+    "exp": "The first two statements fit the Gangeśa/Nyāya discussion; the third is the deliberate mismatch."
+  },
+  {
+    "q": "Assertion (A): Gangeśa’s fame is inseparable from Tattvacintāmaṇi. Reason (R): Tattvacintāmaṇi became the chief text around which later Navya-Nyāya interpretation developed.",
+    "opts": [
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "Both A and R are true, and R correctly explains A.",
+      "A is false, but R is true."
+    ],
+    "ans": 2,
+    "exp": "The reason states why the assertion is valid within the Gangeśa/Navya-Nyāya discussion."
+  },
+  {
+    "q": "Assertion (A): Mithila is not a marginal background in the Gangeśa discussion. Reason (R): the source treats Mithila as a major centre of Sanskrit and Nyāya learning.",
+    "opts": [
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "A is false, but R is true.",
+      "Both A and R are true, and R correctly explains A."
+    ],
+    "ans": 3,
+    "exp": "The reason states why the assertion is valid within the Gangeśa/Navya-Nyāya discussion."
+  },
+  {
+    "q": "Assertion (A): Pramāṇa analysis is central to Nyāya. Reason (R): Nyāya asks how valid cognition is produced and tested.",
+    "opts": [
+      "Both A and R are true, and R correctly explains A.",
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "A is false, but R is true."
+    ],
+    "ans": 0,
+    "exp": "The reason states why the assertion is valid within the Gangeśa/Navya-Nyāya discussion."
+  },
+  {
+    "q": "Assertion (A): The four-pramāṇa structure is important for Tattvacintāmaṇi. Reason (R): the major divisions are associated with perception, inference, comparison, and testimony.",
+    "opts": [
+      "Both A and R are true, but R does not explain A.",
+      "Both A and R are true, and R correctly explains A.",
+      "A is true, but R is false.",
+      "A is false, but R is true."
+    ],
+    "ans": 1,
+    "exp": "The reason states why the assertion is valid within the Gangeśa/Navya-Nyāya discussion."
+  },
+  {
+    "q": "Assertion (A): A hetvābhāsa cannot establish a sādhya. Reason (R): it is only an apparent or defective reason.",
+    "opts": [
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "Both A and R are true, and R correctly explains A.",
+      "A is false, but R is true."
+    ],
+    "ans": 2,
+    "exp": "The reason states why the assertion is valid within the Gangeśa/Navya-Nyāya discussion."
+  },
+  {
+    "q": "Assertion (A): Vāda differs from jalpa and vitaṇḍā. Reason (R): Nyāya classifies debate according to purpose and method.",
+    "opts": [
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "A is false, but R is true.",
+      "Both A and R are true, and R correctly explains A."
+    ],
+    "ans": 3,
+    "exp": "The reason states why the assertion is valid within the Gangeśa/Navya-Nyāya discussion."
+  },
+  {
+    "q": "Assertion (A): Vyāpti is indispensable for inference. Reason (R): without invariable concomitance the hetu cannot prove the sādhya.",
+    "opts": [
+      "Both A and R are true, and R correctly explains A.",
+      "Both A and R are true, but R does not explain A.",
+      "A is true, but R is false.",
+      "A is false, but R is true."
+    ],
+    "ans": 0,
+    "exp": "The reason states why the assertion is valid within the Gangeśa/Navya-Nyāya discussion."
+  },
+  {
+    "q": "Assertion (A): The commentary tradition is philosophically important. Reason (R): it preserves and expands the technical discussion of Gangeśa’s work.",
+    "opts": [
+      "Both A and R are true, but R does not explain A.",
+      "Both A and R are true, and R correctly explains A.",
+      "A is true, but R is false.",
+      "A is false, but R is true."
+    ],
+    "ans": 1,
+    "exp": "The reason states why the assertion is valid within the Gangeśa/Navya-Nyāya discussion."
+  },
+  {
+    "q": "To analyse an inference in a Nyāya manner, what should be checked first among the following?",
+    "opts": [
+      "whether the statement contains a royal title",
+      "whether the topic is a song",
+      "whether the hetu is connected with the sādhya through vyāpti",
+      "whether the page number is memorable"
+    ],
+    "ans": 2,
+    "exp": "Inference requires a valid relation between reason and probandum."
+  },
+  {
+    "q": "When a reason appears persuasive but fails logically, which Nyāya concept is most relevant?",
+    "opts": [
+      "pratyakṣa",
+      "upamāna",
+      "Mahāmahopādhyāya",
+      "hetvābhāsa"
+    ],
+    "ans": 3,
+    "exp": "Hetvābhāsa is a fallacious reason."
+  },
+  {
+    "q": "When knowledge arises from a trustworthy verbal source, which pramāṇa is involved?",
+    "opts": [
+      "śabda",
+      "saṃśaya",
+      "jalpa",
+      "jāti"
+    ],
+    "ans": 0,
+    "exp": "Śabda is verbal testimony."
+  },
+  {
+    "q": "When knowledge arises from comparison, which pramāṇa is involved?",
+    "opts": [
+      "vitaṇḍā",
+      "upamāna",
+      "nigrahasthāna",
+      "chala"
+    ],
+    "ans": 1,
+    "exp": "Upamāna is comparison."
+  },
+  {
+    "q": "When a cognition is based on direct perception, which pramāṇa is involved?",
+    "opts": [
+      "prayojana",
+      "siddhānta",
+      "pratyakṣa",
+      "avayava"
+    ],
+    "ans": 2,
+    "exp": "Pratyakṣa is perception."
+  },
+  {
+    "q": "When a conclusion is reached from a sign or mark, which pramāṇa is involved?",
+    "opts": [
+      "dṛṣṭānta",
+      "saṃśaya",
+      "chala",
+      "anumāna"
+    ],
+    "ans": 3,
+    "exp": "Anumāna is inference."
+  },
+  {
+    "q": "When a debate is pursued for truth, which Nyāya term is most fitting?",
+    "opts": [
+      "vāda",
+      "jalpa",
+      "vitaṇḍā",
+      "chala"
+    ],
+    "ans": 0,
+    "exp": "Vāda is truth-oriented debate."
+  },
+  {
+    "q": "When the aim is merely victory through wrangling, which Nyāya term is most fitting?",
+    "opts": [
+      "vāda",
+      "jalpa",
+      "pratyakṣa",
+      "upamāna"
+    ],
+    "ans": 1,
+    "exp": "Jalpa is victory-oriented wrangling."
+  },
+  {
+    "q": "When an opponent only attacks without establishing a counter-thesis, which term is most fitting?",
+    "opts": [
+      "śabda",
+      "prameya",
+      "vitaṇḍā",
+      "dṛṣṭānta"
+    ],
+    "ans": 2,
+    "exp": "Vitaṇḍā is destructive criticism."
+  },
+  {
+    "q": "When a debate reaches a recognised point of defeat, which term is most fitting?",
+    "opts": [
+      "vyāpti",
+      "pratyakṣa",
+      "upamāna",
+      "nigrahasthāna"
+    ],
+    "ans": 3,
+    "exp": "Nigrahasthāna is a point of defeat."
+  }
+];
+let current=0; const answers=Array(QDB.length).fill(null);
+const qno=document.getElementById('qno'), progressText=document.getElementById('progressText'), bar=document.getElementById('bar'), question=document.getElementById('question'), opts=document.getElementById('opts'), feedback=document.getElementById('feedback'), qmap=document.getElementById('qmap');
+document.getElementById('totalTop').textContent=QDB.length;
+function renderMap(){qmap.innerHTML=''; QDB.forEach((_,i)=>{const b=document.createElement('button'); b.textContent=i+1; if(i===current)b.classList.add('active'); if(answers[i]!==null) b.classList.add(answers[i]===QDB[i].ans?'done':'missed'); b.onclick=()=>{current=i;render();}; qmap.appendChild(b);});}
+function updateScore(){const attempted=answers.filter(x=>x!==null).length; const correct=answers.filter((x,i)=>x===QDB[i].ans).length; document.getElementById('attemptedCount').textContent=attempted; document.getElementById('correctCount').textContent=correct; document.getElementById('scorePct').textContent=attempted?Math.round(correct*100/attempted)+'%':'0%';}
+function render(){const item=QDB[current]; qno.textContent='Question '+(current+1)+' of '+QDB.length; progressText.textContent=Math.round((current+1)*100/QDB.length)+'% complete'; bar.style.width=((current+1)*100/QDB.length)+'%'; question.textContent=item.q; opts.innerHTML=''; feedback.className='feedback'; feedback.innerHTML=''; item.opts.forEach((o,i)=>{const b=document.createElement('button'); b.className='opt'; b.textContent=String.fromCharCode(65+i)+'. '+o; b.onclick=()=>choose(i); if(answers[current]!==null){if(i===item.ans)b.classList.add('correct'); if(i===answers[current]&&i!==item.ans)b.classList.add('wrong'); b.disabled=true;} opts.appendChild(b);}); if(answers[current]!==null) showFeedback(); renderMap(); updateScore(); showResultIfDone();}
+function choose(i){ if(answers[current]!==null)return; answers[current]=i; render(); }
+function showFeedback(){const item=QDB[current], chosen=answers[current], good=chosen===item.ans; feedback.className='feedback '+(good?'good':'bad'); feedback.innerHTML=(good?'Correct.':'Incorrect.')+'<div class="exp">'+item.exp+'</div>';}
+function nextQ(){ if(current<QDB.length-1){current++;render();} }
+function prevQ(){ if(current>0){current--;render();} }
+function firstQ(){ current=0; render(); }
+function restartQuiz(){ if(!confirm('Restart the quiz?')) return; for(let i=0;i<answers.length;i++)answers[i]=null; current=0; document.getElementById('result').className='result'; render(); }
+function showResultIfDone(){const attempted=answers.filter(x=>x!==null).length, correct=answers.filter((x,i)=>x===QDB[i].ans).length, r=document.getElementById('result'); if(attempted===QDB.length){r.className='result show'; r.innerHTML='<h2>Final Result</h2><p>You scored <strong>'+correct+'</strong> out of <strong>'+QDB.length+'</strong> ('+Math.round(correct*100/QDB.length)+'%).</p>';} else {r.className='result'; r.innerHTML='';}}
+render();
+  </script>
+</body>
+</html>
