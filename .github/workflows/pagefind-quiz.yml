@@ -5,15 +5,17 @@ on:
     branches: [main]
     paths-ignore:
       - 'pagefind-quiz/**'
+      - 'pagefind-videha-search/**'
       - 'data/**'
   workflow_dispatch:
 
 permissions:
   contents: write
 
+# Quiz and general root indexes both write to main, so keep them in one queue.
 concurrency:
-  group: videha-root-quiz-pagefind-main
-  cancel-in-progress: true
+  group: videha-root-generated-search-main
+  cancel-in-progress: false
 
 jobs:
   build-search:
@@ -32,27 +34,44 @@ jobs:
             /.github/
             /tools/
             /pagefind-quiz/
+
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
       - name: Prepare bilingual root quiz corpus
         run: python3 tools/videha-root-quiz-pagefind-prepare.py . _pagefind_quiz_build
+
       - name: Build Pagefind quiz index
         run: npx -y pagefind@1.5.2 --site _pagefind_quiz_build --output-subdir pagefind-quiz --glob '**/*.{html,htm}'
+
       - name: Install search bundle
         run: |
           rm -rf pagefind-quiz
           cp -R _pagefind_quiz_build/pagefind-quiz ./pagefind-quiz
           rm -rf _pagefind_quiz_build
-      - name: Commit refreshed root quiz index
+
+      - name: Commit refreshed root quiz index safely
+        shell: bash
         run: |
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add pagefind-quiz
           if git diff --cached --quiet; then
             echo "Root quiz search index unchanged."
-          else
-            git commit -m "Build root Videha Quiz search index"
-            git push
+            exit 0
           fi
+          git commit -m "Build root Videha Quiz search index"
+          for attempt in 1 2 3; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            echo "Push raced with another writer; retrying ($attempt/3)..."
+            sleep $((attempt * 2))
+          done
+          echo "Unable to push generated root quiz index after 3 attempts."
+          exit 1
