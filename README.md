@@ -13,3 +13,5 @@ Research-access and publication-support repository for **Videha — First Maithi
 - DOI/Zenodo/ISBN and eight-repository linkage index: [`SCHOLARLY_METADATA.md`](./SCHOLARLY_METADATA.md)
 
 Repository-original and curatorial metadata/dataset content is released under **CC BY 4.0**; item-level rights notices prevail where applicable.
+# GitHub Pages deployment marker
+
